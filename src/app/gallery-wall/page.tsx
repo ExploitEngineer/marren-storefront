@@ -1,0 +1,120 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Layers, Ruler, Frame as FrameIcon, Package } from "lucide-react";
+import { SiteShell } from "@/components/layout/site-shell";
+import { Section } from "@/components/layout/section";
+import { Container } from "@/components/layout/container";
+import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/motion/reveal";
+import { GalleryWallArrangement } from "@/components/shop/gallery-wall-arrangement";
+import { GallerySets } from "@/components/sections/gallery-sets";
+import { FaqSection } from "@/components/sections/faq";
+import { ClosingCta } from "@/components/sections/closing-cta";
+import { gallerySets } from "@/content/gallery-sets";
+import { testimonials } from "@/content/testimonials";
+import { landingFaqs } from "@/content/faqs";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "The Gallery Wall Set",
+  description: "A curated set of frames that already work together, with a hanging template so your gallery wall goes up straight the first time.",
+  path: "/gallery-wall",
+});
+
+const valueProps = [
+  { icon: Layers, title: "Curated combinations", body: "Sizes and finishes chosen to balance on a wall, so nothing fights for attention." },
+  { icon: Ruler, title: "Template included", body: "Tape it up, mark the spots, hang. Straight on the first try, no math." },
+  { icon: FrameIcon, title: "One material family", body: "Every frame in a set shares a wood, so the wall reads as one considered piece." },
+  { icon: Package, title: "Ships ready", body: "Hardware in the box and frames finished, protected, and ready the day they land." },
+];
+
+export default function GalleryWallPage() {
+  const hero = gallerySets[0];
+  const quotes = testimonials.filter((t) => t.id === "daniel" || t.id === "marcus");
+
+  return (
+    <SiteShell headerVariant="minimal" showAnnouncement={false}>
+      {/* Hero */}
+      <Section tone="cream" className="relative overflow-hidden">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{ background: "radial-gradient(90% 60% at 50% -10%, rgba(176,87,47,0.08), transparent 60%)" }}
+        />
+        <Container className="relative">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="rise text-eyebrow text-clay-600">The Gallery Wall Set</p>
+            <h1 className="rise mt-4 font-serif text-[clamp(2.5rem,1.8rem+3.4vw,4rem)] leading-[1.03] font-medium tracking-[-0.02em] text-oat-900" style={{ ["--rise-delay" as string]: "70ms" }}>
+              One box. A whole wall.
+            </h1>
+            <p className="rise mx-auto mt-6 max-w-xl text-lg leading-relaxed text-oat-700" style={{ ["--rise-delay" as string]: "150ms" }}>
+              A curated set of frames that already work together, with a hanging template so it goes up straight the
+              first time.
+            </p>
+            <div className="rise mt-8 flex justify-center" style={{ ["--rise-delay" as string]: "230ms" }}>
+              <Button asChild size="lg">
+                <Link href="#sets">Shop Gallery Wall Sets</Link>
+              </Button>
+            </div>
+          </div>
+
+          <Reveal className="mt-14 sm:mt-16" y={28}>
+            <div className="mx-auto max-w-4xl rounded-2xl bg-oat-100/60 p-5 sm:p-10">
+              <GalleryWallArrangement material={hero.material} pieces={hero.pieces} weight="md" />
+            </div>
+          </Reveal>
+        </Container>
+      </Section>
+
+      {/* Value proposition */}
+      <Section tone="surface">
+        <Container>
+          <h2 className="max-w-2xl font-serif text-[clamp(1.75rem,1.4rem+1.6vw,2.5rem)] leading-tight font-medium tracking-[-0.01em] text-oat-900">
+            Everything a good gallery wall needs, and nothing it does not.
+          </h2>
+          <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2">
+            {valueProps.map((v, i) => (
+              <Reveal key={v.title} delay={i * 70} y={18}>
+                <div className="flex gap-4">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-full bg-clay-50 text-clay-600">
+                    <v.icon className="size-5" aria-hidden />
+                  </span>
+                  <div>
+                    <h3 className="text-lg font-medium text-oat-900">{v.title}</h3>
+                    <p className="mt-1.5 text-oat-600">{v.body}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </Section>
+
+      {/* Sets (primary offer) */}
+      <GallerySets tone="cream" heading="See it on a wall." lead="Three ways in, sized for real rooms. Each ships with a hanging template." />
+
+      {/* Focused social proof */}
+      <Section tone="oat" size="sm">
+        <Container className="grid gap-10 md:grid-cols-2">
+          {quotes.map((t) => (
+            <figure key={t.id}>
+              <blockquote className="font-serif text-xl leading-snug text-oat-900">{`“${t.quote}”`}</blockquote>
+              <figcaption className="mt-4 text-sm text-oat-600">
+                <span className="font-medium text-oat-900">{t.name}</span> · {t.location} · {t.context}
+              </figcaption>
+            </figure>
+          ))}
+        </Container>
+      </Section>
+
+      <FaqSection faqs={landingFaqs} heading="Before you hang." tone="surface" />
+
+      <ClosingCta
+        heading="Build your wall this weekend."
+        sub="One box, a template, and an afternoon. That is the whole project."
+        ctaLabel="Shop Gallery Wall Sets"
+        ctaHref="#sets"
+      />
+    </SiteShell>
+  );
+}

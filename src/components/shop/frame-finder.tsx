@@ -1,0 +1,137 @@
+"use client";
+
+import { useState } from "react";
+import Link from "next/link";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { ArrowLeft, ArrowRight, RotateCcw } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { materialMeta, type Material } from "@/content/collections";
+import { cn } from "@/lib/utils";
+
+type Option = { label: string; hint?: string; value: string };
+
+const steps: { key: "size" | "room" | "look"; question: string; options: Option[] }[] = [
+  {
+    key: "size",
+    question: "What are you framing?",
+    options: [
+      { label: "A small photo", hint: "4×6 to 5×7", value: "5x7" },
+      { label: "A print", hint: "8×10 to 11×14", value: "11x14" },
+      { label: "A statement piece", hint: "16×20 and up", value: "16x20" },
+      { label: "Not sure yet", value: "" },
+    ],
+  },
+  {
+    key: "room",
+    question: "Where will it hang?",
+    options: [
+      { label: "Living room", value: "living" },
+      { label: "Bedroom", value: "bedroom" },
+      { label: "Hallway or stairs", value: "hall" },
+      { label: "Workspace", value: "office" },
+    ],
+  },
+  {
+    key: "look",
+    question: "Which look feels right?",
+    options: [
+      { label: "Warm and light", hint: "Oak", value: "oak" },
+      { label: "Rich and classic", hint: "Walnut", value: "walnut" },
+      { label: "Bold and modern", hint: "Black ash", value: "black-ash" },
+      { label: "Bright and metallic", hint: "Brass", value: "brass" },
+    ],
+  },
+];
+
+export function FrameFinder() {
+  const [step, setStep] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const reduce = useReducedMotion();
+
+  const done = step >= steps.length;
+  const material = (answers.look || "oak") as Material;
+  const size = answers.size;
+  const href = `/shop?material=${material}${size ? `&size=${size}` : ""}`;
+
+  function choose(value: string) {
+    const key = steps[step].key;
+    setAnswers((a) => ({ ...a, [key]: value }));
+    setStep((s) => s + 1);
+  }
+
+  function reset() {
+    setAnswers({});
+    setStep(0);
+  }
+
+  const anim = reduce
+    ? {}
+    : { initial: { opacity: 0, y: 10 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: -10 }, transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] as const } };
+
+  return (
+    <div className="flex h-full flex-col rounded-2xl border border-oat-200 bg-surface p-6 shadow-sm sm:p-8">
+      <div className="flex items-center justify-between">
+        <span className="text-eyebrow text-clay-600">Frame Finder</span>
+        <div className="flex gap-1.5" aria-hidden>
+          {steps.map((_, i) => (
+            <span key={i} className={cn("h-1.5 rounded-full transition-all", i <= Math.min(step, steps.length - 1) && !done ? "w-5 bg-clay-500" : i < step ? "w-5 bg-clay-500" : "w-1.5 bg-oat-300")} />
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-6 flex-1">
+        <AnimatePresence mode="wait" initial={false}>
+          {!done ? (
+            <motion.div key={step} {...anim}>
+              <h3 className="font-serif text-2xl font-medium text-oat-900">{steps[step].question}</h3>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                {steps[step].options.map((opt) => (
+                  <button
+                    key={opt.value + opt.label}
+                    type="button"
+                    onClick={() => choose(opt.value)}
+                    className="group flex items-center justify-between gap-3 rounded-xl border border-oat-200 bg-background px-4 py-3.5 text-left transition-colors hover:border-clay-300 hover:bg-clay-50"
+                  >
+                    <span>
+                      <span className="block font-medium text-oat-900">{opt.label}</span>
+                      {opt.hint && <span className="block text-sm text-oat-500">{opt.hint}</span>}
+                    </span>
+                    <ArrowRight className="size-4 shrink-0 text-oat-400 transition-all group-hover:translate-x-0.5 group-hover:text-clay-600" />
+                  </button>
+                ))}
+              </div>
+            </motion.div>
+          ) : (
+            <motion.div key="result" {...anim} className="flex h-full flex-col justify-center">
+              <p className="text-eyebrow text-clay-600">Your match</p>
+              <h3 className="mt-2 font-serif text-3xl font-medium text-oat-900">Start with {materialMeta[material].label}.</h3>
+              <p className="mt-3 text-oat-700">
+                {materialMeta[material].label} suits what you described. We have pulled the frames that fit{size ? " in your size" : ""}.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Button asChild size="lg">
+                  <Link href={href}>See {materialMeta[material].label} frames</Link>
+                </Button>
+                <Button type="button" variant="ghost" onClick={reset}>
+                  <RotateCcw className="size-4" />
+                  Start over
+                </Button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+
+      {step > 0 && !done && (
+        <button
+          type="button"
+          onClick={() => setStep((s) => Math.max(0, s - 1))}
+          className="mt-6 inline-flex items-center gap-1.5 self-start text-sm text-oat-500 transition-colors hover:text-oat-800"
+        >
+          <ArrowLeft className="size-4" />
+          Back
+        </button>
+      )}
+    </div>
+  );
+}

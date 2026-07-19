@@ -4,127 +4,237 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ------------------------------------------------------------------ *
+ * Marren design tokens
+ * Source of truth: docs/DESIGN-SYSTEM.md
+ * ------------------------------------------------------------------ */
+@theme {
+  /* Neutrals - Oat (warm sand to espresso) */
+  --color-cream: #faf7f1;
+  --color-oat-50: #faf7f1;
+  --color-oat-100: #f2ece1;
+  --color-oat-200: #e6dccb;
+  --color-oat-300: #d4c4ab;
+  --color-oat-400: #b8a384;
+  --color-oat-500: #96805f;
+  --color-oat-600: #746147;
+  --color-oat-700: #574838;
+  --color-oat-800: #3a3025;
+  --color-oat-900: #211c15;
+  --color-ink: #211c15;
+  --color-surface: #fffdfa;
+
+  /* Primary accent - Clay (terracotta) */
+  --color-clay-50: #fbeee7;
+  --color-clay-100: #f5d8c7;
+  --color-clay-200: #e9b396;
+  --color-clay-300: #db8e68;
+  --color-clay-400: #c96e45;
+  --color-clay-500: #b0572f;
+  --color-clay-600: #954829;
+  --color-clay-700: #78391f;
+
+  /* Secondary accent - Sage (muted olive) */
+  --color-sage-50: #eef0ea;
+  --color-sage-100: #dbe0d0;
+  --color-sage-300: #a9b393;
+  --color-sage-500: #6e7a57;
+  --color-sage-700: #47502f;
+
+  /* Typography */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
+
+  /* Warm-tinted elevation (espresso 33,28,21) */
+  --shadow-xs: 0 1px 2px rgba(33, 28, 21, 0.06);
+  --shadow-sm: 0 2px 6px -2px rgba(33, 28, 21, 0.08);
+  --shadow-md: 0 10px 30px -12px rgba(33, 28, 21, 0.14);
+  --shadow-lg: 0 24px 60px -24px rgba(33, 28, 21, 0.2);
+  --shadow-xl: 0 32px 80px -28px rgba(33, 28, 21, 0.24);
+
+  /* Easing */
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-quart: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* Map shadcn semantic roles onto Marren tokens */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-heading: var(--font-serif);
+
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) * 1.4);
   --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --background: #faf7f1;
+  --foreground: #211c15;
+  --card: #fffdfa;
+  --card-foreground: #211c15;
+  --popover: #fffdfa;
+  --popover-foreground: #211c15;
+  --primary: #954829;
+  --primary-foreground: #fdf8f2;
+  --secondary: #f2ece1;
+  --secondary-foreground: #3a3025;
+  --muted: #f2ece1;
+  --muted-foreground: #746147;
+  --accent: #fbeee7;
+  --accent-foreground: #78391f;
+  --destructive: #b23b2e;
+  --border: #e6dccb;
+  --input: #d4c4ab;
+  --ring: #b0572f;
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
-}
-
-.dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground;
-  }
+
   html {
     @apply font-sans;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "kern", "liga", "calt";
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible, on-brand keyboard focus everywhere */
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 3px;
+  }
+
+  ::selection {
+    background: var(--color-clay-100);
+    color: var(--color-oat-900);
+  }
+
+  /* Fluid, rhythmic section spacing */
+  .section-y {
+    padding-block: clamp(3.5rem, 2.4rem + 5vw, 8rem);
+  }
+  .section-y-sm {
+    padding-block: clamp(2.75rem, 2rem + 3.5vw, 5rem);
+  }
+
+  /* Readable prose measure */
+  .measure {
+    max-width: 65ch;
+  }
+  .measure-wide {
+    max-width: 75ch;
+  }
+}
+
+@layer utilities {
+  .text-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  /* Scroll reveal: visible by default; JS hides below-fold items pre-paint,
+     then reveals on intersection. No-JS and headless renders stay visible. */
+  .reveal {
+    transition:
+      opacity 0.6s var(--ease-out-quint),
+      transform 0.6s var(--ease-out-quint);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal[data-shown="false"] {
+    opacity: 0;
+    transform: translateY(var(--reveal-y, 1rem));
+  }
+
+  /* Hero load: plays on paint via CSS (no JS gate), settles to visible. */
+  @keyframes marren-rise {
+    from {
+      opacity: 0;
+      transform: translateY(var(--rise-y, 1.25rem));
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .rise {
+    animation: marren-rise 0.8s var(--ease-out-quint) both;
+    animation-delay: var(--rise-delay, 0ms);
+  }
+
+  /* Press marquee: slow, ambient, pauses on hover. */
+  @keyframes marren-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  .marquee-track {
+    animation: marren-marquee 38s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+      transform: none;
+    }
+  }
+}
+
+/* Reduced motion: collapse transforms/animations to instant. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
