@@ -1,0 +1,46 @@
+import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { Section } from "@/components/layout/section";
+import { Container } from "@/components/layout/container";
+import { Reveal } from "@/components/motion/reveal";
+
+export function StorySnippet() {
+  return (
+    <Section tone="oat">
+      <Container className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+        <Reveal y={24}>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg ring-1 ring-oat-900/5">
+            <Image
+              src="/images/scenes/story.jpg"
+              alt="A quiet corner of a home with framed prints on a warm wall"
+              fill
+              sizes="(max-width: 1024px) 92vw, 46vw"
+              className="object-cover"
+            />
+          </div>
+        </Reveal>
+
+        <Reveal delay={90} y={24}>
+          <div className="max-w-xl">
+            <h2 className="font-serif text-[clamp(1.75rem,1.4rem+1.6vw,2.5rem)] leading-tight font-medium tracking-[-0.01em] text-oat-900">
+              Made by people who love a good wall.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-oat-700">
+              We started Marren because framing a photograph should not require a trip to a custom shop or a small
+              fortune. So we make a tight range of frames in materials we would hang in our own homes, and we finish
+              every one to the same standard.
+            </p>
+            <Link
+              href="/about"
+              className="group mt-7 inline-flex items-center gap-2 font-medium text-clay-600 transition-colors hover:text-clay-700"
+            >
+              Read our story
+              <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+          </div>
+        </Reveal>
+      </Container>
+    </Section>
+  );
+}
