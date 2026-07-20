@@ -54,6 +54,7 @@
 
   /* Easing */
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out-quart: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
@@ -263,6 +264,21 @@ html.lenis body {
 }
 .lenis.lenis-smooth iframe {
   pointer-events: none;
+}
+
+/* Intro loader overlay: hidden by default; a pre-paint script in the layout opts
+   it in with html.intro-play only on a first visit with motion enabled. This keeps
+   repeat visits flash-free and leaves the site fully visible with JS disabled. */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  display: none;
+  place-items: center;
+  background: var(--background);
+}
+html.intro-play .intro-overlay {
+  display: grid;
 }
 
 /* Reduced motion: collapse transforms/animations to instant. */

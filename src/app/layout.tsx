@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import { CartProvider } from "@/components/cart/cart-provider";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
+import { Intro } from "@/components/motion/intro";
 import { Toaster } from "@/components/ui/sonner";
 import { site } from "@/content/site";
 import { organizationJsonLd } from "@/lib/seo";
@@ -57,8 +58,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable} h-full`}>
+    <html lang="en" suppressHydrationWarning className={`${fraunces.variable} ${inter.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-background text-foreground">
+        {/* Pre-paint: opt the intro overlay in only on a first visit with motion enabled. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(!sessionStorage.getItem('marren:intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('intro-play')}}catch(e){}",
+          }}
+        />
         <a
           href="#content"
           className="sr-only z-[100] rounded-md bg-oat-900 px-4 py-2 text-sm font-medium text-oat-50 focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
@@ -66,6 +74,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           Skip to content
         </a>
         <SmoothScroll />
+        <Intro />
         <CartProvider>{children}</CartProvider>
         <Toaster position="bottom-right" toastOptions={{ className: "font-sans" }} />
         <Script

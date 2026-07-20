@@ -3,6 +3,9 @@ import type { Transition } from "framer-motion";
 /** Shared easing (ease-out-quint) matching the CSS token. */
 export const easeOutQuint = [0.22, 1, 0.36, 1] as const;
 
+/** Confident, decisive deceleration - used for the intro loader and reveals. */
+export const easeOutExpo = [0.16, 1, 0.3, 1] as const;
+
 export const durations = {
   fast: 0.18,
   base: 0.28,
