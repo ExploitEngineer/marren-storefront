@@ -25,7 +25,7 @@ export function MobileNav() {
           <Menu className="size-5" />
         </button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-[min(20rem,86vw)] border-oat-200 bg-background p-0">
+      <SheetContent data-lenis-prevent side="right" className="w-[min(20rem,86vw)] border-oat-200 bg-background p-0">
         <SheetHeader className="border-b border-oat-200 p-5">
           <SheetTitle className="text-left">
             <Logo />

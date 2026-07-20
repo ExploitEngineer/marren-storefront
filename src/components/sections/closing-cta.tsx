@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { Reveal } from "@/components/motion/reveal";
+import { Magnetic } from "@/components/motion/magnetic";
+import { DrawSVG } from "@/components/motion/draw";
 
 interface ClosingCtaProps {
   heading?: string;
@@ -26,15 +28,20 @@ export function ClosingCta({
       />
       <Container className="relative text-center">
         <Reveal y={20}>
-          <span aria-hidden className="mx-auto mb-6 block h-8 w-8 rounded-[4px] border-2 border-clay-400/60" />
+          <DrawSVG viewBox="0 0 40 40" delay={120} className="mx-auto mb-6 h-9 w-9 text-clay-400">
+            <path className="draw" pathLength={1} d="M4 4 H36 V36 H4 Z" stroke="currentColor" strokeWidth={2} strokeLinejoin="round" />
+            <path className="draw" pathLength={1} d="M12 12 H28 V28 H12 Z" stroke="currentColor" strokeWidth={1} strokeLinejoin="round" style={{ ["--draw-delay" as string]: "360ms" }} />
+          </DrawSVG>
           <h2 className="mx-auto max-w-2xl font-serif text-[clamp(2rem,1.5rem+2.4vw,3.25rem)] leading-[1.05] font-medium tracking-[-0.015em] text-oat-50">
             {heading}
           </h2>
           {sub && <p className="mx-auto mt-4 max-w-xl text-oat-100/75">{sub}</p>}
           <div className="mt-8">
-            <Button asChild size="lg" variant="inverse">
-              <Link href={ctaHref}>{ctaLabel}</Link>
-            </Button>
+            <Magnetic>
+              <Button asChild size="lg" variant="inverse">
+                <Link href={ctaHref}>{ctaLabel}</Link>
+              </Button>
+            </Magnetic>
           </div>
         </Reveal>
       </Container>

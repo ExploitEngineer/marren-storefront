@@ -185,6 +185,29 @@
     transform: translateY(var(--reveal-y, 1rem));
   }
 
+  /* SVG path draw-on-view: elements marked .draw stroke from 0 -> full length.
+     Each drawn element must carry pathLength="1". Visible by default (SSR/headless),
+     JS flips data-draw to "out" only when confirmed below the fold. */
+  .draw-svg path.draw,
+  .draw-svg line.draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1.1s var(--ease-out-quint);
+    transition-delay: var(--draw-delay, 0ms);
+  }
+  .draw-svg[data-draw="out"] path.draw,
+  .draw-svg[data-draw="out"] line.draw {
+    stroke-dashoffset: 1;
+  }
+  .draw-svg .draw-dot {
+    opacity: 1;
+    transition: opacity 0.4s var(--ease-out-quint);
+    transition-delay: var(--dot-delay, 900ms);
+  }
+  .draw-svg[data-draw="out"] .draw-dot {
+    opacity: 0;
+  }
+
   /* Hero load: plays on paint via CSS (no JS gate), settles to visible. */
   @keyframes marren-rise {
     from {
@@ -222,6 +245,24 @@
       transform: none;
     }
   }
+}
+
+/* Lenis smooth scroll (applied only when JS initialises Lenis). */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 /* Reduced motion: collapse transforms/animations to instant. */

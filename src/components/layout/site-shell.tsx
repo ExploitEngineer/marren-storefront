@@ -5,15 +5,14 @@ import { Footer } from "@/components/layout/footer";
 
 interface SiteShellProps {
   children: ReactNode;
-  headerVariant?: "default" | "minimal";
   showAnnouncement?: boolean;
 }
 
-export function SiteShell({ children, headerVariant = "default", showAnnouncement = true }: SiteShellProps) {
+export function SiteShell({ children, showAnnouncement = true }: SiteShellProps) {
   return (
     <>
       {showAnnouncement && <AnnouncementBar />}
-      <Header variant={headerVariant} />
+      <Header />
       <main id="content" className="flex-1">
         {children}
       </main>

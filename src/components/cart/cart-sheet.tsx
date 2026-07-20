@@ -32,7 +32,7 @@ export function CartSheet() {
         </button>
       </SheetTrigger>
 
-      <SheetContent side="right" className="flex w-[min(26rem,92vw)] flex-col border-oat-200 bg-background p-0">
+      <SheetContent data-lenis-prevent side="right" className="flex w-[min(26rem,92vw)] flex-col border-oat-200 bg-background p-0">
         <SheetHeader className="border-b border-oat-200 p-5">
           <SheetTitle className="font-serif text-xl">Your cart {count > 0 && `(${count})`}</SheetTitle>
         </SheetHeader>
