@@ -56,16 +56,31 @@ export function Hero() {
           </p>
         </div>
 
-        {/* Mini gallery wall (gentle opposing parallax) */}
-        <div className="rise grid grid-cols-2 gap-4 sm:gap-6" style={{ ["--rise-delay" as string]: "180ms", ["--rise-y" as string]: "1.75rem" }}>
-          <Parallax offset={22} className="flex flex-col gap-4 pt-10 sm:gap-6">
-            <Frame material="oak" src="/images/art/03.jpg" alt="A framed landscape photograph in a light oak frame" ratio="4/5" priority sizes="(max-width:1024px) 42vw, 24vw" />
-            <Frame material="black-ash" src="/images/art/09.jpg" alt="A framed photograph in a near-black ash frame" ratio="1/1" sizes="(max-width:1024px) 42vw, 24vw" />
-          </Parallax>
-          <Parallax offset={-18} className="flex flex-col gap-4 sm:gap-6">
-            <Frame material="walnut" src="/images/art/06.jpg" alt="A framed photograph in a walnut frame" ratio="3/4" priority weight="lg" sizes="(max-width:1024px) 46vw, 26vw" />
-            <Frame material="brass" src="/images/art/11.jpg" alt="A small framed photograph in a brushed brass frame" ratio="4/5" sizes="(max-width:1024px) 42vw, 24vw" />
-          </Parallax>
+        {/* Gallery-wall cluster: varied sizes, slight tilt, opposing parallax on a soft wall */}
+        <div className="rise relative" style={{ ["--rise-delay" as string]: "180ms", ["--rise-y" as string]: "1.75rem" }}>
+          <div
+            aria-hidden
+            className="pointer-events-none absolute -inset-8 -z-10"
+            style={{ background: "radial-gradient(58% 52% at 56% 42%, rgba(146,128,95,0.12), transparent 72%)" }}
+          />
+          <div className="mx-auto grid max-w-lg grid-cols-2 gap-5 sm:gap-6 lg:max-w-none">
+            <Parallax offset={26} className="flex flex-col gap-5 pt-12 sm:gap-6">
+              <div style={{ rotate: "-1.6deg" }}>
+                <Frame material="walnut" src="/images/art/06.jpg" alt="A framed photograph in a walnut frame" ratio="3/4" weight="lg" interactive priority sizes="(max-width:1024px) 46vw, 26vw" />
+              </div>
+              <div style={{ rotate: "2deg" }}>
+                <Frame material="brass" src="/images/art/11.jpg" alt="A small framed photograph in a brushed brass frame" ratio="1/1" weight="sm" interactive sizes="(max-width:1024px) 42vw, 22vw" />
+              </div>
+            </Parallax>
+            <Parallax offset={-16} className="flex flex-col gap-5 sm:gap-6">
+              <div style={{ rotate: "1.4deg" }}>
+                <Frame material="oak" src="/images/art/03.jpg" alt="A framed landscape photograph in a light oak frame" ratio="4/5" interactive priority sizes="(max-width:1024px) 42vw, 24vw" />
+              </div>
+              <div style={{ rotate: "-1.2deg" }}>
+                <Frame material="black-ash" src="/images/art/09.jpg" alt="A framed photograph in a near-black ash frame" ratio="4/5" interactive sizes="(max-width:1024px) 42vw, 24vw" />
+              </div>
+            </Parallax>
+          </div>
         </div>
       </Container>
     </section>
