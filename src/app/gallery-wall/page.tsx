@@ -33,7 +33,7 @@ export default function GalleryWallPage() {
   const quotes = testimonials.filter((t) => t.id === "daniel" || t.id === "marcus");
 
   return (
-    <SiteShell headerVariant="minimal" showAnnouncement={false}>
+    <SiteShell>
       {/* Hero */}
       <Section tone="cream" className="relative overflow-hidden">
         <div

@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import Script from "next/script";
 import "./globals.css";
 import { CartProvider } from "@/components/cart/cart-provider";
+import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { Toaster } from "@/components/ui/sonner";
 import { site } from "@/content/site";
 import { organizationJsonLd } from "@/lib/seo";
@@ -64,6 +65,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         >
           Skip to content
         </a>
+        <SmoothScroll />
         <CartProvider>{children}</CartProvider>
         <Toaster position="bottom-right" toastOptions={{ className: "font-sans" }} />
         <Script
