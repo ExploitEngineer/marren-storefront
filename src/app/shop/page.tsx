@@ -14,8 +14,8 @@ import { shopFaqs } from "@/content/faqs";
 import { pageMetadata, itemListJsonLd, jsonLdScript } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Shop frames",
-  description: "Every frame Marren makes, filterable by wood, size, and style. All ready to hang, all guaranteed for life.",
+  title: "Shop builds",
+  description: "Every car frame Framies makes, filterable by marque, size, and style. All hand-built, all ready to hang, all guaranteed for life.",
   path: "/shop",
 });
 
@@ -40,10 +40,10 @@ export default async function ShopPage({
       <Section tone="cream" size="sm">
         <Container>
           <h1 className="font-serif text-[clamp(2.25rem,1.7rem+2.4vw,3.25rem)] leading-[1.05] font-medium tracking-[-0.015em] text-oat-900">
-            Every frame we make.
+            Every build we make.
           </h1>
           <p className="measure-wide mt-4 text-lg text-oat-700">
-            Filter by wood, size, and style. Every frame ships ready to hang.
+            Filter by marque, size, and style. Every build ships ready to hang.
           </p>
         </Container>
       </Section>
@@ -58,13 +58,13 @@ export default async function ShopPage({
 
           <div>
             <p className="mb-6 text-sm text-oat-500" aria-live="polite">
-              {results.length} {results.length === 1 ? "frame" : "frames"}
+              {results.length} {results.length === 1 ? "build" : "builds"}
             </p>
             {results.length > 0 ? (
               <ProductGrid products={results} priorityCount={4} />
             ) : (
               <div className="rounded-2xl border border-dashed border-oat-300 bg-oat-50 px-6 py-20 text-center">
-                <p className="font-serif text-2xl text-oat-900">No frames match those filters yet.</p>
+                <p className="font-serif text-2xl text-oat-900">No builds match those filters yet.</p>
                 <p className="mt-2 text-oat-600">Try clearing one to see more of the range.</p>
               </div>
             )}
@@ -76,12 +76,12 @@ export default async function ShopPage({
       <FaqSection faqs={shopFaqs} id="faq" heading="Good to know." />
       <ClosingCta
         heading="Still deciding? Let us help."
-        sub="The Frame Finder narrows the whole range to the frames that fit your photo, your room, and your look."
+        sub="The Frame Finder narrows the whole range to the builds that fit your marque, your size, and your space."
         ctaLabel="Start the Frame Finder"
         ctaHref="/#frame-finder"
       />
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(itemListJsonLd(products, "Marren frames"))} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(itemListJsonLd(products, "Framies builds"))} />
     </SiteShell>
   );
 }

@@ -15,7 +15,7 @@ interface GallerySetsProps {
 
 export function GallerySets({
   heading = "Sets that hang together.",
-  lead = "Curated combinations, balanced to fill a wall, each with a hanging template in the box.",
+  lead = "Curated combinations of builds, balanced to fill a wall, each with a hanging template in the box.",
   id = "sets",
   tone = "surface",
 }: GallerySetsProps) {
@@ -23,7 +23,7 @@ export function GallerySets({
     <Section id={id} tone={tone}>
       <Container>
         <div className="max-w-2xl">
-          <span className="text-eyebrow text-clay-600">Gallery Wall Sets</span>
+          <span className="text-eyebrow text-clay-600">Garage Wall Sets</span>
           <h2 className="mt-3 font-serif text-[clamp(1.75rem,1.4rem+1.6vw,2.5rem)] leading-tight font-medium tracking-[-0.01em] text-oat-900">
             {heading}
           </h2>

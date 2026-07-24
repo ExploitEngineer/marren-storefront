@@ -104,7 +104,7 @@ export function Intro() {
         >
           <span aria-hidden className="size-2.5 rounded-[3px] bg-clay-600 shadow-[0_0_0_4px_var(--color-clay-100)]" />
           <span className="font-serif text-[clamp(1.5rem,1.2rem+1.8vw,2.25rem)] font-semibold tracking-[-0.02em] text-oat-900">
-            Marren
+            Framies
           </span>
         </motion.div>
       </motion.div>

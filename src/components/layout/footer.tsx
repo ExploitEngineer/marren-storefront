@@ -11,10 +11,10 @@ export function Footer() {
           <div className="max-w-sm">
             <span className="inline-flex items-center gap-2.5 font-serif text-2xl font-semibold tracking-[-0.02em] text-oat-50">
               <span aria-hidden className="size-3 rounded-[3px] bg-clay-400" />
-              Marren
+              Framies
             </span>
             <p className="mt-4 text-sm leading-relaxed text-oat-100/70">
-              Solid-wood frames worth hanging, shipped ready to go. Get 10% off your first frame.
+              Hand-built die-cast car frames, shipped ready to hang. Get 10% off your first build.
             </p>
             <NewsletterForm />
           </div>
@@ -50,7 +50,7 @@ export function Footer() {
                 {l.label}
               </Link>
             ))}
-            <p className="text-xs text-oat-100/45">© {new Date().getFullYear()} Marren</p>
+            <p className="text-xs text-oat-100/45">© {new Date().getFullYear()} Framies</p>
           </div>
         </div>
       </div>

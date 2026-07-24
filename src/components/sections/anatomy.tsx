@@ -5,10 +5,10 @@ import { Reveal } from "@/components/motion/reveal";
 import { DrawSVG, DrawUnderline } from "@/components/motion/draw";
 
 const parts = [
-  { n: "01", title: "Solid hardwood moulding", body: "Milled from real oak, walnut, ash or brushed brass. Never foil-wrapped MDF." },
-  { n: "02", title: "Acid-free window mat", body: "A conservation mount that lifts the print off the glazing and frames the image." },
-  { n: "03", title: "Anti-glare glazing", body: "Shatter-resistant and low-reflection, so the photo reads clear from across the room." },
-  { n: "04", title: "Ready-to-hang hardware", body: "Sawtooth and wire fitted in the studio, with a wall bumper tucked in the box." },
+  { n: "01", title: "Solid shadow-box frame", body: "A deep wooden moulding that gives the car room to sit proud of the backdrop. Never foil-wrapped MDF." },
+  { n: "02", title: "Genuine die-cast model", body: "A real metal 1:24 to 1:64 scale car, hand-mounted mid-launch over a printed livery." },
+  { n: "03", title: "Printed spec plate", body: "Power, torque, top speed and engine, set to match the exact car in the frame." },
+  { n: "04", title: "Glass front & ready-to-hang", body: "Low-glare glazing over the build, with hanging hardware fitted before it leaves the bench." },
 ];
 
 /** Corner crop-mark brackets that stroke themselves in around the framed art. */
@@ -36,13 +36,13 @@ export function Anatomy() {
           <h2 className="font-serif text-[clamp(1.75rem,1.4rem+1.6vw,2.5rem)] leading-tight font-medium tracking-[-0.01em] text-oat-900">
             Anatomy of a{" "}
             <span className="relative inline-block">
-              Marren frame
+              Framies build
               <DrawUnderline className="absolute -bottom-1.5 left-0 h-[0.42em] w-full" />
             </span>
             .
           </h2>
           <p className="measure mt-4 text-oat-700">
-            Every frame arrives as one finished object, hung and gone in a minute. Here is what is doing the work inside the box.
+            Every build arrives as one finished object, hung and gone in a minute. Here is what is doing the work inside the box.
           </p>
         </div>
 
@@ -52,9 +52,9 @@ export function Anatomy() {
             <div className="relative mx-auto w-full max-w-sm p-8 sm:p-10">
               <CropMarks />
               <Frame
-                material="walnut"
-                src="/images/art/06.jpg"
-                alt="A walnut Marren frame holding a photographic print, shown with registration marks"
+                material="porsche"
+                src="/images/products/porsche-918-spyder.jpeg"
+                alt="A framed Porsche 918 Spyder die-cast build, shown with registration marks"
                 ratio="4/5"
                 weight="lg"
                 sizes="(max-width: 640px) 80vw, (max-width: 1024px) 40vw, 24vw"

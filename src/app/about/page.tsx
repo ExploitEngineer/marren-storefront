@@ -9,22 +9,22 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
-  description: "Marren is a small studio with one belief: the right frame turns a photo into something you keep.",
+  description: "Framies is a small workshop with one belief: the car you love deserves to be on the wall, done properly.",
   path: "/about",
 });
 
 const pillars = [
   {
     title: "The beginning",
-    body: "Framing a photograph should not require a trip to a custom shop or a small fortune. We built Marren to make the good version simple: a tight range, honest prices, ready to hang.",
+    body: "It started with a die-cast Chiron and a spare frame on a workbench. We wanted the cars we obsess over on the wall, done properly - so we built the good version and never stopped.",
   },
   {
-    title: "The materials",
-    body: "FSC-certified woods and brushed brass, low-glare shatter-resistant glazing, finished in small batches. We use what we would hang in our own homes, and nothing we would not.",
+    title: "The build",
+    body: "Genuine metal die-cast models, hand-mounted mid-launch over a printed livery and a spec plate matched to the car, behind low-glare glass. No stickers, no shortcuts.",
   },
   {
     title: "The standard",
-    body: "Every frame is built to the same spec and covered for life against defects. A wall you love should stay that way for as long as you own it.",
+    body: "Every build ships to the same spec and is covered for life against defects. A wall you love should stay that way for as long as you own it.",
   },
 ];
 
@@ -35,10 +35,10 @@ export default function AboutPage() {
         <Container className="max-w-3xl">
           <p className="text-eyebrow text-clay-600">Our story</p>
           <h1 className="mt-4 font-serif text-[clamp(2.25rem,1.7rem+2.6vw,3.5rem)] leading-[1.04] font-medium tracking-[-0.02em] text-oat-900">
-            We make the frame, so the moment lands.
+            We build the frame, so the car lands.
           </h1>
           <p className="mt-6 text-xl leading-relaxed text-oat-700">
-            Marren is a small studio with one belief: the right frame turns a photo into something you keep.
+            Framies is a small workshop with one belief: the car you love deserves to be on the wall, done properly.
           </p>
         </Container>
       </Section>
@@ -47,7 +47,7 @@ export default function AboutPage() {
         <Container>
           <Reveal y={24}>
             <div className="relative aspect-[16/9] overflow-hidden rounded-2xl shadow-lg ring-1 ring-oat-900/5">
-              <Image src="/images/scenes/studio.jpg" alt="Timber and finished frames on a workbench in the Marren studio" fill sizes="(max-width: 1280px) 92vw, 1120px" className="object-cover" priority />
+              <Image src="/images/products/collection-trio.jpeg" alt="Three finished Framies builds - two Porsche 911s and a Nissan GT-R - laid out on a workbench" fill sizes="(max-width: 1280px) 92vw, 1120px" className="object-cover" priority />
             </div>
           </Reveal>
         </Container>
@@ -68,7 +68,7 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      <ClosingCta heading="Come find your frame." ctaLabel="Shop frames" ctaHref="/shop" />
+      <ClosingCta heading="Come find your car." ctaLabel="Shop builds" ctaHref="/shop" />
     </SiteShell>
   );
 }

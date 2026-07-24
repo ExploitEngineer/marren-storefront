@@ -35,7 +35,7 @@ export function Header() {
           "transition-[height] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
         )}
       >
-        <Link href="/" aria-label="Marren home" className="rounded-md">
+        <Link href="/" aria-label="Framies home" className="rounded-md">
           <Logo />
         </Link>
 
@@ -62,7 +62,7 @@ export function Header() {
         <div className="flex items-center gap-1 sm:gap-2">
           <CartSheet />
           <Button asChild className="hidden sm:inline-flex">
-            <Link href="/shop">Shop frames</Link>
+            <Link href="/shop">Shop builds</Link>
           </Button>
           <MobileNav />
         </div>

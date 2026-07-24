@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { SiteShell } from "@/components/layout/site-shell";
 import { Hero } from "@/components/sections/hero";
 import { CollectionsShowcase } from "@/components/sections/collections-showcase";
+import { Reel } from "@/components/sections/reel";
 import { Anatomy } from "@/components/sections/anatomy";
 import { StorySnippet } from "@/components/sections/story-snippet";
 import { Signature } from "@/components/sections/signature";
@@ -17,12 +18,13 @@ export default function HomePage() {
     <SiteShell>
       <Hero />
       <CollectionsShowcase />
+      <Reel />
       <Anatomy />
       <StorySnippet />
       <Signature />
       <Testimonials />
       <TrustStrip />
-      <ClosingCta sub="Free shipping over $75, and a lifetime guarantee on every frame you hang." />
+      <ClosingCta sub="Free shipping over $75, and a lifetime guarantee on every build you hang." />
     </SiteShell>
   );
 }

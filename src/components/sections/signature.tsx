@@ -18,7 +18,7 @@ export function Signature() {
             Two easy ways in.
           </h2>
           <p className="measure mt-4 text-oat-700">
-            No custom builder, no guesswork. Tell us what you are framing, or start from a wall we have already arranged.
+            No custom builder, no guesswork. Tell us which car you want, or start from a garage wall we have already arranged.
           </p>
         </div>
 
@@ -30,10 +30,10 @@ export function Signature() {
           <Reveal delay={90} y={24}>
             <div className="flex h-full flex-col justify-between gap-8 rounded-2xl bg-oat-900 p-6 text-oat-100 sm:p-8">
               <div>
-                <span className="text-eyebrow text-clay-300">Gallery Wall Sets</span>
-                <h3 className="mt-3 font-serif text-2xl font-medium text-oat-50 sm:text-3xl">Gallery walls, already arranged.</h3>
+                <span className="text-eyebrow text-clay-300">Garage Wall Sets</span>
+                <h3 className="mt-3 font-serif text-2xl font-medium text-oat-50 sm:text-3xl">Garage walls, already arranged.</h3>
                 <p className="mt-3 max-w-md text-oat-100/75">
-                  Pre-curated sets of frames that work together out of the box, with a hanging template so it goes up
+                  Pre-curated sets of builds that work together out of the box, with a hanging template so it goes up
                   straight the first time.
                 </p>
               </div>
@@ -44,7 +44,7 @@ export function Signature() {
                 href="/gallery-wall"
                 className="group inline-flex items-center gap-2 font-medium text-clay-300 transition-colors hover:text-clay-200"
               >
-                Shop Gallery Wall Sets
+                Shop Garage Wall Sets
                 <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>

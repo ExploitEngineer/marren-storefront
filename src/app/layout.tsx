@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   },
   description: site.description,
   applicationName: site.name,
-  keywords: ["picture frames", "photo frames", "wood frames", "gallery wall", "ready-to-hang frames"],
+  keywords: ["die-cast car frames", "framed model cars", "hypercar wall art", "3D car frame", "car shadow box", "ready-to-hang car art"],
   openGraph: {
     type: "website",
     siteName: site.name,
@@ -45,13 +45,13 @@ export const metadata: Metadata = {
     description: site.description,
     url: site.url,
     locale: site.locale,
-    images: [{ url: "/images/og/default.jpg", width: 1200, height: 630, alt: "Marren frames" }],
+    images: [{ url: "/images/products/collection-trio.jpeg", width: 1200, height: 630, alt: "Framies die-cast car frames" }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} · ${site.tagline}`,
     description: site.description,
-    images: ["/images/og/default.jpg"],
+    images: ["/images/products/collection-trio.jpeg"],
   },
   robots: { index: true, follow: true },
 };

@@ -37,11 +37,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const related = relatedProducts(product, 4);
 
   const details = [
-    { label: "Wood", value: material.label },
-    { label: "Finish", value: product.finish },
-    { label: "Glazing", value: "Low-glare, shatter-resistant" },
+    { label: "Marque", value: material.label },
+    { label: "Presentation", value: product.style },
+    { label: "Frame", value: product.finish },
+    { label: "Glazing", value: "Low-glare glass front" },
     { label: "Hanging", value: "Hardware attached, ready to hang" },
-    { label: "Sizes", value: product.sizes.map((s) => s.replace("x", "×")).join(", ") },
+    { label: "Sizes", value: product.sizes.join(", ") },
   ];
 
   return (
@@ -69,12 +70,27 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                 <Frame
                   material={product.material}
                   src={product.art}
-                  alt={`${product.name}, a ${material.label.toLowerCase()} frame holding a photographic print`}
+                  alt={`${product.name}, a framed ${material.label} die-cast build`}
                   ratio="4/5"
                   weight="lg"
                   priority
                   sizes="(max-width: 1024px) 90vw, 40vw"
                 />
+                {product.gallery && product.gallery.length > 1 && (
+                  <div className="mx-auto mt-4 grid max-w-md grid-cols-3 gap-3">
+                    {product.gallery.map((src, i) => (
+                      <Frame
+                        key={src + i}
+                        material={product.material}
+                        src={src}
+                        alt={`${product.name}, angle ${i + 1}`}
+                        ratio="1/1"
+                        weight="sm"
+                        sizes="(max-width: 1024px) 28vw, 12vw"
+                      />
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
 

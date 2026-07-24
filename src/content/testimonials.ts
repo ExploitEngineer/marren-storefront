@@ -12,37 +12,37 @@ export const testimonials: Testimonial[] = [
   {
     id: "priya",
     quote:
-      "The walnut frame made my print look like it came from a gallery. It arrived in two days and I had it on the wall before dinner.",
-    name: "Priya M.",
-    location: "Austin, TX",
-    context: "Walnut Studio, 16×20",
+      "The Chiron build looks unreal on my desk. The die-cast detail and the printed spec plate together make it feel like a proper collector's piece, not a toy.",
+    name: "Bilal A.",
+    location: "Lahore",
+    context: "Bugatti Chiron, A4",
     rating: 5,
   },
   {
     id: "daniel",
     quote:
-      "I ordered a Gallery Wall Set for the stairwell and it just worked. The hanging template saved me an afternoon of guesswork.",
-    name: "Daniel R.",
-    location: "Portland, OR",
-    context: "The Corridor",
+      "Ordered the Porsche Podium set for my office wall and it just worked. Three frames, one template, up straight in twenty minutes.",
+    name: "Daniyal R.",
+    location: "Karachi",
+    context: "The Porsche Podium",
     rating: 5,
   },
   {
     id: "sofia",
     quote:
-      "I have bought cheap frames my whole life. This is the first one that felt worth keeping.",
-    name: "Sofia L.",
-    location: "Chicago, IL",
-    context: "Oak Studio, 11×14",
+      "Gifted the R8 to my brother and he hasn't stopped talking about it. The doors-up mount is a genuinely clever bit of framing.",
+    name: "Sana L.",
+    location: "Islamabad",
+    context: "Audi R8 V10, A4",
     rating: 5,
   },
   {
     id: "marcus",
     quote:
-      "The brass profile is thinner and warmer than it looked online, in the best way. It elevated the whole room.",
+      "The 911 Carrera S is thinner and cleaner in person than online, in the best way. It elevated the whole shelf.",
     name: "Marcus T.",
-    location: "Brooklyn, NY",
-    context: "Brass Sliver, 8×10",
+    location: "Dubai",
+    context: "Porsche 911 Carrera S, A5",
     rating: 5,
   },
 ];

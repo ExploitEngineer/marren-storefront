@@ -53,7 +53,7 @@ export function MobileNav() {
         <div className="mt-auto border-t border-oat-200 p-5">
           <Button asChild size="lg" className="w-full">
             <Link href="/shop" onClick={() => setOpen(false)}>
-              Shop frames
+              Shop builds
             </Link>
           </Button>
         </div>

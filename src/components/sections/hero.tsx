@@ -23,13 +23,13 @@ export function Hero() {
         <div className="max-w-xl">
           <p className="rise flex items-center gap-3 text-eyebrow text-clay-600" style={{ ["--rise-delay" as string]: "0ms" }}>
             <span aria-hidden className="h-px w-8 bg-clay-300" />
-            Ready to hang, made to last
+            Hand-built, ready to hang
           </p>
           <h1
             className="rise mt-5 font-serif text-[clamp(2.75rem,1.9rem+4vw,4.5rem)] leading-[1.02] font-medium tracking-[-0.02em] text-oat-900"
             style={{ ["--rise-delay" as string]: "70ms" }}
           >
-            Frames worth the{" "}
+            Hypercars, on the{" "}
             <span className="relative inline-block">
               wall.
               <DrawUnderline className="absolute -bottom-1 left-0 h-[0.4em] w-full" delay={520} />
@@ -39,16 +39,16 @@ export function Hero() {
             className="rise measure mt-6 text-lg leading-relaxed text-oat-700"
             style={{ ["--rise-delay" as string]: "150ms" }}
           >
-            Solid-wood picture frames, cut and finished to gallery standard, and ready to hang the day they arrive.
+            Genuine die-cast supercars, mounted and shadow-boxed with a printed spec plate, finished by hand and ready to hang the day they arrive.
           </p>
           <div className="rise mt-8 flex flex-wrap items-center gap-3" style={{ ["--rise-delay" as string]: "230ms" }}>
             <Magnetic>
               <Button asChild size="lg">
-                <Link href="/shop">Shop frames</Link>
+                <Link href="/shop">Shop the garage</Link>
               </Button>
             </Magnetic>
             <Button asChild size="lg" variant="secondary">
-              <Link href="#frame-finder">Find your frame</Link>
+              <Link href="#frame-finder">Find your car</Link>
             </Button>
           </div>
           <p className="rise mt-6 text-sm text-oat-500" style={{ ["--rise-delay" as string]: "300ms" }}>
@@ -66,18 +66,18 @@ export function Hero() {
           <div className="mx-auto grid max-w-lg grid-cols-2 gap-5 sm:gap-6 lg:max-w-none">
             <Parallax offset={26} className="flex flex-col gap-5 pt-12 sm:gap-6">
               <div style={{ rotate: "-1.6deg" }}>
-                <Frame material="walnut" src="/images/art/06.jpg" alt="A framed photograph in a walnut frame" ratio="3/4" weight="lg" interactive priority sizes="(max-width:1024px) 46vw, 26vw" />
+                <Frame material="bugatti" src="/images/products/bugatti-chiron-sport.jpeg" alt="Framed Bugatti Chiron Sport die-cast build" ratio="3/4" weight="lg" interactive priority sizes="(max-width:1024px) 46vw, 26vw" />
               </div>
               <div style={{ rotate: "2deg" }}>
-                <Frame material="brass" src="/images/art/11.jpg" alt="A small framed photograph in a brushed brass frame" ratio="1/1" weight="sm" interactive sizes="(max-width:1024px) 42vw, 22vw" />
+                <Frame material="porsche" src="/images/products/porsche-911-carrera-s.jpeg" alt="Framed Porsche 911 Carrera S die-cast build" ratio="1/1" weight="sm" interactive sizes="(max-width:1024px) 42vw, 22vw" />
               </div>
             </Parallax>
             <Parallax offset={-16} className="flex flex-col gap-5 sm:gap-6">
               <div style={{ rotate: "1.4deg" }}>
-                <Frame material="oak" src="/images/art/03.jpg" alt="A framed landscape photograph in a light oak frame" ratio="4/5" interactive priority sizes="(max-width:1024px) 42vw, 24vw" />
+                <Frame material="audi" src="/images/products/audi-r8-2.jpeg" alt="Framed Audi R8 V10 die-cast build" ratio="4/5" interactive priority sizes="(max-width:1024px) 42vw, 24vw" />
               </div>
               <div style={{ rotate: "-1.2deg" }}>
-                <Frame material="black-ash" src="/images/art/09.jpg" alt="A framed photograph in a near-black ash frame" ratio="4/5" interactive sizes="(max-width:1024px) 42vw, 24vw" />
+                <Frame material="porsche" src="/images/products/porsche-918-spyder.jpeg" alt="Framed Porsche 918 Spyder die-cast build" ratio="4/5" interactive sizes="(max-width:1024px) 42vw, 24vw" />
               </div>
             </Parallax>
           </div>
