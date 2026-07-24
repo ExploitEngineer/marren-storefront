@@ -1,4 +1,4 @@
-import { Truck, ShieldCheck, RotateCcw, TreePine, MessageCircle, type LucideIcon } from "lucide-react";
+import { Truck, ShieldCheck, RotateCcw, Gauge, MessageCircle, type LucideIcon } from "lucide-react";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
 import { trustSignals } from "@/content/press";
@@ -7,7 +7,7 @@ const icons: Record<string, LucideIcon> = {
   Truck,
   ShieldCheck,
   RotateCcw,
-  TreePine,
+  Gauge,
   MessageCircle,
 };
 

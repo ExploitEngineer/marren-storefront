@@ -1,6 +1,6 @@
 /**
- * Global site configuration for Marren.
- * Placeholder values (contact details, socials) are flagged for replacement.
+ * Global site configuration for Framies.
+ * Placeholder values (contact details) are flagged for replacement.
  * Shaped as a single typed module so it can move to a CMS or env later.
  */
 
@@ -15,36 +15,36 @@ export interface SocialLink {
 }
 
 export const site = {
-  name: "Marren",
-  tagline: "Frames worth the wall.",
+  name: "Framies",
+  tagline: "Hypercars, framed.",
   description:
-    "Solid-wood picture frames, cut and finished to gallery standard, and ready to hang the day they arrive.",
-  url: "https://marren.co",
+    "Hand-built 3D die-cast car frames. Your favourite hypercar, mounted, detailed and shadow-boxed, ready to hang the day it lands.",
+  url: "https://framies.co",
   locale: "en_US",
   currency: "USD",
   freeShippingThreshold: 7500, // cents
 
   contact: {
     // Placeholder - replace with real studio details.
-    address: "118 Kiln Street, Suite 4",
-    city: "Portland, OR 97201",
-    phone: "(503) 555-0142",
-    phoneHref: "tel:+15035550142",
-    email: "hello@marren.co",
-    emailHref: "mailto:hello@marren.co",
-    hours: "Mon-Fri, 9am-5pm PT",
+    address: "Workshop 4, Mill Road",
+    city: "Sialkot",
+    phone: "(0300) 555-0142",
+    phoneHref: "tel:+923005550142",
+    email: "hello@framies.co",
+    emailHref: "mailto:hello@framies.co",
+    hours: "Mon-Sat, 10am-7pm",
   },
 
   socials: [
-    { label: "Instagram", href: "https://instagram.com" },
-    { label: "Pinterest", href: "https://pinterest.com" },
-    { label: "TikTok", href: "https://tiktok.com" },
+    { label: "TikTok", href: "https://tiktok.com/@ab_framies" },
+    { label: "Instagram", href: "https://instagram.com/ab_framies" },
+    { label: "WhatsApp", href: "https://wa.me/923005550142" },
   ] satisfies SocialLink[],
 } as const;
 
 export const primaryNav: NavLink[] = [
   { label: "Shop", href: "/shop" },
-  { label: "Gallery Wall", href: "/gallery-wall" },
+  { label: "Garage Wall", href: "/gallery-wall" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -53,11 +53,11 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
   {
     title: "Shop",
     links: [
-      { label: "Oak", href: "/shop/oak" },
-      { label: "Walnut", href: "/shop/walnut" },
-      { label: "Black Ash", href: "/shop/black-ash" },
-      { label: "Brass", href: "/shop/brass" },
-      { label: "Gallery Wall Sets", href: "/gallery-wall" },
+      { label: "Porsche", href: "/shop/porsche" },
+      { label: "Audi", href: "/shop/audi" },
+      { label: "Bugatti", href: "/shop/bugatti" },
+      { label: "Lamborghini", href: "/shop/lamborghini" },
+      { label: "Garage Wall Sets", href: "/gallery-wall" },
     ],
   },
   {

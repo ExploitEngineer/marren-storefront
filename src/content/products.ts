@@ -1,56 +1,163 @@
 import type { Material } from "./collections";
 
-export type FrameSize = "4x6" | "5x7" | "8x10" | "11x14" | "16x20" | "18x24" | "24x36";
-export type FrameStyle = "Classic" | "Wide" | "Thin" | "Float";
+/** Physical frame sizes the build ships in. */
+export type FrameSize = "A5" | "A4" | "A3";
+/** How the model is presented inside the frame. */
+export type FrameStyle = "3D Build" | "Shadow Box" | "Poster";
 
 export interface Product {
   id: string;
   slug: string;
   name: string;
-  material: Material;
-  collection: string; // collection slug
+  material: Material; // marque
+  collection: string; // collection slug (marque)
   style: FrameStyle;
   sizes: FrameSize[];
   priceFrom: number; // cents
   finish: string;
   description: string;
-  /** Photograph shown inside the frame (placeholder art). */
+  /** Studio photograph of the finished, framed build. */
   art: string;
+  /** Extra angles shown on the product page. */
+  gallery?: string[];
   badges?: string[];
 }
 
-const ALL_SIZES: FrameSize[] = ["5x7", "8x10", "11x14", "16x20", "18x24"];
-const BIG_SIZES: FrameSize[] = ["8x10", "11x14", "16x20", "18x24", "24x36"];
-const SMALL_SIZES: FrameSize[] = ["4x6", "5x7", "8x10", "11x14"];
+const ALL_SIZES: FrameSize[] = ["A5", "A4", "A3"];
+const SMALL_SIZES: FrameSize[] = ["A5", "A4"];
 
-function art(n: number): string {
-  return `/images/art/${String(((n - 1) % 12) + 1).padStart(2, "0")}.jpg`;
-}
+const img = (name: string) => `/images/products/${name}.jpeg`;
 
 export const products: Product[] = [
-  // Oak
-  { id: "oak-studio", slug: "oak-studio", name: "Oak Studio", material: "oak", collection: "oak", style: "Classic", sizes: ALL_SIZES, priceFrom: 4800, finish: "Matte natural oak", description: "Our everyday oak profile: a clean three-quarter-inch face with open grain and a soft matte seal.", art: art(1), badges: ["Bestseller"] },
-  { id: "oak-broadside", slug: "oak-broadside", name: "Oak Broadside", material: "oak", collection: "oak", style: "Wide", sizes: BIG_SIZES, priceFrom: 5800, finish: "Matte natural oak", description: "A generous inch-and-a-half moulding that gives large prints room to breathe.", art: art(2) },
-  { id: "oak-sliver", slug: "oak-sliver", name: "Oak Sliver", material: "oak", collection: "oak", style: "Thin", sizes: SMALL_SIZES, priceFrom: 4400, finish: "Matte natural oak", description: "A barely-there profile for small photographs that should feel weightless.", art: art(3) },
-  { id: "oak-float", slug: "oak-float", name: "Oak Float", material: "oak", collection: "oak", style: "Float", sizes: ALL_SIZES, priceFrom: 6200, finish: "Matte natural oak", description: "A floating mount that suspends the work with a shadow line on every side.", art: art(4), badges: ["New"] },
+  // Porsche
+  {
+    id: "porsche-918-spyder",
+    slug: "porsche-918-spyder",
+    name: "Porsche 918 Spyder",
+    material: "porsche",
+    collection: "porsche",
+    style: "3D Build",
+    sizes: ALL_SIZES,
+    priceFrom: 6900,
+    finish: "Graphite shadow-box moulding",
+    description:
+      "The 887 hp hybrid flagship, rendered in silver over a full PORSCHE spec poster with a black die-cast lifting off the page. Power, top speed, torque and weight printed to match the car.",
+    art: img("porsche-918-spyder"),
+    badges: ["Bestseller"],
+  },
+  {
+    id: "porsche-911-carrera-s",
+    slug: "porsche-911-carrera-s",
+    name: "Porsche 911 Carrera S",
+    material: "porsche",
+    collection: "porsche",
+    style: "Shadow Box",
+    sizes: ALL_SIZES,
+    priceFrom: 6500,
+    finish: "Ash-grey shadow-box moulding",
+    description:
+      "The 991 Carrera S in gunmetal, floated over a soft grey backdrop with the flat-six spec set in a clean serif. Our most understated build, and a favourite gift.",
+    art: img("porsche-911-carrera-s"),
+    badges: ["New"],
+  },
+  {
+    id: "porsche-911-gt2-rs",
+    slug: "porsche-911-gt2-rs",
+    name: "Porsche 911 GT2 RS",
+    material: "porsche",
+    collection: "porsche",
+    style: "Poster",
+    sizes: SMALL_SIZES,
+    priceFrom: 4500,
+    finish: "Black moulding, poster print",
+    description:
+      "A cinematic 911 GT2 RS print in electric blue, framed thin and dark. The flat-print entry to the range, sized to slot into any wall of builds.",
+    art: img("porsche-911-gt2-rs"),
+  },
 
-  // Walnut
-  { id: "walnut-studio", slug: "walnut-studio", name: "Walnut Studio", material: "walnut", collection: "walnut", style: "Classic", sizes: ALL_SIZES, priceFrom: 5800, finish: "Low-sheen walnut", description: "Close, even grain finished to a quiet sheen. The frame that makes a print look collected.", art: art(5), badges: ["Bestseller"] },
-  { id: "walnut-broadside", slug: "walnut-broadside", name: "Walnut Broadside", material: "walnut", collection: "walnut", style: "Wide", sizes: BIG_SIZES, priceFrom: 6800, finish: "Low-sheen walnut", description: "A wide walnut face with real presence, built for statement pieces.", art: art(6) },
-  { id: "walnut-sliver", slug: "walnut-sliver", name: "Walnut Sliver", material: "walnut", collection: "walnut", style: "Thin", sizes: SMALL_SIZES, priceFrom: 5400, finish: "Low-sheen walnut", description: "Dark, thin, and precise. A slim outline for tight arrangements.", art: art(7) },
-  { id: "walnut-float", slug: "walnut-float", name: "Walnut Float", material: "walnut", collection: "walnut", style: "Float", sizes: ALL_SIZES, priceFrom: 7200, finish: "Low-sheen walnut", description: "Floating walnut mount with a deep shadow line for gallery-style hanging.", art: art(8) },
+  // Audi
+  {
+    id: "audi-r8-v10",
+    slug: "audi-r8-v10",
+    name: "Audi R8 V10",
+    material: "audi",
+    collection: "audi",
+    style: "3D Build",
+    sizes: ALL_SIZES,
+    priceFrom: 6500,
+    finish: "Deep black shadow-box moulding",
+    description:
+      "The R8 caught mid-launch over its own racing stripe, doors up, with a printed spec bar: 276 hp, 250 km/h, 431 Nm, 5.2L V10. Our sharpest black-on-black build.",
+    art: img("audi-r8-1"),
+    gallery: [img("audi-r8-1"), img("audi-r8-2"), img("audi-r8-3")],
+    badges: ["Bestseller"],
+  },
 
-  // Black Ash
-  { id: "ash-studio", slug: "ash-studio", name: "Black Ash Studio", material: "black-ash", collection: "black-ash", style: "Classic", sizes: ALL_SIZES, priceFrom: 5400, finish: "Stained ash, near-black", description: "Ash grain stained to a deep near-black. The crispest outline we make.", art: art(9), badges: ["Bestseller"] },
-  { id: "ash-broadside", slug: "ash-broadside", name: "Black Ash Broadside", material: "black-ash", collection: "black-ash", style: "Wide", sizes: BIG_SIZES, priceFrom: 6400, finish: "Stained ash, near-black", description: "A wide, graphic black profile that frames bold, high-contrast work.", art: art(10) },
-  { id: "ash-sliver", slug: "ash-sliver", name: "Black Ash Sliver", material: "black-ash", collection: "black-ash", style: "Thin", sizes: SMALL_SIZES, priceFrom: 5000, finish: "Stained ash, near-black", description: "The thinnest black line in the range, for dense gallery walls.", art: art(11) },
-  { id: "ash-float", slug: "ash-float", name: "Black Ash Float", material: "black-ash", collection: "black-ash", style: "Float", sizes: ALL_SIZES, priceFrom: 6800, finish: "Stained ash, near-black", description: "Floating black mount that reads as a sharp shadow around the work.", art: art(12), badges: ["New"] },
+  // Bugatti
+  {
+    id: "bugatti-chiron",
+    slug: "bugatti-chiron",
+    name: "Bugatti Chiron",
+    material: "bugatti",
+    collection: "bugatti",
+    style: "3D Build",
+    sizes: ALL_SIZES,
+    priceFrom: 7900,
+    finish: "Black shadow-box moulding",
+    description:
+      "The Chiron in French racing blue over its twin-stripe livery, badge up top, quad-turbo W16 story printed below. One of the most detailed die-casts we mount.",
+    art: img("bugatti-chiron"),
+    badges: ["Bestseller"],
+  },
+  {
+    id: "bugatti-chiron-sport",
+    slug: "bugatti-chiron-sport",
+    name: "Bugatti Chiron Sport",
+    material: "bugatti",
+    collection: "bugatti",
+    style: "Shadow Box",
+    sizes: ALL_SIZES,
+    priceFrom: 8500,
+    finish: "Lacquered black shadow-box moulding",
+    description:
+      "The blacked-out Chiron Sport against a desert-dusk backdrop, full spec plate across the top. The flagship of the range and the one collectors ask for by name.",
+    art: img("bugatti-chiron-sport"),
+    gallery: [img("bugatti-chiron-sport"), img("bugatti-chiron-sport-shelf")],
+    badges: ["New"],
+  },
 
-  // Brass
-  { id: "brass-studio", slug: "brass-studio", name: "Brass Studio", material: "brass", collection: "brass", style: "Classic", sizes: ["5x7", "8x10", "11x14", "16x20"], priceFrom: 7200, finish: "Brushed brass", description: "A slim brushed-brass face with warm, even shine that softens as it ages.", art: art(2), badges: ["Bestseller"] },
-  { id: "brass-sliver", slug: "brass-sliver", name: "Brass Sliver", material: "brass", collection: "brass", style: "Thin", sizes: SMALL_SIZES, priceFrom: 6800, finish: "Brushed brass", description: "The finest metal profile we make, bright against a pale mat.", art: art(6) },
-  { id: "brass-float", slug: "brass-float", name: "Brass Float", material: "brass", collection: "brass", style: "Float", sizes: ["8x10", "11x14", "16x20"], priceFrom: 8400, finish: "Brushed brass", description: "A floating brass surround for work that earns a little glow.", art: art(9) },
-  { id: "brass-broadside", slug: "brass-broadside", name: "Brass Broadside", material: "brass", collection: "brass", style: "Wide", sizes: ["11x14", "16x20", "18x24", "24x36"], priceFrom: 8800, finish: "Brushed brass", description: "A wider brass moulding with quiet weight, for a single large statement.", art: art(1) },
+  // Lamborghini
+  {
+    id: "lamborghini-huracan",
+    slug: "lamborghini-huracan",
+    name: "Lamborghini Huracán",
+    material: "lamborghini",
+    collection: "lamborghini",
+    style: "3D Build",
+    sizes: ALL_SIZES,
+    priceFrom: 6900,
+    finish: "Oxblood shadow-box moulding",
+    description:
+      "The Huracán in Giallo against a torn-graphic backdrop and raging-bull crest, doors scissored open. The loudest build in the room, on purpose.",
+    art: img("lamborghini-huracan"),
+  },
+
+  // Nissan
+  {
+    id: "nissan-gtr-r35",
+    slug: "nissan-gtr-r35",
+    name: "Nissan GT-R R35",
+    material: "nissan",
+    collection: "nissan",
+    style: "3D Build",
+    sizes: ALL_SIZES,
+    priceFrom: 5900,
+    finish: "Black shadow-box moulding",
+    description:
+      "Godzilla in red, low and wide over a clean spec sheet. The everyday hero of the range and the easiest first build to hang.",
+    art: img("collection-trio"),
+    badges: ["Bestseller"],
+  },
 ];
 
 export function getProduct(slug: string): Product | undefined {
@@ -63,9 +170,9 @@ export function productsByMaterial(material: Material): Product[] {
 
 export const featuredProducts = products.filter((p) => p.badges?.includes("Bestseller"));
 
-/** Simple "pairs well with" helper: same style, different material. */
+/** Simple "pairs well with" helper: same marque first, then same style. */
 export function relatedProducts(product: Product, count = 3): Product[] {
   return products
-    .filter((p) => p.id !== product.id && (p.style === product.style || p.material === product.material))
+    .filter((p) => p.id !== product.id && (p.material === product.material || p.style === product.style))
     .slice(0, count);
 }

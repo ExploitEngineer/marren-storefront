@@ -17,7 +17,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
         <Frame
           material={product.material}
           src={product.art}
-          alt={`${product.name}, a ${material.label.toLowerCase()} frame holding a photographic print`}
+          alt={`${product.name}, a framed ${material.label} die-cast build`}
           ratio="4/5"
           weight="md"
           interactive
@@ -37,7 +37,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
         {/* Hover affordance */}
         <span className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center pb-3 opacity-0 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100 sm:translate-y-2">
           <span className="rounded-full bg-oat-900/90 px-3.5 py-1.5 text-xs font-medium text-oat-50 backdrop-blur-sm">
-            View frame
+            View build
           </span>
         </span>
       </div>

@@ -8,8 +8,8 @@ import type { FrameSize, FrameStyle } from "@/content/products";
 import { cn } from "@/lib/utils";
 
 const materials = Object.keys(materialMeta) as Material[];
-const sizes: FrameSize[] = ["4x6", "5x7", "8x10", "11x14", "16x20", "18x24", "24x36"];
-const styles: FrameStyle[] = ["Classic", "Wide", "Thin", "Float"];
+const sizes: FrameSize[] = ["A5", "A4", "A3"];
+const styles: FrameStyle[] = ["3D Build", "Shadow Box", "Poster"];
 const sorts = [
   { value: "featured", label: "Featured" },
   { value: "price-asc", label: "Price: low to high" },
@@ -59,7 +59,7 @@ export function ShopFilters() {
 
   return (
     <div className="space-y-8">
-      <FilterGroup label="Wood">
+      <FilterGroup label="Marque">
         <div className="flex flex-wrap gap-2">
           {materials.map((m) => (
             <Chip key={m} active={material === m} onClick={() => setParam("material", m)}>
@@ -73,7 +73,7 @@ export function ShopFilters() {
         <div className="flex flex-wrap gap-2">
           {sizes.map((s) => (
             <Chip key={s} active={size === s} onClick={() => setParam("size", s)}>
-              {s.replace("x", "×")}
+              {s}
             </Chip>
           ))}
         </div>

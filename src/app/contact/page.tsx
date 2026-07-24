@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact",
-  description: "Questions about sizing, an order, or a wall you are planning? Talk to a real person at Marren.",
+  description: "Questions about sizing, an order, or a custom car you want built? Talk to a real person at Framies.",
   path: "/contact",
 });
 
@@ -30,7 +30,7 @@ export default function ContactPage() {
             Talk to a real person.
           </h1>
           <p className="measure-wide mt-4 text-lg text-oat-700">
-            Questions about sizing, an order, or a wall you are planning? We answer fast.
+            Questions about sizing, an order, or a custom car you want built? We answer fast.
           </p>
         </Container>
       </Section>
@@ -73,7 +73,7 @@ export default function ContactPage() {
             </div>
 
             <div className="relative mt-10 aspect-[16/10] overflow-hidden rounded-2xl ring-1 ring-oat-900/5">
-              <Image src="/images/scenes/contact.jpg" alt="The Marren studio and framing bench" fill sizes="(max-width: 1024px) 92vw, 46vw" className="object-cover" />
+              <Image src="/images/products/audi-r8-3.jpeg" alt="A finished Audi R8 build held up in the Framies workshop" fill sizes="(max-width: 1024px) 92vw, 46vw" className="object-cover" />
               <span className="absolute bottom-4 left-4 rounded-full bg-oat-900/85 px-3 py-1 text-xs font-medium text-oat-50 backdrop-blur">
                 {site.contact.city}
               </span>

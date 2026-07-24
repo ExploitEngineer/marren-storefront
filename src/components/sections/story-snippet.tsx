@@ -12,8 +12,8 @@ export function StorySnippet() {
         <Reveal y={24}>
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg ring-1 ring-oat-900/5">
             <Image
-              src="/images/scenes/story.jpg"
-              alt="A quiet corner of a home with framed prints on a warm wall"
+              src="/images/products/bugatti-chiron-sport-shelf.jpeg"
+              alt="A framed Bugatti Chiron Sport build styled on a shelf beside a plant"
               fill
               sizes="(max-width: 1024px) 92vw, 46vw"
               className="object-cover"
@@ -24,12 +24,12 @@ export function StorySnippet() {
         <Reveal delay={90} y={24}>
           <div className="max-w-xl">
             <h2 className="font-serif text-[clamp(1.75rem,1.4rem+1.6vw,2.5rem)] leading-tight font-medium tracking-[-0.01em] text-oat-900">
-              Made by people who love a good wall.
+              Made by people who love the cars.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-oat-700">
-              We started Marren because framing a photograph should not require a trip to a custom shop or a small
-              fortune. So we make a tight range of frames in materials we would hang in our own homes, and we finish
-              every one to the same standard.
+              Framies started at a workbench with a die-cast Chiron and a spare frame. We wanted a way to put the cars we
+              obsess over on the wall, done properly - real models, real spec plates, finished by hand. Every build still
+              leaves that same bench.
             </p>
             <Link
               href="/about"

@@ -13,32 +13,32 @@ type Option = { label: string; hint?: string; value: string };
 const steps: { key: "size" | "room" | "look"; question: string; options: Option[] }[] = [
   {
     key: "size",
-    question: "What are you framing?",
+    question: "How big are you going?",
     options: [
-      { label: "A small photo", hint: "4×6 to 5×7", value: "5x7" },
-      { label: "A print", hint: "8×10 to 11×14", value: "11x14" },
-      { label: "A statement piece", hint: "16×20 and up", value: "16x20" },
+      { label: "Desk piece", hint: "A5", value: "A5" },
+      { label: "Wall standard", hint: "A4", value: "A4" },
+      { label: "Statement build", hint: "A3", value: "A3" },
       { label: "Not sure yet", value: "" },
     ],
   },
   {
     key: "room",
-    question: "Where will it hang?",
+    question: "Where will it live?",
     options: [
       { label: "Living room", value: "living" },
       { label: "Bedroom", value: "bedroom" },
-      { label: "Hallway or stairs", value: "hall" },
-      { label: "Workspace", value: "office" },
+      { label: "Office or desk", value: "office" },
+      { label: "Man cave / garage", value: "garage" },
     ],
   },
   {
     key: "look",
-    question: "Which look feels right?",
+    question: "Which badge speaks to you?",
     options: [
-      { label: "Warm and light", hint: "Oak", value: "oak" },
-      { label: "Rich and classic", hint: "Walnut", value: "walnut" },
-      { label: "Bold and modern", hint: "Black ash", value: "black-ash" },
-      { label: "Bright and metallic", hint: "Brass", value: "brass" },
+      { label: "Precision German", hint: "Porsche", value: "porsche" },
+      { label: "Quattro clean", hint: "Audi", value: "audi" },
+      { label: "Hypercar money", hint: "Bugatti", value: "bugatti" },
+      { label: "Raging bull", hint: "Lamborghini", value: "lamborghini" },
     ],
   },
 ];
@@ -49,7 +49,7 @@ export function FrameFinder() {
   const reduce = useReducedMotion();
 
   const done = step >= steps.length;
-  const material = (answers.look || "oak") as Material;
+  const material = (answers.look || "porsche") as Material;
   const size = answers.size;
   const href = `/shop?material=${material}${size ? `&size=${size}` : ""}`;
 
@@ -106,11 +106,11 @@ export function FrameFinder() {
               <p className="text-eyebrow text-clay-600">Your match</p>
               <h3 className="mt-2 font-serif text-3xl font-medium text-oat-900">Start with {materialMeta[material].label}.</h3>
               <p className="mt-3 text-oat-700">
-                {materialMeta[material].label} suits what you described. We have pulled the frames that fit{size ? " in your size" : ""}.
+                {materialMeta[material].label} suits what you described. We have pulled the builds that fit{size ? " in your size" : ""}.
               </p>
               <div className="mt-6 flex flex-wrap gap-3">
                 <Button asChild size="lg">
-                  <Link href={href}>See {materialMeta[material].label} frames</Link>
+                  <Link href={href}>See {materialMeta[material].label} builds</Link>
                 </Button>
                 <Button type="button" variant="ghost" onClick={reset}>
                   <RotateCcw className="size-4" />

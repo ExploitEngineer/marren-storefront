@@ -10,51 +10,58 @@ export interface GallerySet {
   savings: number; // cents
   dimensions: string;
   description: string;
-  /** Art photographs in the set, for the on-wall arrangement. */
+  /** Finished builds shown in the on-wall arrangement. */
   pieces: string[];
 }
 
-const p = (n: number) => `/images/art/${String(n).padStart(2, "0")}.jpg`;
+const img = (name: string) => `/images/products/${name}.jpeg`;
 
 export const gallerySets: GallerySet[] = [
   {
-    id: "salon-six",
-    slug: "salon-six",
-    name: "The Salon Six",
-    material: "walnut",
-    frameCount: 6,
-    price: 26800,
-    savings: 4400,
-    dimensions: "Fills roughly 60 × 40 in",
-    description:
-      "Six walnut frames in mixed sizes, balanced to fill a wall above a sofa or bed. Our most-hung set.",
-    pieces: [1, 2, 3, 4, 5, 6].map(p),
-  },
-  {
-    id: "the-corridor",
-    slug: "the-corridor",
-    name: "The Corridor",
-    material: "oak",
-    frameCount: 4,
-    price: 18400,
-    savings: 2800,
-    dimensions: "Fills roughly 64 × 20 in",
-    description:
-      "Four oak frames in a long row, sized for a hallway or stairwell where a single line of work looks best.",
-    pieces: [7, 8, 9, 10].map(p),
-  },
-  {
-    id: "the-trio",
-    slug: "the-trio",
-    name: "The Trio",
-    material: "black-ash",
+    id: "porsche-podium",
+    slug: "porsche-podium",
+    name: "The Porsche Podium",
+    material: "porsche",
     frameCount: 3,
-    price: 13200,
-    savings: 1800,
-    dimensions: "Fills roughly 42 × 18 in",
+    price: 16800,
+    savings: 2100,
+    dimensions: "Fills roughly 48 × 20 in",
     description:
-      "Three black ash frames, evenly spaced. The simplest way to make a small wall feel intentional.",
-    pieces: [11, 12, 1].map(p),
+      "Three Porsche builds in a row - 918 Spyder, 911 Carrera S and the GT2 RS poster - sized for a shelf line or a hallway of Stuttgart icons.",
+    pieces: [img("porsche-918-spyder"), img("porsche-911-carrera-s"), img("porsche-911-gt2-rs")],
+  },
+  {
+    id: "hypercar-trio",
+    slug: "hypercar-trio",
+    name: "The Hypercar Trio",
+    material: "bugatti",
+    frameCount: 3,
+    price: 21900,
+    savings: 3000,
+    dimensions: "Fills roughly 52 × 22 in",
+    description:
+      "The heavy hitters together: Chiron, Chiron Sport and the Audi R8 V10. Our most-gifted set, and the fastest way to start a wall.",
+    pieces: [img("bugatti-chiron"), img("bugatti-chiron-sport"), img("audi-r8-1")],
+  },
+  {
+    id: "garage-six",
+    slug: "garage-six",
+    name: "The Garage Six",
+    material: "nissan",
+    frameCount: 6,
+    price: 39900,
+    savings: 6600,
+    dimensions: "Fills roughly 64 × 40 in",
+    description:
+      "A full salon wall of six builds across every marque, balanced in size and colour to hang as one considered piece above a sofa or bed.",
+    pieces: [
+      img("collection-trio"),
+      img("lamborghini-huracan"),
+      img("porsche-918-spyder"),
+      img("audi-r8-2"),
+      img("bugatti-chiron"),
+      img("porsche-911-carrera-s"),
+    ],
   },
 ];
 

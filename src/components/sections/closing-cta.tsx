@@ -14,9 +14,9 @@ interface ClosingCtaProps {
 }
 
 export function ClosingCta({
-  heading = "Your walls are waiting.",
+  heading = "Your garage wall is waiting.",
   sub,
-  ctaLabel = "Shop frames",
+  ctaLabel = "Shop builds",
   ctaHref = "/shop",
 }: ClosingCtaProps) {
   return (

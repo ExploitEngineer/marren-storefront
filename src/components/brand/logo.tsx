@@ -9,7 +9,7 @@ export function Logo({ className, mark = true }: { className?: string; mark?: bo
           className="size-3 rounded-[3px] bg-clay-600 shadow-[0_0_0_4px_var(--color-clay-100)]"
         />
       )}
-      Marren
+      Framies
     </span>
   );
 }

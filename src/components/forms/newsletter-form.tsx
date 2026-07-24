@@ -13,7 +13,7 @@ export function NewsletterForm() {
       toast.error("Please enter a valid email.");
       return;
     }
-    toast.success("You're on the list.", { description: "Look out for 10% off your first frame." });
+    toast.success("You're on the list.", { description: "Look out for 10% off your first build." });
     setEmail("");
   }
 

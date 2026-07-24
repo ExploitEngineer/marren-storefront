@@ -50,7 +50,7 @@ export function AnnouncementBar() {
         >
           <div className="relative mx-auto flex max-w-7xl items-center justify-center px-10 py-2.5">
             <p className="text-center text-[0.8rem] tracking-wide text-oat-100/90">
-              Free shipping over $75, and a lifetime guarantee on every frame.
+              Free shipping over $75, and a lifetime guarantee on every build.
             </p>
             <button
               type="button"

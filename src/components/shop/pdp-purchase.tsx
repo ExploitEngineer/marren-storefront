@@ -14,8 +14,8 @@ export function PdpPurchase({ product }: { product: Product }) {
   return (
     <div className="mt-8">
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-oat-900">Size</span>
-        <span className="text-sm text-oat-500">{size.replace("x", " × ")} in</span>
+        <span className="text-sm font-medium text-oat-900">Frame size</span>
+        <span className="text-sm text-oat-500">{size}</span>
       </div>
       <div className="mt-3 flex flex-wrap gap-2" role="radiogroup" aria-label="Frame size">
         {product.sizes.map((s) => (
@@ -32,7 +32,7 @@ export function PdpPurchase({ product }: { product: Product }) {
                 : "border-oat-300 bg-surface text-oat-700 hover:border-oat-400",
             )}
           >
-            {s.replace("x", "×")}
+            {s}
           </button>
         ))}
       </div>

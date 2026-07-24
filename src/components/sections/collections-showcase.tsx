@@ -9,10 +9,11 @@ import { collections } from "@/content/collections";
 import { formatPriceFrom } from "@/lib/format";
 
 const tileArt: Record<string, string> = {
-  oak: "/images/art/01.jpg",
-  walnut: "/images/art/05.jpg",
-  "black-ash": "/images/art/09.jpg",
-  brass: "/images/art/02.jpg",
+  porsche: "/images/products/porsche-918-spyder.jpeg",
+  audi: "/images/products/audi-r8-1.jpeg",
+  bugatti: "/images/products/bugatti-chiron.jpeg",
+  lamborghini: "/images/products/lamborghini-huracan.jpeg",
+  nissan: "/images/products/collection-trio.jpeg",
 };
 
 export function CollectionsShowcase() {
@@ -22,7 +23,7 @@ export function CollectionsShowcase() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-xl">
             <h2 className="font-serif text-[clamp(1.75rem,1.4rem+1.6vw,2.5rem)] leading-tight font-medium tracking-[-0.01em] text-oat-900">
-              Four woods. One{" "}
+              Five marques. One{" "}
               <span className="relative inline-block">
                 standard
                 <DrawUnderline className="absolute -bottom-1.5 left-0 h-[0.42em] w-full" />
@@ -30,21 +31,21 @@ export function CollectionsShowcase() {
               .
             </h2>
             <p className="measure mt-4 text-oat-700">
-              Each collection is a single material, finished by hand and built to hold the light in a room.
+              Each collection is a single marque, hand-mounted and shadow-boxed to read like a museum plate.
             </p>
           </div>
           <Link
             href="/shop"
             className="group inline-flex items-center gap-2 text-sm font-medium text-clay-600 transition-colors hover:text-clay-700"
           >
-            See all frames
+            See all builds
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-x-5 gap-y-10 sm:gap-x-6 lg:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-x-5 gap-y-10 sm:gap-x-6 lg:grid-cols-5">
           {collections.map((collection, i) => (
-            <Reveal key={collection.id} delay={(i % 4) * 80} y={20}>
+            <Reveal key={collection.id} delay={(i % 5) * 80} y={20}>
               <Link href={`/shop/${collection.slug}`} className="group block rounded-[6px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background">
                 <Frame
                   material={collection.material}
