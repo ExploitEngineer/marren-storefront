@@ -7,10 +7,10 @@ interface FaqSectionProps {
   faqs: Faq[];
   heading?: string;
   id?: string;
-  tone?: "cream" | "surface" | "oat";
+  tone?: "base" | "raise" | "panel" | "contrast";
 }
 
-export function FaqSection({ faqs, heading = "Good to know.", id, tone = "cream" }: FaqSectionProps) {
+export function FaqSection({ faqs, heading = "Good to know.", id, tone = "base" }: FaqSectionProps) {
   return (
     <Section id={id} tone={tone}>
       <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">

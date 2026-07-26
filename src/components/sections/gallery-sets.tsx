@@ -10,14 +10,14 @@ interface GallerySetsProps {
   heading?: string;
   lead?: string;
   id?: string;
-  tone?: "cream" | "surface" | "oat";
+  tone?: "base" | "raise" | "panel" | "contrast";
 }
 
 export function GallerySets({
   heading = "Sets that hang together.",
   lead = "Curated combinations of builds, balanced to fill a wall, each with a hanging template in the box.",
   id = "sets",
-  tone = "surface",
+  tone = "panel",
 }: GallerySetsProps) {
   return (
     <Section id={id} tone={tone}>
