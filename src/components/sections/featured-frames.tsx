@@ -94,7 +94,8 @@ export function FeaturedFrames() {
               <div
                 key={`${p.id}-${i}`}
                 className="w-64 shrink-0 sm:w-72"
-                {...(clone ? { inert: true, "aria-hidden": true } : {})}
+                inert={clone || undefined}
+                aria-hidden={clone || undefined}
               >
                 <ProductCard product={p} />
               </div>
