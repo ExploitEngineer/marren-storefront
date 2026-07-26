@@ -28,7 +28,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
           <span
             className={cn(
               "absolute top-3 left-3 rounded-full px-2.5 py-1 text-[0.7rem] font-semibold tracking-wide",
-              product.badges[0] === "New" ? "bg-sage-100 text-sage-700" : "bg-oat-50/95 text-oat-800 shadow-xs",
+              product.badges[0] === "New" ? "bg-carbon-800 text-carbon-300" : "bg-carbon-950/95 text-carbon-100 shadow-xs",
             )}
           >
             {product.badges[0]}
@@ -36,7 +36,7 @@ export function ProductCard({ product, priority = false }: { product: Product; p
         )}
         {/* Hover affordance */}
         <span className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center pb-3 opacity-0 transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100 sm:translate-y-2">
-          <span className="rounded-full bg-oat-900/90 px-3.5 py-1.5 text-xs font-medium text-oat-50 backdrop-blur-sm">
+          <span className="rounded-full bg-black/90 px-3.5 py-1.5 text-xs font-medium text-carbon-50 backdrop-blur-sm">
             View build
           </span>
         </span>
@@ -44,12 +44,12 @@ export function ProductCard({ product, priority = false }: { product: Product; p
 
       <div className="mt-4 flex items-baseline justify-between gap-3">
         <div>
-          <h3 className="font-medium text-oat-900 transition-colors group-hover:text-clay-700">{product.name}</h3>
-          <p className="mt-0.5 text-sm text-oat-600">
+          <h3 className="font-medium text-carbon-50 transition-colors group-hover:text-race-500">{product.name}</h3>
+          <p className="mt-0.5 text-sm text-carbon-300">
             {material.label} · {product.style}
           </p>
         </div>
-        <p className="shrink-0 font-medium tabular-nums text-oat-900">{formatPriceFrom(product.priceFrom)}</p>
+        <p className="shrink-0 font-medium tabular-nums text-carbon-50">{formatPriceFrom(product.priceFrom)}</p>
       </div>
     </Link>
   );

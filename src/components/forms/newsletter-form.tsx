@@ -30,17 +30,17 @@ export function NewsletterForm() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@email.com"
           autoComplete="email"
-          className="w-full bg-transparent px-3 py-2 text-sm text-oat-50 placeholder:text-oat-100/45 focus:outline-none"
+          className="w-full bg-transparent px-3 py-2 text-sm text-carbon-50 placeholder:text-carbon-100/45 focus:outline-none"
         />
         <button
           type="submit"
-          className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-[7px] bg-oat-50 px-4 text-sm font-medium text-oat-900 transition-colors hover:bg-white"
+          className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-[7px] bg-carbon-950 px-4 text-sm font-medium text-carbon-50 transition-colors hover:bg-white"
         >
           Join
           <ArrowRight className="size-4" />
         </button>
       </div>
-      <p className="mt-2.5 text-xs text-oat-100/50">One thoughtful email a month. Unsubscribe anytime.</p>
+      <p className="mt-2.5 text-xs text-carbon-100/50">One thoughtful email a month. Unsubscribe anytime.</p>
     </form>
   );
 }

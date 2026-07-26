@@ -18,7 +18,7 @@ function CropMarks() {
       viewBox="0 0 100 100"
       preserveAspectRatio="none"
       delay={140}
-      className="pointer-events-none absolute inset-0 h-full w-full text-clay-500/70"
+      className="pointer-events-none absolute inset-0 h-full w-full text-race-500/70"
     >
       <path className="draw" pathLength={1} d="M1 13 V1 H13" stroke="currentColor" strokeWidth={1.25} vectorEffect="non-scaling-stroke" />
       <path className="draw" pathLength={1} d="M99 13 V1 H87" stroke="currentColor" strokeWidth={1.25} vectorEffect="non-scaling-stroke" />
@@ -30,10 +30,10 @@ function CropMarks() {
 
 export function Anatomy() {
   return (
-    <Section tone="surface">
+    <Section tone="panel">
       <Container>
         <div className="max-w-xl">
-          <h2 className="font-serif text-[clamp(1.75rem,1.4rem+1.6vw,2.5rem)] leading-tight font-medium tracking-[-0.01em] text-oat-900">
+          <h2 className="font-heading text-[clamp(1.75rem,1.4rem+1.6vw,2.5rem)] leading-tight font-medium tracking-[-0.01em] text-carbon-50">
             Anatomy of a{" "}
             <span className="relative inline-block">
               Framies build
@@ -41,7 +41,7 @@ export function Anatomy() {
             </span>
             .
           </h2>
-          <p className="measure mt-4 text-oat-700">
+          <p className="measure mt-4 text-carbon-200">
             Every build arrives as one finished object, hung and gone in a minute. Here is what is doing the work inside the box.
           </p>
         </div>
@@ -68,15 +68,15 @@ export function Anatomy() {
               <Reveal key={part.n} delay={i * 90} y={16}>
                 <li className="flex items-start gap-4 sm:gap-5">
                   <div className="flex w-20 shrink-0 items-center gap-2 pt-1 sm:w-24">
-                    <span className="font-serif text-lg text-clay-600 tabular-nums">{part.n}</span>
-                    <DrawSVG viewBox="0 0 52 8" delay={i * 90 + 160} className="h-2 flex-1 text-oat-300" style={{ ["--dot-delay" as string]: `${i * 90 + 900}ms` }}>
+                    <span className="font-heading text-lg text-race-500 tabular-nums">{part.n}</span>
+                    <DrawSVG viewBox="0 0 52 8" delay={i * 90 + 160} className="h-2 flex-1 text-carbon-600" style={{ ["--dot-delay" as string]: `${i * 90 + 900}ms` }}>
                       <line className="draw" pathLength={1} x1="0" y1="4" x2="46" y2="4" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" />
-                      <circle className="draw-dot" cx="49" cy="4" r="2.4" fill="var(--color-clay-500)" />
+                      <circle className="draw-dot" cx="49" cy="4" r="2.4" fill="var(--color-race-500)" />
                     </DrawSVG>
                   </div>
                   <div className="min-w-0">
-                    <h3 className="text-lg font-medium text-oat-900">{part.title}</h3>
-                    <p className="mt-1 text-oat-600">{part.body}</p>
+                    <h3 className="text-lg font-medium text-carbon-50">{part.title}</h3>
+                    <p className="mt-1 text-carbon-300">{part.body}</p>
                   </div>
                 </li>
               </Reveal>

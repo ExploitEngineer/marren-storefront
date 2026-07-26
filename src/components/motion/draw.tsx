@@ -51,7 +51,7 @@ export function DrawUnderline({ className, delay = 140, width = 3 }: DrawUnderli
       viewBox="0 0 300 12"
       preserveAspectRatio="none"
       delay={delay}
-      className={cn("pointer-events-none block overflow-visible text-clay-400", className)}
+      className={cn("pointer-events-none block overflow-visible text-race-400", className)}
     >
       <path
         className="draw"

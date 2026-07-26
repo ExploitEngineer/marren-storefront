@@ -5,52 +5,49 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ------------------------------------------------------------------ *
- * Marren design tokens
+ * Framies design tokens - dark automotive
  * Source of truth: docs/DESIGN-SYSTEM.md
  * ------------------------------------------------------------------ */
 @theme {
-  /* Neutrals - Oat (warm sand to espresso) */
-  --color-cream: #faf7f1;
-  --color-oat-50: #faf7f1;
-  --color-oat-100: #f2ece1;
-  --color-oat-200: #e6dccb;
-  --color-oat-300: #d4c4ab;
-  --color-oat-400: #b8a384;
-  --color-oat-500: #96805f;
-  --color-oat-600: #746147;
-  --color-oat-700: #574838;
-  --color-oat-800: #3a3025;
-  --color-oat-900: #211c15;
-  --color-ink: #211c15;
-  --color-surface: #fffdfa;
+  /* Neutrals - Carbon (light text to near-black gunmetal) */
+  --color-carbon-50: #f4f6f8;
+  --color-carbon-100: #e4e7ea;
+  --color-carbon-200: #c3c8cf;
+  --color-carbon-300: #9aa1ab;
+  --color-carbon-400: #6b7280;
+  --color-carbon-500: #4a515e;
+  --color-carbon-600: #363c47;
+  --color-carbon-700: #262b34;
+  --color-carbon-800: #1b1f26;
+  --color-carbon-850: #14171c;
+  --color-carbon-900: #101318;
+  --color-carbon-950: #0b0d10;
+  --color-ink: #0b0d10;
 
-  /* Primary accent - Clay (terracotta) */
-  --color-clay-50: #fbeee7;
-  --color-clay-100: #f5d8c7;
-  --color-clay-200: #e9b396;
-  --color-clay-300: #db8e68;
-  --color-clay-400: #c96e45;
-  --color-clay-500: #b0572f;
-  --color-clay-600: #954829;
-  --color-clay-700: #78391f;
+  /* Primary accent - Race (racing red) */
+  --color-race-50: #ffe8e6;
+  --color-race-100: #ffc7c2;
+  --color-race-300: #ff5a4d;
+  --color-race-400: #ff2d1f;
+  --color-race-500: #e10600;
+  --color-race-600: #b80500;
+  --color-race-700: #8f0400;
 
-  /* Secondary accent - Sage (muted olive) */
-  --color-sage-50: #eef0ea;
-  --color-sage-100: #dbe0d0;
-  --color-sage-300: #a9b393;
-  --color-sage-500: #6e7a57;
-  --color-sage-700: #47502f;
+  /* Secondary accent - Steel (cool highlight, used sparingly) */
+  --color-steel-400: #5b8bff;
+  --color-steel-500: #2b6cff;
 
   /* Typography */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-serif: var(--font-fraunces), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 
-  /* Warm-tinted elevation (espresso 33,28,21) */
-  --shadow-xs: 0 1px 2px rgba(33, 28, 21, 0.06);
-  --shadow-sm: 0 2px 6px -2px rgba(33, 28, 21, 0.08);
-  --shadow-md: 0 10px 30px -12px rgba(33, 28, 21, 0.14);
-  --shadow-lg: 0 24px 60px -24px rgba(33, 28, 21, 0.2);
-  --shadow-xl: 0 32px 80px -28px rgba(33, 28, 21, 0.24);
+  /* Elevation - true black, deeper spread for a dark UI */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 2px 8px -2px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 12px 32px -12px rgba(0, 0, 0, 0.55);
+  --shadow-lg: 0 26px 64px -24px rgba(0, 0, 0, 0.65);
+  --shadow-xl: 0 34px 84px -28px rgba(0, 0, 0, 0.72);
+  --glow-race: 0 0 40px -8px rgba(225, 6, 0, 0.45);
 
   /* Easing */
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
@@ -58,7 +55,7 @@
   --ease-in-out-quart: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-/* Map shadcn semantic roles onto Marren tokens */
+/* Map shadcn semantic roles onto Framies tokens */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -79,7 +76,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --font-heading: var(--font-serif);
+  --font-heading: var(--font-display);
 
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
@@ -89,24 +86,25 @@
 }
 
 :root {
-  --background: #faf7f1;
-  --foreground: #211c15;
-  --card: #fffdfa;
-  --card-foreground: #211c15;
-  --popover: #fffdfa;
-  --popover-foreground: #211c15;
-  --primary: #954829;
-  --primary-foreground: #fdf8f2;
-  --secondary: #f2ece1;
-  --secondary-foreground: #3a3025;
-  --muted: #f2ece1;
-  --muted-foreground: #746147;
-  --accent: #fbeee7;
-  --accent-foreground: #78391f;
-  --destructive: #b23b2e;
-  --border: #e6dccb;
-  --input: #d4c4ab;
-  --ring: #b0572f;
+  color-scheme: dark;
+  --background: #0b0d10;
+  --foreground: #f4f6f8;
+  --card: #14171c;
+  --card-foreground: #f4f6f8;
+  --popover: #14171c;
+  --popover-foreground: #f4f6f8;
+  --primary: #e10600;
+  --primary-foreground: #ffffff;
+  --secondary: #1b1f26;
+  --secondary-foreground: #e4e7ea;
+  --muted: #14171c;
+  --muted-foreground: #9aa1ab;
+  --accent: #1b1f26;
+  --accent-foreground: #f4f6f8;
+  --destructive: #ff4d3d;
+  --border: #262b34;
+  --input: #262b34;
+  --ring: #e10600;
   --radius: 0.625rem;
 }
 
@@ -128,7 +126,7 @@
   }
 
   h1, h2, h3, h4 {
-    @apply font-serif;
+    @apply font-heading;
     text-wrap: balance;
   }
 
@@ -144,8 +142,8 @@
   }
 
   ::selection {
-    background: var(--color-clay-100);
-    color: var(--color-oat-900);
+    background: var(--color-race-500);
+    color: #fff;
   }
 
   /* Fluid, rhythmic section spacing */
@@ -210,7 +208,7 @@
   }
 
   /* Hero load: plays on paint via CSS (no JS gate), settles to visible. */
-  @keyframes marren-rise {
+  @keyframes framies-rise {
     from {
       opacity: 0;
       transform: translateY(var(--rise-y, 1.25rem));
@@ -221,12 +219,12 @@
     }
   }
   .rise {
-    animation: marren-rise 0.8s var(--ease-out-quint) both;
+    animation: framies-rise 0.8s var(--ease-out-quint) both;
     animation-delay: var(--rise-delay, 0ms);
   }
 
   /* Press marquee: slow, ambient, pauses on hover. */
-  @keyframes marren-marquee {
+  @keyframes framies-marquee {
     from {
       transform: translateX(0);
     }
@@ -235,7 +233,7 @@
     }
   }
   .marquee-track {
-    animation: marren-marquee 38s linear infinite;
+    animation: framies-marquee 38s linear infinite;
   }
   .marquee-track:hover {
     animation-play-state: paused;

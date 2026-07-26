@@ -39,19 +39,19 @@ export function Reel() {
   }, []);
 
   return (
-    <Section tone="ink" className="overflow-hidden">
+    <Section tone="contrast" className="overflow-hidden">
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-xl">
-            <span className="text-eyebrow text-clay-300">From the workshop</span>
-            <h2 className="mt-3 font-serif text-[clamp(1.75rem,1.4rem+1.6vw,2.5rem)] leading-tight font-medium tracking-[-0.01em] text-oat-50">
+            <span className="text-eyebrow text-race-400">From the workshop</span>
+            <h2 className="mt-3 font-heading text-[clamp(1.75rem,1.4rem+1.6vw,2.5rem)] leading-tight font-medium tracking-[-0.01em] text-carbon-50">
               See them move.
             </h2>
-            <p className="mt-4 max-w-md text-oat-100/70">
+            <p className="mt-4 max-w-md text-carbon-100/70">
               Every build filmed off the bench - the die-cast detail, the shadow-box depth, the glass front catching the light.
             </p>
           </div>
-          <p className="hidden text-sm text-oat-100/50 sm:block" aria-hidden>
+          <p className="hidden text-sm text-carbon-100/50 sm:block" aria-hidden>
             Scroll for more &rarr;
           </p>
         </div>
@@ -85,7 +85,7 @@ export function Reel() {
                 }}
               />
             </div>
-            <figcaption className="mt-3 text-sm text-oat-100/70">{reel.caption}</figcaption>
+            <figcaption className="mt-3 text-sm text-carbon-100/70">{reel.caption}</figcaption>
           </figure>
         ))}
       </div>

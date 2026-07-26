@@ -26,8 +26,8 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
       className={cn(
         "rounded-full border px-3.5 py-1.5 text-sm transition-colors",
         active
-          ? "border-clay-600 bg-clay-600 text-primary-foreground"
-          : "border-oat-300 bg-surface text-oat-700 hover:border-oat-400 hover:text-oat-900",
+          ? "border-race-500 bg-race-500 text-primary-foreground"
+          : "border-carbon-700 bg-carbon-850 text-carbon-200 hover:border-carbon-600 hover:text-carbon-50",
       )}
     >
       {children}
@@ -93,7 +93,7 @@ export function ShopFilters() {
         <select
           value={sort}
           onChange={(e) => setParam("sort", e.target.value === "featured" ? null : e.target.value)}
-          className="w-full rounded-[10px] border border-oat-300 bg-surface px-3.5 py-2.5 text-sm text-oat-900 focus:border-clay-500 focus:ring-2 focus:ring-ring/30 focus:outline-none"
+          className="w-full rounded-[10px] border border-carbon-700 bg-carbon-850 px-3.5 py-2.5 text-sm text-carbon-50 focus:border-race-500 focus:ring-2 focus:ring-ring/30 focus:outline-none"
         >
           {sorts.map((s) => (
             <option key={s.value} value={s.value}>
@@ -107,7 +107,7 @@ export function ShopFilters() {
         <button
           type="button"
           onClick={() => router.replace(pathname, { scroll: false })}
-          className="inline-flex items-center gap-1.5 text-sm text-oat-600 underline underline-offset-4 transition-colors hover:text-clay-700"
+          className="inline-flex items-center gap-1.5 text-sm text-carbon-300 underline underline-offset-4 transition-colors hover:text-race-500"
         >
           <X className="size-3.5" />
           Clear filters
@@ -120,7 +120,7 @@ export function ShopFilters() {
 function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-oat-500 uppercase">{label}</h3>
+      <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-carbon-400 uppercase">{label}</h3>
       {children}
     </div>
   );

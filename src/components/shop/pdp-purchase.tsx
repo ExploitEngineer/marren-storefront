@@ -14,8 +14,8 @@ export function PdpPurchase({ product }: { product: Product }) {
   return (
     <div className="mt-8">
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-oat-900">Frame size</span>
-        <span className="text-sm text-oat-500">{size}</span>
+        <span className="text-sm font-medium text-carbon-50">Frame size</span>
+        <span className="text-sm text-carbon-400">{size}</span>
       </div>
       <div className="mt-3 flex flex-wrap gap-2" role="radiogroup" aria-label="Frame size">
         {product.sizes.map((s) => (
@@ -28,8 +28,8 @@ export function PdpPurchase({ product }: { product: Product }) {
             className={cn(
               "min-w-16 rounded-[10px] border px-3.5 py-2.5 text-sm font-medium tabular-nums transition-colors",
               size === s
-                ? "border-clay-600 bg-clay-50 text-clay-700"
-                : "border-oat-300 bg-surface text-oat-700 hover:border-oat-400",
+                ? "border-race-500 bg-race-500/10 text-race-500"
+                : "border-carbon-700 bg-carbon-850 text-carbon-200 hover:border-carbon-600",
             )}
           >
             {s}
@@ -44,7 +44,7 @@ export function PdpPurchase({ product }: { product: Product }) {
       >
         Add to cart · {formatPrice(product.priceFrom)}
       </Button>
-      <p className="mt-3 text-center text-sm text-oat-500">Ships within one business day · Free over $75</p>
+      <p className="mt-3 text-center text-sm text-carbon-400">Ships within one business day · Free over $75</p>
     </div>
   );
 }

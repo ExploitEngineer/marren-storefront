@@ -20,13 +20,13 @@ export function MobileNav() {
         <button
           type="button"
           aria-label="Open menu"
-          className="grid size-11 place-items-center rounded-[10px] text-oat-900 transition-colors hover:bg-oat-100 md:hidden"
+          className="grid size-11 place-items-center rounded-[10px] text-carbon-50 transition-colors hover:bg-carbon-900 md:hidden"
         >
           <Menu className="size-5" />
         </button>
       </SheetTrigger>
-      <SheetContent data-lenis-prevent side="right" className="w-[min(20rem,86vw)] border-oat-200 bg-background p-0">
-        <SheetHeader className="border-b border-oat-200 p-5">
+      <SheetContent data-lenis-prevent side="right" className="w-[min(20rem,86vw)] border-carbon-800 bg-background p-0">
+        <SheetHeader className="border-b border-carbon-800 p-5">
           <SheetTitle className="text-left">
             <Logo />
           </SheetTitle>
@@ -41,8 +41,8 @@ export function MobileNav() {
                 onClick={() => setOpen(false)}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "rounded-lg px-4 py-3 font-serif text-xl text-oat-900 transition-colors hover:bg-oat-100",
-                  active && "text-clay-700",
+                  "rounded-lg px-4 py-3 font-heading text-xl text-carbon-50 transition-colors hover:bg-carbon-900",
+                  active && "text-race-500",
                 )}
               >
                 {link.label}
@@ -50,7 +50,7 @@ export function MobileNav() {
             );
           })}
         </nav>
-        <div className="mt-auto border-t border-oat-200 p-5">
+        <div className="mt-auto border-t border-carbon-800 p-5">
           <Button asChild size="lg" className="w-full">
             <Link href="/shop" onClick={() => setOpen(false)}>
               Shop builds

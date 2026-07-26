@@ -12,7 +12,7 @@ export interface CartItem {
   qty: number;
 }
 
-const STORAGE_KEY = "marren.cart.v1";
+const STORAGE_KEY = "framies.cart.v1";
 const EMPTY: CartItem[] = [];
 const listeners = new Set<() => void>();
 

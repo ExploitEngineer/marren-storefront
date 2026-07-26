@@ -154,9 +154,76 @@ export const products: Product[] = [
     priceFrom: 5900,
     finish: "Black shadow-box moulding",
     description:
-      "Godzilla in red, low and wide over a clean spec sheet. The everyday hero of the range and the easiest first build to hang.",
-    art: img("collection-trio"),
+      "Godzilla in white, low and wide over a clean spec sheet. The everyday hero of the range and the easiest first build to hang.",
+    art: img("nissan-gtr-nismo"),
     badges: ["Bestseller"],
+  },
+
+  // McLaren
+  {
+    id: "mclaren-720s",
+    slug: "mclaren-720s",
+    name: "McLaren 720S",
+    material: "mclaren",
+    collection: "mclaren",
+    style: "3D Build",
+    sizes: ALL_SIZES,
+    priceFrom: 7500,
+    finish: "Papaya-accent shadow-box moulding",
+    description:
+      "The 720S in papaya orange, dihedral doors up, floated over a printed aero spec plate. All track-bred lines and negative space.",
+    art: img("mclaren-720s"),
+    badges: ["New"],
+  },
+
+  // Ferrari
+  {
+    id: "ferrari-f430",
+    slug: "ferrari-f430",
+    name: "Ferrari F430 Novitec",
+    material: "ferrari",
+    collection: "ferrari",
+    style: "3D Build",
+    sizes: ALL_SIZES,
+    priceFrom: 7500,
+    finish: "Lacquered black shadow-box moulding",
+    description:
+      "The Novitec-tuned F430 in rosso corsa against a dark backdrop, the flat-crank V8 story printed clean beneath the die-cast.",
+    art: img("ferrari-f430"),
+    badges: ["Bestseller"],
+  },
+
+  // BMW
+  {
+    id: "bmw-m4-competition",
+    slug: "bmw-m4-competition",
+    name: "BMW M4 Competition",
+    material: "bmw",
+    collection: "bmw",
+    style: "3D Build",
+    sizes: ALL_SIZES,
+    priceFrom: 6500,
+    finish: "Graphite shadow-box moulding",
+    description:
+      "The M4 Competition, low and wide over a clean M-stripe spec bar. The everyday icon, framed to hold a wall on its own.",
+    art: img("bmw-m4"),
+    badges: ["New"],
+  },
+
+  // Mercedes-AMG
+  {
+    id: "mercedes-amg-gtr",
+    slug: "mercedes-amg-gtr",
+    name: "Mercedes-AMG GT R",
+    material: "mercedes",
+    collection: "mercedes",
+    style: "Shadow Box",
+    sizes: ALL_SIZES,
+    priceFrom: 6900,
+    finish: "Green-keyline shadow-box moulding",
+    description:
+      "The AMG GT R in green hell magno, shadow-boxed with a hand-finished keyline and a spec plate matched to the car.",
+    art: img("mercedes-amg-gtr"),
   },
 ];
 

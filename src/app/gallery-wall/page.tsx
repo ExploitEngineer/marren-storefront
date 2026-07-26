@@ -35,19 +35,19 @@ export default function GalleryWallPage() {
   return (
     <SiteShell>
       {/* Hero */}
-      <Section tone="cream" className="relative overflow-hidden">
+      <Section tone="base" className="relative overflow-hidden">
         <div
           aria-hidden
           className="pointer-events-none absolute inset-0"
-          style={{ background: "radial-gradient(90% 60% at 50% -10%, rgba(176,87,47,0.08), transparent 60%)" }}
+          style={{ background: "radial-gradient(90% 60% at 50% -10%, rgba(225,6,0,0.10), transparent 60%)" }}
         />
         <Container className="relative">
           <div className="mx-auto max-w-2xl text-center">
-            <p className="rise text-eyebrow text-clay-600">The Garage Wall Set</p>
-            <h1 className="rise mt-4 font-serif text-[clamp(2.5rem,1.8rem+3.4vw,4rem)] leading-[1.03] font-medium tracking-[-0.02em] text-oat-900" style={{ ["--rise-delay" as string]: "70ms" }}>
+            <p className="rise text-eyebrow text-race-500">The Garage Wall Set</p>
+            <h1 className="rise mt-4 font-heading text-[clamp(2.5rem,1.8rem+3.4vw,4rem)] leading-[1.03] font-medium tracking-[-0.02em] text-carbon-50" style={{ ["--rise-delay" as string]: "70ms" }}>
               One box. A whole garage wall.
             </h1>
-            <p className="rise mx-auto mt-6 max-w-xl text-lg leading-relaxed text-oat-700" style={{ ["--rise-delay" as string]: "150ms" }}>
+            <p className="rise mx-auto mt-6 max-w-xl text-lg leading-relaxed text-carbon-200" style={{ ["--rise-delay" as string]: "150ms" }}>
               A curated set of car builds that already work together, with a hanging template so it goes up straight the
               first time.
             </p>
@@ -59,7 +59,7 @@ export default function GalleryWallPage() {
           </div>
 
           <Reveal className="mt-14 sm:mt-16" y={28}>
-            <div className="mx-auto max-w-4xl rounded-2xl bg-oat-100/60 p-5 sm:p-10">
+            <div className="mx-auto max-w-4xl rounded-2xl bg-carbon-900/60 p-5 sm:p-10">
               <GalleryWallArrangement material={hero.material} pieces={hero.pieces} weight="md" />
             </div>
           </Reveal>
@@ -67,21 +67,21 @@ export default function GalleryWallPage() {
       </Section>
 
       {/* Value proposition */}
-      <Section tone="surface">
+      <Section tone="panel">
         <Container>
-          <h2 className="max-w-2xl font-serif text-[clamp(1.75rem,1.4rem+1.6vw,2.5rem)] leading-tight font-medium tracking-[-0.01em] text-oat-900">
+          <h2 className="max-w-2xl font-heading text-[clamp(1.75rem,1.4rem+1.6vw,2.5rem)] leading-tight font-medium tracking-[-0.01em] text-carbon-50">
             Everything a good garage wall needs, and nothing it does not.
           </h2>
           <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2">
             {valueProps.map((v, i) => (
               <Reveal key={v.title} delay={i * 70} y={18}>
                 <div className="flex gap-4">
-                  <span className="grid size-11 shrink-0 place-items-center rounded-full bg-clay-50 text-clay-600">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-full bg-race-500/10 text-race-500">
                     <v.icon className="size-5" aria-hidden />
                   </span>
                   <div>
-                    <h3 className="text-lg font-medium text-oat-900">{v.title}</h3>
-                    <p className="mt-1.5 text-oat-600">{v.body}</p>
+                    <h3 className="text-lg font-medium text-carbon-50">{v.title}</h3>
+                    <p className="mt-1.5 text-carbon-300">{v.body}</p>
                   </div>
                 </div>
               </Reveal>
@@ -91,23 +91,23 @@ export default function GalleryWallPage() {
       </Section>
 
       {/* Sets (primary offer) */}
-      <GallerySets tone="cream" heading="See it on a wall." lead="Three ways in, sized for real rooms. Each ships with a hanging template." id="sets" />
+      <GallerySets tone="base" heading="See it on a wall." lead="Three ways in, sized for real rooms. Each ships with a hanging template." id="sets" />
 
       {/* Focused social proof */}
-      <Section tone="oat" size="sm">
+      <Section tone="raise" size="sm">
         <Container className="grid gap-10 md:grid-cols-2">
           {quotes.map((t) => (
             <figure key={t.id}>
-              <blockquote className="font-serif text-xl leading-snug text-oat-900">{`“${t.quote}”`}</blockquote>
-              <figcaption className="mt-4 text-sm text-oat-600">
-                <span className="font-medium text-oat-900">{t.name}</span> · {t.location} · {t.context}
+              <blockquote className="font-heading text-xl leading-snug text-carbon-50">{`“${t.quote}”`}</blockquote>
+              <figcaption className="mt-4 text-sm text-carbon-300">
+                <span className="font-medium text-carbon-50">{t.name}</span> · {t.location} · {t.context}
               </figcaption>
             </figure>
           ))}
         </Container>
       </Section>
 
-      <FaqSection faqs={landingFaqs} heading="Before you hang." tone="surface" />
+      <FaqSection faqs={landingFaqs} heading="Before you hang." tone="panel" />
 
       <ClosingCta
         heading="Build your garage wall this weekend."

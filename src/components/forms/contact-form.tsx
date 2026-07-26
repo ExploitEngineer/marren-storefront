@@ -75,10 +75,10 @@ function Field({
   return (
     <div>
       <div className="mb-2 flex items-baseline justify-between">
-        <Label htmlFor={id} className="text-sm font-medium text-oat-800">
+        <Label htmlFor={id} className="text-sm font-medium text-carbon-100">
           {label}
         </Label>
-        {optional && <span className="text-xs text-oat-500">Optional</span>}
+        {optional && <span className="text-xs text-carbon-400">Optional</span>}
       </div>
       {children}
       {error && (
