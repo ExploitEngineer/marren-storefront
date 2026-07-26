@@ -47,26 +47,26 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   return (
     <SiteShell>
-      <Section tone="cream" size="sm">
+      <Section tone="base" size="sm">
         <Container>
-          <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-sm text-oat-500">
-            <Link href="/shop" className="transition-colors hover:text-clay-700">Shop</Link>
+          <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-sm text-carbon-400">
+            <Link href="/shop" className="transition-colors hover:text-race-500">Shop</Link>
             <span aria-hidden>/</span>
             {collection && (
               <>
-                <Link href={`/shop/${collection.slug}`} className="transition-colors hover:text-clay-700">
+                <Link href={`/shop/${collection.slug}`} className="transition-colors hover:text-race-500">
                   {collection.name}
                 </Link>
                 <span aria-hidden>/</span>
               </>
             )}
-            <span className="text-oat-700">{product.name}</span>
+            <span className="text-carbon-200">{product.name}</span>
           </nav>
 
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             {/* Visual */}
             <div className="lg:sticky lg:top-24 lg:self-start">
-              <div className="mx-auto max-w-md bg-oat-100/50 p-6 sm:p-10">
+              <div className="mx-auto max-w-md bg-carbon-900/50 p-6 sm:p-10">
                 <Frame
                   material={product.material}
                   src={product.art}
@@ -97,28 +97,28 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             {/* Detail */}
             <div>
               {product.badges?.[0] && (
-                <span className="text-eyebrow text-clay-600">{product.badges[0]}</span>
+                <span className="text-eyebrow text-race-500">{product.badges[0]}</span>
               )}
-              <h1 className="mt-2 font-serif text-[clamp(2rem,1.6rem+1.8vw,2.75rem)] leading-[1.05] font-medium tracking-[-0.015em] text-oat-900">
+              <h1 className="mt-2 font-heading text-[clamp(2rem,1.6rem+1.8vw,2.75rem)] leading-[1.05] font-medium tracking-[-0.015em] text-carbon-50">
                 {product.name}
               </h1>
-              <p className="mt-3 text-2xl font-medium tabular-nums text-oat-900">
+              <p className="mt-3 text-2xl font-medium tabular-nums text-carbon-50">
                 from ${(product.priceFrom / 100).toFixed(0)}
               </p>
-              <p className="measure mt-5 text-lg leading-relaxed text-oat-700">{product.description}</p>
+              <p className="measure mt-5 text-lg leading-relaxed text-carbon-200">{product.description}</p>
 
               <PdpPurchase product={product} />
 
-              <dl className="mt-10 divide-y divide-oat-200 border-t border-oat-200">
+              <dl className="mt-10 divide-y divide-carbon-800 border-t border-carbon-800">
                 {details.map((d) => (
                   <div key={d.label} className="flex justify-between gap-6 py-3.5">
-                    <dt className="text-sm text-oat-500">{d.label}</dt>
-                    <dd className="text-right text-sm font-medium text-oat-900">{d.value}</dd>
+                    <dt className="text-sm text-carbon-400">{d.label}</dt>
+                    <dd className="text-right text-sm font-medium text-carbon-50">{d.value}</dd>
                   </div>
                 ))}
               </dl>
 
-              <p className="mt-6 text-sm leading-relaxed text-oat-600">
+              <p className="mt-6 text-sm leading-relaxed text-carbon-300">
                 Free shipping over $75 and a 30-day return window. Every frame is covered for life against defects.
               </p>
             </div>
@@ -126,9 +126,9 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </Container>
       </Section>
 
-      <Section tone="surface">
+      <Section tone="panel">
         <Container>
-          <h2 className="font-serif text-2xl font-medium text-oat-900 sm:text-3xl">Pairs well with</h2>
+          <h2 className="font-heading text-2xl font-medium text-carbon-50 sm:text-3xl">Pairs well with</h2>
           <div className="mt-8">
             <ProductGrid products={related} />
           </div>

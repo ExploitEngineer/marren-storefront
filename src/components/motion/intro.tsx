@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 import { easeOutExpo } from "@/lib/motion";
 
 /**
- * First-visit intro: a frame outline strokes itself in, "Marren" settles inside,
- * then the whole thing scales up and fades to reveal the site rendered underneath.
+ * First-visit intro: twin headlight beams switch on across the dark, a race-red
+ * accent streaks beneath them, and the "Framies" wordmark settles in before the
+ * whole thing scales up and fades to reveal the site rendered underneath.
  *
  * Presence is CSS-gated by `html.intro-play`, which a pre-paint inline script in the
  * root layout sets only on a first visit with motion enabled. So: no flash on repeat
@@ -33,7 +34,7 @@ export function Intro() {
       el.classList.remove("intro-play");
       el.style.overflow = prevOverflow;
       try {
-        sessionStorage.setItem("marren:intro", "1");
+        sessionStorage.setItem("framies:intro", "1");
       } catch {
         /* private mode: fine, it just replays next load */
       }
@@ -55,55 +56,49 @@ export function Intro() {
   return (
     <div className="intro-overlay" aria-hidden>
       <motion.div
-        className="relative w-[min(74vw,420px)]"
+        className="relative flex w-[min(80vw,460px)] flex-col items-center"
         initial={{ opacity: 1, scale: 1 }}
-        animate={leaving ? { opacity: 0, scale: 1.07, filter: "blur(3px)" } : { opacity: 1, scale: 1 }}
+        animate={leaving ? { opacity: 0, scale: 1.06, filter: "blur(4px)" } : { opacity: 1, scale: 1 }}
         transition={{ duration: 0.7, ease: easeOutExpo }}
         onAnimationComplete={() => {
           if (leaving) finishRef.current();
         }}
       >
-        <svg viewBox="0 0 220 150" fill="none" className="block w-full text-clay-600">
-          {/* outer moulding */}
-          <motion.rect
-            x="6"
-            y="6"
-            width="208"
-            height="138"
-            rx="2.5"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            pathLength={1}
-            initial={{ pathLength: 0, opacity: 0.85 }}
-            animate={{ pathLength: 1, opacity: 1 }}
-            transition={{ duration: 0.65, ease: easeOutExpo, delay: 0.1 }}
+        {/* Headlight beams */}
+        <div className="relative mb-7 h-8 w-full">
+          {/* main high-beam: expands outward from centre */}
+          <motion.span
+            aria-hidden
+            className="absolute top-1/2 left-0 h-[3px] w-full -translate-y-1/2 rounded-full bg-gradient-to-r from-transparent via-white to-transparent"
+            style={{ boxShadow: "0 0 26px 2px rgba(255,255,255,0.5)" }}
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: 1, opacity: 1 }}
+            transition={{ duration: 0.6, ease: easeOutExpo, delay: 0.1 }}
           />
-          {/* inner mat opening */}
-          <motion.rect
-            x="26"
-            y="26"
-            width="168"
-            height="98"
-            rx="1.5"
-            stroke="currentColor"
-            strokeOpacity="0.45"
-            strokeWidth="1.5"
-            pathLength={1}
-            initial={{ pathLength: 0 }}
-            animate={{ pathLength: 1 }}
-            transition={{ duration: 0.45, ease: easeOutExpo, delay: 0.5 }}
+          {/* race-red accent: streaks in from the left */}
+          <motion.span
+            aria-hidden
+            className="absolute top-1/2 left-0 mt-2 h-[2px] w-full origin-left rounded-full bg-gradient-to-r from-race-500 via-race-400 to-transparent"
+            style={{ boxShadow: "var(--glow-race)" }}
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: 1, opacity: 1 }}
+            transition={{ duration: 0.5, ease: easeOutExpo, delay: 0.5 }}
           />
-        </svg>
+        </div>
 
-        {/* wordmark, centred in the opening */}
+        {/* Wordmark */}
         <motion.div
-          className="absolute inset-0 flex items-center justify-center gap-2.5"
-          initial={{ opacity: 0, y: 8 }}
+          className="flex items-center gap-2.5"
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.45, ease: easeOutExpo, delay: 0.85 }}
+          transition={{ duration: 0.5, ease: easeOutExpo, delay: 0.85 }}
         >
-          <span aria-hidden className="size-2.5 rounded-[3px] bg-clay-600 shadow-[0_0_0_4px_var(--color-clay-100)]" />
-          <span className="font-serif text-[clamp(1.5rem,1.2rem+1.8vw,2.25rem)] font-semibold tracking-[-0.02em] text-oat-900">
+          <span
+            aria-hidden
+            className="size-2.5 rounded-[3px] bg-race-500"
+            style={{ boxShadow: "var(--glow-race)" }}
+          />
+          <span className="font-heading text-[clamp(1.75rem,1.3rem+2vw,2.75rem)] font-semibold tracking-[-0.02em] text-carbon-50">
             Framies
           </span>
         </motion.div>

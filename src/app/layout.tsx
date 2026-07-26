@@ -9,14 +9,10 @@ import { Toaster } from "@/components/ui/sonner";
 import { site } from "@/content/site";
 import { organizationJsonLd } from "@/lib/seo";
 
-const fraunces = localFont({
-  variable: "--font-fraunces",
+const spaceGrotesk = localFont({
+  variable: "--font-space-grotesk",
   display: "swap",
-  src: [
-    { path: "../fonts/fraunces-400.woff2", weight: "400", style: "normal" },
-    { path: "../fonts/fraunces-500.woff2", weight: "500", style: "normal" },
-    { path: "../fonts/fraunces-600.woff2", weight: "600", style: "normal" },
-  ],
+  src: [{ path: "../fonts/space-grotesk.woff2", weight: "300 700", style: "normal" }],
 });
 
 const inter = localFont({
@@ -58,18 +54,18 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={`${fraunces.variable} ${inter.variable} h-full`}>
+    <html lang="en" suppressHydrationWarning className={`${spaceGrotesk.variable} ${inter.variable} h-full`}>
       <body className="flex min-h-full flex-col bg-background text-foreground">
         {/* Pre-paint: opt the intro overlay in only on a first visit with motion enabled. */}
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "try{if(!sessionStorage.getItem('marren:intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('intro-play')}}catch(e){}",
+              "try{if(!sessionStorage.getItem('framies:intro')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('intro-play')}}catch(e){}",
           }}
         />
         <a
           href="#content"
-          className="sr-only z-[100] rounded-md bg-oat-900 px-4 py-2 text-sm font-medium text-oat-50 focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+          className="sr-only z-[100] rounded-md bg-race-500 px-4 py-2 text-sm font-medium text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
         >
           Skip to content
         </a>

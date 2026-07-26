@@ -25,7 +25,7 @@ export function Header() {
     <header
       className={cn(
         "sticky top-0 z-40 backdrop-blur-md transition-[background-color,border-color,box-shadow,padding] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
-        scrolled ? "border-b border-oat-200 bg-background/85 shadow-xs" : "border-b border-transparent bg-background/60",
+        scrolled ? "border-b border-carbon-800 bg-background/85 shadow-xs" : "border-b border-transparent bg-background/60",
       )}
     >
       <div
@@ -48,12 +48,12 @@ export function Header() {
                 href={link.href}
                 aria-current={active ? "page" : undefined}
                 className={cn(
-                  "relative rounded-md px-3.5 py-2 text-sm font-medium text-oat-700 transition-colors hover:text-oat-900",
-                  active && "text-clay-700",
+                  "relative rounded-md px-3.5 py-2 text-sm font-medium text-carbon-200 transition-colors hover:text-carbon-50",
+                  active && "text-race-500",
                 )}
               >
                 {link.label}
-                {active && <span aria-hidden className="absolute inset-x-3.5 -bottom-0.5 h-px bg-clay-500" />}
+                {active && <span aria-hidden className="absolute inset-x-3.5 -bottom-0.5 h-px bg-race-500" />}
               </Link>
             );
           })}

@@ -13,19 +13,19 @@ const icons: Record<string, LucideIcon> = {
 
 export function TrustStrip() {
   return (
-    <Section tone="oat" size="sm">
+    <Section tone="raise" size="sm">
       <Container>
         <ul className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-5">
           {trustSignals.map((signal) => {
             const Icon = icons[signal.icon];
             return (
               <li key={signal.title} className="flex flex-col items-start gap-3">
-                <span className="grid size-10 place-items-center rounded-full bg-clay-50 text-clay-600">
+                <span className="grid size-10 place-items-center rounded-full bg-race-500/10 text-race-500">
                   <Icon className="size-5" aria-hidden />
                 </span>
                 <div>
-                  <p className="font-medium text-oat-900">{signal.title}</p>
-                  <p className="mt-0.5 text-sm text-oat-600">{signal.detail}</p>
+                  <p className="font-medium text-carbon-50">{signal.title}</p>
+                  <p className="mt-0.5 text-sm text-carbon-300">{signal.detail}</p>
                 </div>
               </li>
             );

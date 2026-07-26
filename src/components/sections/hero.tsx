@@ -15,18 +15,18 @@ export function Hero() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(120% 80% at 88% -8%, rgba(176,87,47,0.08), transparent 55%), radial-gradient(90% 70% at -5% 0%, rgba(110,122,87,0.06), transparent 52%)",
+            "radial-gradient(120% 80% at 88% -8%, rgba(225,6,0,0.12), transparent 55%), radial-gradient(90% 70% at -5% 0%, rgba(43,108,255,0.06), transparent 52%)",
         }}
       />
       <Container className="relative grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:py-28">
         {/* Copy */}
         <div className="max-w-xl">
-          <p className="rise flex items-center gap-3 text-eyebrow text-clay-600" style={{ ["--rise-delay" as string]: "0ms" }}>
-            <span aria-hidden className="h-px w-8 bg-clay-300" />
+          <p className="rise flex items-center gap-3 text-eyebrow text-race-500" style={{ ["--rise-delay" as string]: "0ms" }}>
+            <span aria-hidden className="h-px w-8 bg-race-300" />
             Hand-built, ready to hang
           </p>
           <h1
-            className="rise mt-5 font-serif text-[clamp(2.75rem,1.9rem+4vw,4.5rem)] leading-[1.02] font-medium tracking-[-0.02em] text-oat-900"
+            className="rise mt-5 font-heading text-[clamp(2.75rem,1.9rem+4vw,4.5rem)] leading-[1.02] font-medium tracking-[-0.02em] text-carbon-50"
             style={{ ["--rise-delay" as string]: "70ms" }}
           >
             Hypercars, on the{" "}
@@ -36,7 +36,7 @@ export function Hero() {
             </span>
           </h1>
           <p
-            className="rise measure mt-6 text-lg leading-relaxed text-oat-700"
+            className="rise measure mt-6 text-lg leading-relaxed text-carbon-200"
             style={{ ["--rise-delay" as string]: "150ms" }}
           >
             Genuine die-cast supercars, mounted and shadow-boxed with a printed spec plate, finished by hand and ready to hang the day they arrive.
@@ -51,7 +51,7 @@ export function Hero() {
               <Link href="#frame-finder">Find your car</Link>
             </Button>
           </div>
-          <p className="rise mt-6 text-sm text-oat-500" style={{ ["--rise-delay" as string]: "300ms" }}>
+          <p className="rise mt-6 text-sm text-carbon-400" style={{ ["--rise-delay" as string]: "300ms" }}>
             Free shipping over $75 · Lifetime guarantee
           </p>
         </div>
@@ -61,7 +61,7 @@ export function Hero() {
           <div
             aria-hidden
             className="pointer-events-none absolute -inset-8 -z-10"
-            style={{ background: "radial-gradient(58% 52% at 56% 42%, rgba(146,128,95,0.12), transparent 72%)" }}
+            style={{ background: "radial-gradient(58% 52% at 56% 42%, rgba(225,6,0,0.10), transparent 72%)" }}
           />
           <div className="mx-auto grid max-w-lg grid-cols-2 gap-5 sm:gap-6 lg:max-w-none">
             <Parallax offset={26} className="flex flex-col gap-5 pt-12 sm:gap-6">

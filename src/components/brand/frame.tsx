@@ -60,9 +60,9 @@ export function Frame({
   return (
     <div
       className={cn(
-        "group/frame relative shadow-[0_1px_2px_rgba(33,28,21,0.10),0_9px_22px_-8px_rgba(33,28,21,0.26),0_26px_50px_-22px_rgba(33,28,21,0.24)]",
+        "group/frame relative ring-1 ring-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.45),0_9px_22px_-8px_rgba(0,0,0,0.6),0_26px_50px_-22px_rgba(0,0,0,0.55)]",
         interactive &&
-          "transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/frame:-translate-y-1.5 group-hover/frame:shadow-[0_2px_4px_rgba(33,28,21,0.12),0_18px_34px_-10px_rgba(33,28,21,0.32),0_40px_70px_-24px_rgba(33,28,21,0.30)] group-hover:-translate-y-1.5",
+          "transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/frame:-translate-y-1.5 group-hover/frame:shadow-[0_2px_4px_rgba(0,0,0,0.5),0_18px_34px_-10px_rgba(0,0,0,0.6),0_40px_80px_-24px_rgba(225,6,0,0.28)] group-hover:-translate-y-1.5",
         className,
       )}
       style={{ borderRadius: w.radius }}
@@ -70,7 +70,10 @@ export function Frame({
       <div className="relative overflow-hidden" style={keylineStyle}>
         <div
           className="relative overflow-hidden rounded-[2px]"
-          style={{ aspectRatio: ratio, boxShadow: "inset 0 1px 3px rgba(13,13,12,0.45)" }}
+          style={{
+            aspectRatio: ratio,
+            boxShadow: "inset 0 1px 3px rgba(13,13,12,0.45)",
+          }}
         >
           <Image
             src={src}

@@ -3,7 +3,16 @@
  * stability across the app) names the marque; `materialMeta` carries the
  * display-card frame tones and a brand accent used for chrome.
  */
-export type Material = "porsche" | "audi" | "bugatti" | "lamborghini" | "nissan";
+export type Material =
+  | "porsche"
+  | "audi"
+  | "bugatti"
+  | "lamborghini"
+  | "nissan"
+  | "mclaren"
+  | "ferrari"
+  | "bmw"
+  | "mercedes";
 
 export interface MaterialMeta {
   label: string;
@@ -23,6 +32,10 @@ export const materialMeta: Record<Material, MaterialMeta> = {
   bugatti: { label: "Bugatti", frame: "#1b2a3a", frameEdge: "#33475c", mat: "#e8edf1", accent: "#2b6cb0" },
   lamborghini: { label: "Lamborghini", frame: "#2a1614", frameEdge: "#4a2622", mat: "#efe8dc", accent: "#c8892b" },
   nissan: { label: "Nissan", frame: "#1a1a1a", frameEdge: "#363636", mat: "#ecebe9", accent: "#8a1f24" },
+  mclaren: { label: "McLaren", frame: "#1c1c1e", frameEdge: "#3a3a3c", mat: "#ecebe9", accent: "#ff5b00" },
+  ferrari: { label: "Ferrari", frame: "#1a1113", frameEdge: "#3a2226", mat: "#efe7e5", accent: "#d40000" },
+  bmw: { label: "BMW", frame: "#191b1f", frameEdge: "#343841", mat: "#e9ebee", accent: "#2f6fd0" },
+  mercedes: { label: "Mercedes-AMG", frame: "#1b1c1d", frameEdge: "#3a3b3c", mat: "#ecedee", accent: "#00a19c" },
 };
 
 export interface Collection {
@@ -85,6 +98,46 @@ export const collections: Collection[] = [
     tagline: "Godzilla, boxed.",
     intro:
       "The GT-R R35, low and wide over a clean spec sheet. The everyday hero of the range, and the easiest first build to own.",
+  },
+  {
+    id: "mclaren",
+    slug: "mclaren",
+    name: "McLaren",
+    material: "mclaren",
+    priceFrom: 7500,
+    tagline: "Woking, on the wall.",
+    intro:
+      "The 720S and Senna in papaya, shadow-boxed with a printed aero spec plate. Track-bred lines, framed for the study.",
+  },
+  {
+    id: "ferrari",
+    slug: "ferrari",
+    name: "Ferrari",
+    material: "ferrari",
+    priceFrom: 7500,
+    tagline: "Maranello red.",
+    intro:
+      "The F430 Novitec in rosso corsa, framed dark with the flat-crank V8 story printed below the die-cast.",
+  },
+  {
+    id: "bmw",
+    slug: "bmw",
+    name: "BMW",
+    material: "bmw",
+    priceFrom: 6500,
+    tagline: "M power, framed.",
+    intro:
+      "The M4 Competition, low and wide over a clean M-stripe spec bar. The everyday icon of the range.",
+  },
+  {
+    id: "mercedes",
+    slug: "mercedes",
+    name: "Mercedes-AMG",
+    material: "mercedes",
+    priceFrom: 6900,
+    tagline: "Affalterbach, boxed.",
+    intro:
+      "The AMG GT R in green hell magno, shadow-boxed with a hand-finished keyline and a matched spec plate.",
   },
 ];
 

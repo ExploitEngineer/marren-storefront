@@ -37,42 +37,42 @@ export default async function ShopPage({
 
   return (
     <SiteShell>
-      <Section tone="cream" size="sm">
+      <Section tone="base" size="sm">
         <Container>
-          <h1 className="font-serif text-[clamp(2.25rem,1.7rem+2.4vw,3.25rem)] leading-[1.05] font-medium tracking-[-0.015em] text-oat-900">
+          <h1 className="font-heading text-[clamp(2.25rem,1.7rem+2.4vw,3.25rem)] leading-[1.05] font-medium tracking-[-0.015em] text-carbon-50">
             Every build we make.
           </h1>
-          <p className="measure-wide mt-4 text-lg text-oat-700">
+          <p className="measure-wide mt-4 text-lg text-carbon-200">
             Filter by marque, size, and style. Every build ships ready to hang.
           </p>
         </Container>
       </Section>
 
-      <Section tone="cream" size="sm" className="pt-0">
+      <Section tone="base" size="sm" className="pt-0">
         <Container className="grid gap-10 lg:grid-cols-[15rem_1fr] lg:gap-14">
           <aside className="lg:sticky lg:top-24 lg:self-start">
-            <Suspense fallback={<div className="h-72 animate-pulse rounded-xl bg-oat-100" />}>
+            <Suspense fallback={<div className="h-72 animate-pulse rounded-xl bg-carbon-900" />}>
               <ShopFilters />
             </Suspense>
           </aside>
 
           <div>
-            <p className="mb-6 text-sm text-oat-500" aria-live="polite">
+            <p className="mb-6 text-sm text-carbon-400" aria-live="polite">
               {results.length} {results.length === 1 ? "build" : "builds"}
             </p>
             {results.length > 0 ? (
               <ProductGrid products={results} priorityCount={4} />
             ) : (
-              <div className="rounded-2xl border border-dashed border-oat-300 bg-oat-50 px-6 py-20 text-center">
-                <p className="font-serif text-2xl text-oat-900">No builds match those filters yet.</p>
-                <p className="mt-2 text-oat-600">Try clearing one to see more of the range.</p>
+              <div className="rounded-2xl border border-dashed border-carbon-700 bg-carbon-950 px-6 py-20 text-center">
+                <p className="font-heading text-2xl text-carbon-50">No builds match those filters yet.</p>
+                <p className="mt-2 text-carbon-300">Try clearing one to see more of the range.</p>
               </div>
             )}
           </div>
         </Container>
       </Section>
 
-      <GallerySets tone="oat" />
+      <GallerySets tone="raise" />
       <FaqSection faqs={shopFaqs} id="faq" heading="Good to know." />
       <ClosingCta
         heading="Still deciding? Let us help."
