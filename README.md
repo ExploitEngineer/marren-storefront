@@ -1,80 +1,70 @@
-# Marren
+# Storefront monorepo
 
-> Frames worth the wall.
+A pnpm + Turborepo monorepo housing two independent Next.js storefronts that share a common base.
 
-Marren is the marketing and storefront website for a premium, direct-to-consumer picture frame brand.
-It sells a curated range of ready-to-hang, solid-wood frames, organized by material and size, with guided curation (a Frame Finder and pre-arranged Gallery Wall Sets) in place of a custom-build flow.
+## Apps
 
-This repository contains an original, from-scratch build: a fast, accessible, SEO-sound Next.js site with its own visual identity. It is not templated from or copied off any existing brand.
+| App | Path | Theme | Notes |
+| --- | --- | --- | --- |
+| **framies** | `apps/framies` | Dark automotive (near-black + racing red) | The original die-cast car-frame storefront |
+| **aurora** | `apps/aurora` | Lighter charcoal variant | Clone of framies; diverges on theme, sections, and (later) logo + imagery |
+
+Each app is fully self-contained (own `package.json`, `public/`, `src/`, config) and deploys as its own Vercel project.
 
 ## Tech stack
 
+- **pnpm workspaces** + **Turborepo** (task orchestration/caching)
 - **Next.js 16** (App Router, React 19, TypeScript, React Compiler)
-- **Tailwind CSS v4** (CSS-first theming)
-- **shadcn/ui** (Radix primitives) for base components
-- **Framer Motion** for motion design
-- **react-hook-form + zod** for form validation
-- **lucide-react** icons, **sonner** toasts
-- **pnpm** package manager
-
-## Pages
-
-| Route | Purpose |
-| --- | --- |
-| `/` | Home - flagship brand + conversion page |
-| `/shop` | All frames, filterable, plus Gallery Wall Sets and FAQ |
-| `/shop/[collection]` | A single collection (Oak, Walnut, Black Ash, Brass) |
-| `/products/[slug]` | Product detail page |
-| `/gallery-wall` | Landing - focused Gallery Wall Set campaign |
-| `/contact` | Business info + validated contact form |
-| `/about` | Brand story |
+- **Tailwind CSS v4** (CSS-first theming), **Framer Motion**, **shadcn/ui**
 
 ## Getting started
 
-Prerequisites: Node 20+ and pnpm 9+.
+Prerequisites: Node 20+, pnpm 9+ (this repo pins pnpm via `packageManager`).
 
 ```bash
-pnpm install
-pnpm dev
+pnpm install            # install all workspace deps
+
+# run one app
+pnpm dev:framies        # -> http://localhost:3000
+pnpm dev:aurora
+
+# or run everything via turbo
+pnpm dev                # all apps (turbo)
+pnpm build              # build all apps
+pnpm build:framies      # build one app
+pnpm lint
 ```
 
-Open http://localhost:3000.
-
-## Scripts
-
-```bash
-pnpm dev      # start the dev server
-pnpm build    # production build
-pnpm start    # serve the production build
-pnpm lint     # run ESLint
-```
-
-## Project structure
+## Structure
 
 ```
-src/
-  app/          # App Router routes, layout, globals, api, sitemap/robots
-  components/   # ui (shadcn), layout, motion, sections, shop, forms, brand
-  content/      # typed, CMS-ready content modules
-  lib/          # utils, seo, formatting
-public/images/  # local placeholder assets (flagged for replacement)
-docs/           # PRD, ARCHITECTURE, DESIGN-SYSTEM, CONTENT-PLAN, TASKS
+apps/
+  framies/        # dark storefront (src/, public/, next.config.ts, ...)
+  aurora/         # lighter clone
+package.json      # workspace root (turbo scripts)
+turbo.json        # task graph
+pnpm-workspace.yaml
 ```
 
-## Documentation
+## Deploying two projects from this one repo (Vercel)
 
-Foundational docs live in [`/docs`](./docs):
+Create **two** Vercel projects, both connected to this same GitHub repo, each pointing at a different app directory:
 
-- [PRD.md](./docs/PRD.md) - product requirements
-- [ARCHITECTURE.md](./docs/ARCHITECTURE.md) - structure, routing, rendering, SEO/a11y
-- [DESIGN-SYSTEM.md](./docs/DESIGN-SYSTEM.md) - original visual identity + tokens
-- [CONTENT-PLAN.md](./docs/CONTENT-PLAN.md) - sitemap + in-voice copy
-- [TASKS.md](./docs/TASKS.md) - build milestones
+**Project 1 - framies**
+- New Project -> import this repo.
+- **Root Directory:** `apps/framies`.
+- Framework preset: **Next.js** (auto-detected).
+- Install command: leave default (Vercel installs at the repo root, workspace-aware). Build: `next build` (default).
 
-## Status
+**Project 2 - aurora**
+- New Project -> import the **same** repo again.
+- **Root Directory:** `apps/aurora`.
+- Same presets.
 
-Active build. All content, imagery, prices, and contact details are placeholder and clearly flagged for replacement.
-Payment/checkout, analytics, and email delivery are stubbed and tracked as next steps.
+Notes:
+- Vercel detects the pnpm workspace and installs from the repo root, then builds inside the selected Root Directory - each project ships only its own app.
+- To avoid rebuilding an app when only the other changed, set each project's **Ignored Build Step** (Settings -> Git) to a `turbo-ignore`-style check, e.g. `npx turbo-ignore` (optional optimisation).
+- Add each app's own env vars / domains per Vercel project.
 
 ## License
 
