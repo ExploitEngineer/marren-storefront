@@ -12,5 +12,12 @@
     "dev:aurora": "pnpm --filter aurora dev",
     "build:framies": "pnpm --filter framies build",
     "build:aurora": "pnpm --filter aurora build"
+  },
+  "pnpm": {
+    "supportedArchitectures": {
+      "os": ["linux", "darwin", "current"],
+      "cpu": ["x64", "arm64", "current"],
+      "libc": ["glibc", "musl", "current"]
+    }
   }
 }
