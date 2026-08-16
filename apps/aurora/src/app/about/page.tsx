@@ -9,7 +9,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
-  description: "Aurora is a small workshop with one belief: the car you love deserves to be on the wall, done properly.",
+  description: "Decor.HBX is a small workshop with one belief: the car you love deserves to be on the wall, done properly.",
   path: "/about",
 });
 
@@ -38,7 +38,7 @@ export default function AboutPage() {
             We build the frame, so the car lands.
           </h1>
           <p className="mt-6 text-xl leading-relaxed text-carbon-200">
-            Aurora is a small workshop with one belief: the car you love deserves to be on the wall, done properly.
+            Decor.HBX is a small workshop with one belief: the car you love deserves to be on the wall, done properly.
           </p>
         </Container>
       </Section>
@@ -47,7 +47,7 @@ export default function AboutPage() {
         <Container>
           <Reveal y={24}>
             <div className="relative aspect-[16/9] overflow-hidden rounded-2xl shadow-lg ring-1 ring-white/10">
-              <Image src="/images/products/collection-trio.jpeg" alt="Three finished Aurora builds - two Porsche 911s and a Nissan GT-R - laid out on a workbench" fill sizes="(max-width: 1280px) 92vw, 1120px" className="object-cover" priority />
+              <Image src="/images/product.jpeg" alt="Three finished Decor.HBX builds - two Porsche 911s and a Nissan GT-R - laid out on a workbench" fill sizes="(max-width: 1280px) 92vw, 1120px" className="object-cover" priority />
             </div>
           </Reveal>
         </Container>

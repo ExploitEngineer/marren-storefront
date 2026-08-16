@@ -10,7 +10,7 @@ export interface GallerySet {
   savings: number; // cents
   dimensions: string;
   description: string;
-  /** Finished builds shown in the on-wall arrangement. */
+  /** Finished pieces shown in the on-wall arrangement. */
   pieces: string[];
 }
 
@@ -18,49 +18,49 @@ const img = (name: string) => `/images/products/${name}.jpeg`;
 
 export const gallerySets: GallerySet[] = [
   {
-    id: "porsche-podium",
-    slug: "porsche-podium",
-    name: "The Porsche Podium",
-    material: "porsche",
+    id: "fan-cave",
+    slug: "fan-cave",
+    name: "The Fan Cave",
+    material: "sports",
     frameCount: 3,
-    price: 16800,
+    price: 15900,
     savings: 2100,
     dimensions: "Fills roughly 48 × 20 in",
     description:
-      "Three Porsche builds in a row - 918 Spyder, 911 Carrera S and the GT2 RS poster - sized for a shelf line or a hallway of Stuttgart icons.",
-    pieces: [img("porsche-918-spyder"), img("porsche-911-carrera-s"), img("porsche-911-gt2-rs")],
+      "The three greats together, Messi, Ronaldo and Mbappe, in bold backlit LED. Instant fan-cave energy for a wall of legends.",
+    pieces: [img("decor-02"), img("decor-10"), img("decor-13")],
   },
   {
-    id: "hypercar-trio",
-    slug: "hypercar-trio",
-    name: "The Hypercar Trio",
-    material: "bugatti",
+    id: "garage-wall",
+    slug: "garage-wall",
+    name: "The Garage Wall",
+    material: "cars",
     frameCount: 3,
-    price: 21900,
+    price: 18900,
     savings: 3000,
     dimensions: "Fills roughly 52 × 22 in",
     description:
-      "The heavy hitters together: Chiron, Chiron Sport and the Audi R8 V10. Our most-gifted set, and the fastest way to start a wall.",
-    pieces: [img("bugatti-chiron"), img("bugatti-chiron-sport"), img("audi-r8-1")],
+      "Three car pieces that hang as one: the M4 face, the AMG GT profile and the Aventador line art. Steel, glow and clean lines.",
+    pieces: ["/images/product.jpeg", img("decor-05"), img("decor-08")],
   },
   {
-    id: "garage-six",
-    slug: "garage-six",
-    name: "The Garage Six",
-    material: "nissan",
+    id: "statement-six",
+    slug: "statement-six",
+    name: "The Statement Six",
+    material: "led",
     frameCount: 6,
-    price: 39900,
+    price: 34900,
     savings: 6600,
     dimensions: "Fills roughly 64 × 40 in",
     description:
-      "A full salon wall of six builds across every marque, balanced in size and colour to hang as one considered piece above a sofa or bed.",
+      "A full feature wall of six pieces across clocks, LED art and metal, balanced in size and glow to hang as one considered arrangement.",
     pieces: [
-      img("collection-trio"),
-      img("lamborghini-huracan"),
-      img("porsche-918-spyder"),
-      img("audi-r8-2"),
-      img("bugatti-chiron"),
-      img("porsche-911-carrera-s"),
+      img("decor-01"),
+      img("decor-04"),
+      img("decor-16"),
+      img("decor-12"),
+      img("decor-09"),
+      img("decor-11"),
     ],
   },
 ];

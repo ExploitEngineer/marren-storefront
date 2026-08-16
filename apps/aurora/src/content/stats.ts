@@ -9,8 +9,8 @@ export interface Stat {
 }
 
 export const stats: Stat[] = [
-  { id: "frames", value: 6200, suffix: "+", label: "Frames hung worldwide" },
-  { id: "marques", value: 12, label: "Marques in the garage" },
-  { id: "rating", value: 4.9, decimals: 1, suffix: "/5", label: "Average build rating" },
+  { id: "pieces", value: 6200, suffix: "+", label: "Pieces hung worldwide" },
+  { id: "designs", value: 120, suffix: "+", label: "Designs in the catalog" },
+  { id: "rating", value: 4.9, decimals: 1, suffix: "/5", label: "Average customer rating" },
   { id: "ready", value: 100, suffix: "%", label: "Ready to hang, day one" },
 ];

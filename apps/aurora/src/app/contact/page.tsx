@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact",
-  description: "Questions about sizing, an order, or a custom car you want built? Talk to a real person at Aurora.",
+  description: "Questions about sizing, an order, or a custom car you want built? Talk to a real person at Decor.HBX.",
   path: "/contact",
 });
 
@@ -73,7 +73,7 @@ export default function ContactPage() {
             </div>
 
             <div className="relative mt-10 aspect-[16/10] overflow-hidden rounded-2xl ring-1 ring-white/10">
-              <Image src="/images/products/audi-r8-3.jpeg" alt="A finished Audi R8 build held up in the Aurora workshop" fill sizes="(max-width: 1024px) 92vw, 46vw" className="object-cover" />
+              <Image src="/images/product.jpeg" alt="A finished Audi R8 build held up in the Decor.HBX workshop" fill sizes="(max-width: 1024px) 92vw, 46vw" className="object-cover" />
               <span className="absolute bottom-4 left-4 rounded-full bg-black/85 px-3 py-1 text-xs font-medium text-carbon-50 backdrop-blur">
                 {site.contact.city}
               </span>

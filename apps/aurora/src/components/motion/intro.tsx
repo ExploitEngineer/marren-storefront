@@ -1,12 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { easeOutExpo } from "@/lib/motion";
 
 /**
  * First-visit intro: twin headlight beams switch on across the dark, a race-red
- * accent streaks beneath them, and the "Aurora" wordmark settles in before the
+ * accent streaks beneath them, and the "Decor.HBX" wordmark settles in before the
  * whole thing scales up and fades to reveal the site rendered underneath.
  *
  * Presence is CSS-gated by `html.intro-play`, which a pre-paint inline script in the
@@ -93,14 +94,15 @@ export function Intro() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: easeOutExpo, delay: 0.85 }}
         >
-          <span
-            aria-hidden
-            className="size-2.5 rounded-[3px] bg-race-500"
+          <Image
+            src="/images/logo.jpeg"
+            alt="Decor.HBX"
+            width={200}
+            height={200}
+            priority
+            className="h-24 w-24 rounded-full object-cover"
             style={{ boxShadow: "var(--glow-race)" }}
           />
-          <span className="font-heading text-[clamp(1.75rem,1.3rem+2vw,2.75rem)] font-semibold tracking-[-0.02em] text-carbon-50">
-            Aurora
-          </span>
         </motion.div>
       </motion.div>
     </div>

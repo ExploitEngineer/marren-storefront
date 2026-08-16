@@ -1,5 +1,5 @@
 /**
- * Global site configuration for Aurora.
+ * Global site configuration for Decor.HBX.
  * Placeholder values (contact details) are flagged for replacement.
  * Shaped as a single typed module so it can move to a CMS or env later.
  */
@@ -15,11 +15,11 @@ export interface SocialLink {
 }
 
 export const site = {
-  name: "Aurora",
-  tagline: "Hypercars, framed.",
+  name: "Decor.HBX",
+  tagline: "Walls worth staring at.",
   description:
-    "Hand-built 3D die-cast car frames. Your favourite hypercar, mounted, detailed and shadow-boxed, ready to hang the day it lands.",
-  url: "https://aurora.co",
+    "Decor.HBX makes hand-finished metal and LED wall art, statement clocks, backlit sports and car pieces, and fully custom designs, ready to hang the day they land.",
+  url: "https://decorhbx.com",
   locale: "en_US",
   currency: "USD",
   freeShippingThreshold: 7500, // cents
@@ -30,21 +30,21 @@ export const site = {
     city: "Sialkot",
     phone: "(0300) 555-0142",
     phoneHref: "tel:+923005550142",
-    email: "hello@aurora.co",
-    emailHref: "mailto:hello@aurora.co",
+    email: "hello@decorhbx.com",
+    emailHref: "mailto:hello@decorhbx.com",
     hours: "Mon-Sat, 10am-7pm",
   },
 
   socials: [
-    { label: "TikTok", href: "https://tiktok.com/@ab_aurora" },
-    { label: "Instagram", href: "https://instagram.com/ab_aurora" },
+    { label: "TikTok", href: "https://tiktok.com/@decor.hbx" },
+    { label: "Instagram", href: "https://instagram.com/decor.hbx" },
     { label: "WhatsApp", href: "https://wa.me/923005550142" },
   ] satisfies SocialLink[],
 } as const;
 
 export const primaryNav: NavLink[] = [
   { label: "Shop", href: "/shop" },
-  { label: "Garage Wall", href: "/gallery-wall" },
+  { label: "Wall Sets", href: "/gallery-wall" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
@@ -53,11 +53,11 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
   {
     title: "Shop",
     links: [
-      { label: "Porsche", href: "/shop/porsche" },
-      { label: "Audi", href: "/shop/audi" },
-      { label: "Bugatti", href: "/shop/bugatti" },
-      { label: "Lamborghini", href: "/shop/lamborghini" },
-      { label: "Garage Wall Sets", href: "/gallery-wall" },
+      { label: "Wall Clocks", href: "/shop/clocks" },
+      { label: "LED Wall Art", href: "/shop/led" },
+      { label: "Sports Legends", href: "/shop/sports" },
+      { label: "Metal Car Art", href: "/shop/cars" },
+      { label: "Wall Sets", href: "/gallery-wall" },
     ],
   },
   {

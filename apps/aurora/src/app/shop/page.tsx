@@ -14,8 +14,8 @@ import { shopFaqs } from "@/content/faqs";
 import { pageMetadata, itemListJsonLd, jsonLdScript } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Shop builds",
-  description: "Every car frame Aurora makes, filterable by marque, size, and style. All hand-built, all ready to hang, all guaranteed for life.",
+  title: "Shop",
+  description: "Every piece Decor.HBX makes, filterable by category, size, and style. All hand-finished, all ready to hang, all guaranteed for life.",
   path: "/shop",
 });
 
@@ -40,10 +40,10 @@ export default async function ShopPage({
       <Section tone="base" size="sm">
         <Container>
           <h1 className="font-heading text-[clamp(2.25rem,1.7rem+2.4vw,3.25rem)] leading-[1.05] font-medium tracking-[-0.015em] text-carbon-50">
-            Every build we make.
+            Everything we make.
           </h1>
           <p className="measure-wide mt-4 text-lg text-carbon-200">
-            Filter by marque, size, and style. Every build ships ready to hang.
+            Filter by category, size, and style. Every piece ships ready to hang.
           </p>
         </Container>
       </Section>
@@ -58,13 +58,13 @@ export default async function ShopPage({
 
           <div>
             <p className="mb-6 text-sm text-carbon-400" aria-live="polite">
-              {results.length} {results.length === 1 ? "build" : "builds"}
+              {results.length} {results.length === 1 ? "piece" : "pieces"}
             </p>
             {results.length > 0 ? (
               <ProductGrid products={results} priorityCount={4} />
             ) : (
               <div className="rounded-2xl border border-dashed border-carbon-700 bg-carbon-950 px-6 py-20 text-center">
-                <p className="font-heading text-2xl text-carbon-50">No builds match those filters yet.</p>
+                <p className="font-heading text-2xl text-carbon-50">No pieces match those filters yet.</p>
                 <p className="mt-2 text-carbon-300">Try clearing one to see more of the range.</p>
               </div>
             )}
@@ -75,13 +75,13 @@ export default async function ShopPage({
       <GallerySets tone="raise" />
       <FaqSection faqs={shopFaqs} id="faq" heading="Good to know." />
       <ClosingCta
-        heading="Still deciding? Let us help."
-        sub="The Frame Finder narrows the whole range to the builds that fit your marque, your size, and your space."
-        ctaLabel="Start the Frame Finder"
-        ctaHref="/#frame-finder"
+        heading="Want something custom?"
+        sub="Send us your car, your name, or your idea and we will cut and light a one-off piece just for your wall."
+        ctaLabel="Talk to us"
+        ctaHref="/contact"
       />
 
-      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(itemListJsonLd(products, "Aurora builds"))} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLdScript(itemListJsonLd(products, "Decor.HBX pieces"))} />
     </SiteShell>
   );
 }

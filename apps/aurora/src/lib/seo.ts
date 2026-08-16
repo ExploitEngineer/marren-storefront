@@ -15,7 +15,7 @@ export function pageMetadata({
   title,
   description = site.description,
   path = "/",
-  images = ["/images/products/collection-trio.jpeg"],
+  images = ["/images/product.jpeg"],
 }: PageMetaInput = {}): Metadata {
   const fullTitle = title ? `${title} · ${site.name}` : `${site.name} · ${site.tagline}`;
   const url = `${baseUrl}${path}`;

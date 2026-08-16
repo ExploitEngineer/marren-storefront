@@ -9,15 +9,10 @@ import { collections } from "@/content/collections";
 import { formatPriceFrom } from "@/lib/format";
 
 const tileArt: Record<string, string> = {
-  porsche: "/images/products/porsche-918-spyder.jpeg",
-  audi: "/images/products/audi-r8-1.jpeg",
-  bugatti: "/images/products/bugatti-chiron.jpeg",
-  lamborghini: "/images/products/lamborghini-huracan.jpeg",
-  nissan: "/images/products/nissan-gtr-nismo.jpeg",
-  mclaren: "/images/products/mclaren-720s.jpeg",
-  ferrari: "/images/products/ferrari-f430.jpeg",
-  bmw: "/images/products/bmw-m4.jpeg",
-  mercedes: "/images/products/mercedes-amg-gtr.jpeg",
+  clocks: "/images/products/decor-01.jpeg",
+  led: "/images/products/decor-04.jpeg",
+  sports: "/images/products/decor-02.jpeg",
+  cars: "/images/product.jpeg",
 };
 
 export function CollectionsShowcase() {
@@ -27,29 +22,29 @@ export function CollectionsShowcase() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="max-w-xl">
             <h2 className="font-heading text-[clamp(1.75rem,1.4rem+1.6vw,2.5rem)] leading-tight font-medium tracking-[-0.01em] text-carbon-50">
-              Nine marques. One{" "}
+              Four collections. One{" "}
               <span className="relative inline-block">
-                standard
+                finish
                 <DrawUnderline className="absolute -bottom-1.5 left-0 h-[0.42em] w-full" />
               </span>
               .
             </h2>
             <p className="measure mt-4 text-carbon-200">
-              Each collection is a single marque, hand-mounted and shadow-boxed to read like a museum plate.
+              Clocks, LED art, sports legends and metal car pieces, each cut from steel and hand-finished to hang like a statement.
             </p>
           </div>
           <Link
             href="/shop"
             className="group inline-flex items-center gap-2 text-sm font-medium text-race-500 transition-colors hover:text-race-500"
           >
-            See all builds
+            See everything
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
           </Link>
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-3 sm:gap-x-6">
+        <div className="mt-12 grid grid-cols-2 gap-x-5 gap-y-10 sm:grid-cols-4 sm:gap-x-6">
           {collections.map((collection, i) => (
-            <Reveal key={collection.id} delay={(i % 3) * 80} y={20}>
+            <Reveal key={collection.id} delay={(i % 4) * 80} y={20}>
               <Link href={`/shop/${collection.slug}`} className="group block rounded-[6px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background">
                 <Frame
                   material={collection.material}

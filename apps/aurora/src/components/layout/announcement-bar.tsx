@@ -46,7 +46,7 @@ export function AnnouncementBar() {
           initial={false}
           exit={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
           transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-          className="overflow-hidden bg-race-600 text-white"
+          className="overflow-hidden bg-steel-500 text-white"
         >
           <div className="relative mx-auto flex max-w-7xl items-center justify-center px-10 py-2.5">
             <p className="text-center text-[0.8rem] font-medium tracking-wide text-white/95">
