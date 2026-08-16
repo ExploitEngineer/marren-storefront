@@ -36,8 +36,8 @@ export const site = {
   },
 
   socials: [
-    { label: "TikTok", href: "https://tiktok.com/@decor.hbx" },
-    { label: "Instagram", href: "https://instagram.com/decor.hbx" },
+    { label: "TikTok", href: "https://www.tiktok.com/@decor.hbx?_r=1&_t=ZS-98csz6io7gQ" },
+    { label: "Instagram", href: "https://www.instagram.com/decore.hbx?igsh=NmIyZ2hzMDd0NnM4" },
     { label: "WhatsApp", href: "https://wa.me/923005550142" },
   ] satisfies SocialLink[],
 } as const;
