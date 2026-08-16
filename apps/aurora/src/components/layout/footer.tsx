@@ -11,7 +11,7 @@ export function Footer() {
           <div className="max-w-sm">
             <span className="inline-flex items-center gap-2.5 font-heading text-2xl font-semibold tracking-[-0.02em] text-carbon-50">
               <span aria-hidden className="size-3 rounded-[3px] bg-race-400" />
-              Aurora
+              Decor.HBX
             </span>
             <p className="mt-4 text-sm leading-relaxed text-carbon-100/70">
               Hand-built die-cast car frames, shipped ready to hang. Get 10% off your first build.
@@ -50,7 +50,7 @@ export function Footer() {
                 {l.label}
               </Link>
             ))}
-            <p className="text-xs text-carbon-100/45">© {new Date().getFullYear()} Aurora</p>
+            <p className="text-xs text-carbon-100/45">© {new Date().getFullYear()} Decor.HBX</p>
           </div>
         </div>
       </div>

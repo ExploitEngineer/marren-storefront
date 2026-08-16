@@ -35,7 +35,7 @@ export function Header() {
           "transition-[height] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
         )}
       >
-        <Link href="/" aria-label="Aurora home" className="rounded-md">
+        <Link href="/" aria-label="Decor.HBX home" className="rounded-md">
           <Logo />
         </Link>
 

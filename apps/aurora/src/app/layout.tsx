@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   },
   description: site.description,
   applicationName: site.name,
-  keywords: ["die-cast car frames", "framed model cars", "hypercar wall art", "3D car frame", "car shadow box", "ready-to-hang car art"],
+  keywords: ["metal wall art", "LED wall art", "wall clocks", "backlit signs", "car metal art", "sports LED art", "custom wall decor"],
   openGraph: {
     type: "website",
     siteName: site.name,
@@ -41,13 +41,13 @@ export const metadata: Metadata = {
     description: site.description,
     url: site.url,
     locale: site.locale,
-    images: [{ url: "/images/products/collection-trio.jpeg", width: 1200, height: 630, alt: "Aurora die-cast car frames" }],
+    images: [{ url: "/images/product.jpeg", width: 680, height: 540, alt: "Decor.HBX metal and LED wall art" }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} · ${site.tagline}`,
     description: site.description,
-    images: ["/images/products/collection-trio.jpeg"],
+    images: ["/images/product.jpeg"],
   },
   robots: { index: true, follow: true },
 };
@@ -65,7 +65,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
         <a
           href="#content"
-          className="sr-only z-[100] rounded-md bg-race-500 px-4 py-2 text-sm font-medium text-white focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+          className="sr-only z-[100] rounded-md bg-race-500 px-4 py-2 text-sm font-medium text-carbon-950 focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
         >
           Skip to content
         </a>

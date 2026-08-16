@@ -5,37 +5,38 @@
 @custom-variant dark (&:is(.dark *));
 
 /* ------------------------------------------------------------------ *
- * Aurora design tokens - dark automotive
+ * Decor.HBX design tokens - gold on near-black
  * Source of truth: docs/DESIGN-SYSTEM.md
  * ------------------------------------------------------------------ */
 @theme {
-  /* Neutrals - Carbon (light text to soft charcoal - a lighter dark theme than framies) */
-  --color-carbon-50: #f6f8fa;
-  --color-carbon-100: #e7eaee;
-  --color-carbon-200: #c9cfd7;
-  --color-carbon-300: #a2a9b4;
-  --color-carbon-400: #757c88;
-  --color-carbon-500: #565d69;
-  --color-carbon-600: #434a55;
-  --color-carbon-700: #363c47;
-  --color-carbon-800: #2b3039;
-  --color-carbon-850: #21252d;
-  --color-carbon-900: #1c2027;
-  --color-carbon-950: #16191f;
-  --color-ink: #16191f;
+  /* Neutrals - Carbon (light text to near-black, Decor.HBX) */
+  --color-carbon-50: #f7f6f4;
+  --color-carbon-100: #eae8e3;
+  --color-carbon-200: #cfccc4;
+  --color-carbon-300: #a8a49a;
+  --color-carbon-400: #7c7870;
+  --color-carbon-500: #565349;
+  --color-carbon-600: #3a3833;
+  --color-carbon-700: #2a2926;
+  --color-carbon-800: #201f1c;
+  --color-carbon-850: #17171b;
+  --color-carbon-900: #111114;
+  --color-carbon-950: #0a0a0b;
+  --color-ink: #0a0a0b;
 
-  /* Primary accent - Race (racing red) */
-  --color-race-50: #ffe8e6;
-  --color-race-100: #ffc7c2;
-  --color-race-300: #ff5a4d;
-  --color-race-400: #ff2d1f;
-  --color-race-500: #e10600;
-  --color-race-600: #b80500;
-  --color-race-700: #8f0400;
+  /* Primary accent - Gold (Decor.HBX brand mark). Kept under the "race-*"
+     utility names so every accent class re-skins in one place. */
+  --color-race-50: #fbf3dd;
+  --color-race-100: #f6e4b3;
+  --color-race-300: #f0cd76;
+  --color-race-400: #e8b74f;
+  --color-race-500: #d9a441;
+  --color-race-600: #b8862a;
+  --color-race-700: #8f6820;
 
-  /* Secondary accent - Steel (cool highlight, used sparingly) */
-  --color-steel-400: #5b8bff;
-  --color-steel-500: #2b6cff;
+  /* Secondary accent - Brand red (used sparingly: promo bar, small marks) */
+  --color-steel-400: #e0454b;
+  --color-steel-500: #c0181f;
 
   /* Typography */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -47,7 +48,7 @@
   --shadow-md: 0 12px 32px -12px rgba(0, 0, 0, 0.55);
   --shadow-lg: 0 26px 64px -24px rgba(0, 0, 0, 0.65);
   --shadow-xl: 0 34px 84px -28px rgba(0, 0, 0, 0.72);
-  --glow-race: 0 0 40px -8px rgba(225, 6, 0, 0.45);
+  --glow-race: 0 0 40px -8px rgba(217, 164, 65, 0.5);
 
   /* Easing */
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
@@ -55,7 +56,7 @@
   --ease-in-out-quart: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-/* Map shadcn semantic roles onto Aurora tokens */
+/* Map shadcn semantic roles onto Decor.HBX tokens */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -87,24 +88,24 @@
 
 :root {
   color-scheme: dark;
-  --background: #16191f;
-  --foreground: #f6f8fa;
-  --card: #21252d;
-  --card-foreground: #f6f8fa;
-  --popover: #21252d;
-  --popover-foreground: #f6f8fa;
-  --primary: #e10600;
-  --primary-foreground: #ffffff;
-  --secondary: #2b3039;
-  --secondary-foreground: #e7eaee;
-  --muted: #21252d;
-  --muted-foreground: #a2a9b4;
-  --accent: #2b3039;
-  --accent-foreground: #f6f8fa;
-  --destructive: #ff4d3d;
-  --border: #363c47;
-  --input: #363c47;
-  --ring: #e10600;
+  --background: #0a0a0b;
+  --foreground: #f7f6f4;
+  --card: #17171b;
+  --card-foreground: #f7f6f4;
+  --popover: #17171b;
+  --popover-foreground: #f7f6f4;
+  --primary: #d9a441;
+  --primary-foreground: #0a0a0b;
+  --secondary: #201f1c;
+  --secondary-foreground: #eae8e3;
+  --muted: #17171b;
+  --muted-foreground: #a8a49a;
+  --accent: #201f1c;
+  --accent-foreground: #f7f6f4;
+  --destructive: #e0454b;
+  --border: #2a2926;
+  --input: #2a2926;
+  --ring: #d9a441;
   --radius: 0.625rem;
 }
 
