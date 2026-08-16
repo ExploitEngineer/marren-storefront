@@ -4,10 +4,10 @@
   "private": true,
   "packageManager": "pnpm@11.2.2",
   "scripts": {
-    "dev": "pnpm --filter framies dev",
+    "dev": "pnpm -r --parallel dev",
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
-    "start": "pnpm --filter framies start",
+    "start": "pnpm -r --parallel start",
     "dev:framies": "pnpm --filter framies dev",
     "dev:aurora": "pnpm --filter aurora dev",
     "build:framies": "pnpm --filter framies build",
