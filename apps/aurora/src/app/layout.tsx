@@ -5,6 +5,7 @@ import "./globals.css";
 import { CartProvider } from "@/components/cart/cart-provider";
 import { SmoothScroll } from "@/components/motion/smooth-scroll";
 import { Intro } from "@/components/motion/intro";
+import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import { Toaster } from "@/components/ui/sonner";
 import { site } from "@/content/site";
 import { organizationJsonLd } from "@/lib/seo";
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SmoothScroll />
         <Intro />
         <CartProvider>{children}</CartProvider>
+        <WhatsAppButton />
         <Toaster position="bottom-right" toastOptions={{ className: "font-sans" }} />
         <Script
           id="org-jsonld"
