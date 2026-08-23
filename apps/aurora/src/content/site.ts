@@ -28,8 +28,8 @@ export const site = {
     // Placeholder - replace with real studio details.
     address: "Workshop 4, Mill Road",
     city: "Sialkot",
-    phone: "(0300) 555-0142",
-    phoneHref: "tel:+923005550142",
+    phone: "0310 2893938",
+    phoneHref: "tel:+923102893938",
     email: "hello@decorhbx.com",
     emailHref: "mailto:hello@decorhbx.com",
     hours: "Mon-Sat, 10am-7pm",
@@ -38,7 +38,7 @@ export const site = {
   socials: [
     { label: "TikTok", href: "https://www.tiktok.com/@decor.hbx?_r=1&_t=ZS-98csz6io7gQ" },
     { label: "Instagram", href: "https://www.instagram.com/decore.hbx?igsh=NmIyZ2hzMDd0NnM4" },
-    { label: "WhatsApp", href: "https://wa.me/923005550142" },
+    { label: "WhatsApp", href: "https://wa.me/923102893938" },
   ] satisfies SocialLink[],
 } as const;
 
