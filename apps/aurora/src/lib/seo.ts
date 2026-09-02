@@ -56,7 +56,7 @@ export function organizationJsonLd() {
       "@type": "PostalAddress",
       streetAddress: site.contact.address,
       addressLocality: site.contact.city,
-      addressCountry: "US",
+      addressCountry: site.countryCode,
     },
     sameAs: site.socials.map((s) => s.href),
   };
@@ -65,7 +65,6 @@ export function organizationJsonLd() {
 interface ItemListEntry {
   name: string;
   slug: string;
-  priceFrom: number;
 }
 
 /** ItemList JSON-LD for a product listing (Shop / collection). */
@@ -88,10 +87,14 @@ interface ProductLd {
   name: string;
   slug: string;
   description: string;
-  priceFrom: number;
+  /** The product's price ladder, in paisa. */
+  variants: readonly { size: string; price: number }[];
   image: string;
   material: string;
 }
+
+/** Paisa to the major-unit decimal string schema.org expects. */
+const ld = (paisa: number) => (paisa / 100).toFixed(2);
 
 /** Product JSON-LD with an offer, for a PDP. */
 export function productJsonLd(p: ProductLd) {
@@ -104,9 +107,12 @@ export function productJsonLd(p: ProductLd) {
     material: p.material,
     brand: { "@type": "Brand", name: site.name },
     offers: {
-      "@type": "Offer",
+      // AggregateOffer, because a piece is sold in several sizes at several prices.
+      "@type": "AggregateOffer",
       priceCurrency: site.currency,
-      price: (p.priceFrom / 100).toFixed(2),
+      lowPrice: ld(Math.min(...p.variants.map((v) => v.price))),
+      highPrice: ld(Math.max(...p.variants.map((v) => v.price))),
+      offerCount: p.variants.length,
       availability: "https://schema.org/InStock",
       url: `${baseUrl}/products/${p.slug}`,
     },

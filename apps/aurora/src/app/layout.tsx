@@ -34,7 +34,6 @@ export const metadata: Metadata = {
   },
   description: site.description,
   applicationName: site.name,
-  keywords: ["metal wall art", "LED wall art", "wall clocks", "backlit signs", "car metal art", "sports LED art", "custom wall decor"],
   openGraph: {
     type: "website",
     siteName: site.name,
@@ -42,7 +41,7 @@ export const metadata: Metadata = {
     description: site.description,
     url: site.url,
     locale: site.locale,
-    images: [{ url: "/images/product.jpeg", width: 680, height: 540, alt: "Decor.HBX metal and LED wall art" }],
+    images: [{ url: "/images/product.jpeg", width: 1200, height: 630, alt: "Decor.HBX metal and LED wall art" }],
   },
   twitter: {
     card: "summary_large_image",
@@ -66,7 +65,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         />
         <a
           href="#content"
-          className="sr-only z-[100] rounded-md bg-race-500 px-4 py-2 text-sm font-medium text-carbon-950 focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
+          className="sr-only z-[100] rounded-md bg-gold-500 px-4 py-2 text-sm font-medium text-carbon-950 focus:not-sr-only focus:fixed focus:top-3 focus:left-3"
         >
           Skip to content
         </a>
@@ -74,11 +73,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Intro />
         <CartProvider>{children}</CartProvider>
         <WhatsAppButton />
-        <Toaster position="bottom-right" toastOptions={{ className: "font-sans" }} />
+        <Toaster position="top-right" toastOptions={{ className: "font-sans" }} />
         <Script
           id="org-jsonld"
           type="application/ld+json"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
         />
       </body>

@@ -10,6 +10,9 @@ import { PdpPurchase } from "@/components/shop/pdp-purchase";
 import { products, getProduct, relatedProducts } from "@/content/products";
 import { materialMeta, getCollection } from "@/content/collections";
 import { pageMetadata, productJsonLd, breadcrumbJsonLd, jsonLdScript } from "@/lib/seo";
+import { sizesOf } from "@/lib/pricing";
+import { formatPrice } from "@/lib/format";
+import { site } from "@/content/site";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -37,12 +40,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const related = relatedProducts(product, 4);
 
   const details = [
-    { label: "Marque", value: material.label },
+    { label: "Category", value: material.label },
     { label: "Presentation", value: product.style },
-    { label: "Frame", value: product.finish },
-    { label: "Glazing", value: "Low-glare glass front" },
-    { label: "Hanging", value: "Hardware attached, ready to hang" },
-    { label: "Sizes", value: product.sizes.join(", ") },
+    { label: "Finish", value: product.finish },
+    { label: "Mounting", value: "Hardware attached, ready to hang" },
+    { label: "Sizes", value: sizesOf(product).join(", ") },
   ];
 
   return (
@@ -50,11 +52,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <Section tone="base" size="sm">
         <Container>
           <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-sm text-carbon-400">
-            <Link href="/shop" className="transition-colors hover:text-race-500">Shop</Link>
+            <Link href="/shop" className="transition-colors hover:text-gold-500">Shop</Link>
             <span aria-hidden>/</span>
             {collection && (
               <>
-                <Link href={`/shop/${collection.slug}`} className="transition-colors hover:text-race-500">
+                <Link href={`/shop/${collection.slug}`} className="transition-colors hover:text-gold-500">
                   {collection.name}
                 </Link>
                 <span aria-hidden>/</span>
@@ -65,12 +67,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
             {/* Visual */}
-            <div className="lg:sticky lg:top-24 lg:self-start">
+            <div className="lg:sticky lg:top-20 lg:self-start">
               <div className="mx-auto max-w-md bg-carbon-900/50 p-6 sm:p-10">
                 <Frame
                   material={product.material}
                   src={product.art}
-                  alt={`${product.name}, a framed ${material.label} die-cast build`}
+                  alt={`${product.name}, a finished ${material.label.toLowerCase()} piece on a wall`}
                   ratio="4/5"
                   weight="lg"
                   priority
@@ -97,14 +99,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             {/* Detail */}
             <div>
               {product.badges?.[0] && (
-                <span className="text-eyebrow text-race-500">{product.badges[0]}</span>
+                <span className="text-eyebrow text-gold-500">{product.badges[0]}</span>
               )}
               <h1 className="mt-2 font-heading text-[clamp(2rem,1.6rem+1.8vw,2.75rem)] leading-[1.05] font-medium tracking-[-0.015em] text-carbon-50">
                 {product.name}
               </h1>
-              <p className="mt-3 text-2xl font-medium tabular-nums text-carbon-50">
-                from ${(product.priceFrom / 100).toFixed(0)}
-              </p>
               <p className="measure mt-5 text-lg leading-relaxed text-carbon-200">{product.description}</p>
 
               <PdpPurchase product={product} />
@@ -119,7 +118,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
               </dl>
 
               <p className="mt-6 text-sm leading-relaxed text-carbon-300">
-                Free shipping over $75 and a 30-day return window. Every frame is covered for life against defects.
+                Free shipping over {formatPrice(site.freeShippingThreshold)} and a 30-day return window. Every piece is covered for life against defects.
               </p>
             </div>
           </div>
@@ -142,7 +141,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             name: product.name,
             slug: product.slug,
             description: product.description,
-            priceFrom: product.priceFrom,
+            variants: product.variants,
             image: product.art,
             material: material.label,
           }),

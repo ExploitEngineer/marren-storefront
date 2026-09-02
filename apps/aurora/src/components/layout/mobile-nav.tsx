@@ -27,8 +27,9 @@ export function MobileNav() {
       </SheetTrigger>
       <SheetContent data-lenis-prevent side="right" className="w-[min(20rem,86vw)] border-carbon-800 bg-background p-0">
         <SheetHeader className="border-b border-carbon-800 p-5">
-          <SheetTitle className="text-left">
+          <SheetTitle className="flex items-center gap-2 text-left">
             <Logo />
+            <span className="sr-only">Decor.HBX menu</span>
           </SheetTitle>
         </SheetHeader>
         <nav className="flex flex-col p-3" aria-label="Mobile">
@@ -42,7 +43,7 @@ export function MobileNav() {
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "rounded-lg px-4 py-3 font-heading text-xl text-carbon-50 transition-colors hover:bg-carbon-900",
-                  active && "text-race-500",
+                  active && "text-gold-500",
                 )}
               >
                 {link.label}
@@ -53,7 +54,7 @@ export function MobileNav() {
         <div className="mt-auto border-t border-carbon-800 p-5">
           <Button asChild size="lg" className="w-full">
             <Link href="/shop" onClick={() => setOpen(false)}>
-              Shop builds
+              Shop the range
             </Link>
           </Button>
         </div>

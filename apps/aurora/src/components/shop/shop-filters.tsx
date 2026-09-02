@@ -2,13 +2,13 @@
 
 import { useCallback } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { X } from "lucide-react";
+import { ChevronDown, X } from "lucide-react";
 import { materialMeta, type Material } from "@/content/collections";
-import type { FrameSize, FrameStyle } from "@/content/products";
+import type { FrameStyle } from "@/content/products";
+import type { SizeFacets } from "@/lib/shop";
 import { cn } from "@/lib/utils";
 
 const materials = Object.keys(materialMeta) as Material[];
-const sizes: FrameSize[] = ["40 cm", "60 cm", "80 cm"];
 const styles: FrameStyle[] = ["Backlit LED", "Metal Cut", "Vinyl Clock", "Steel Clock", "Custom"];
 const sorts = [
   { value: "featured", label: "Featured" },
@@ -24,10 +24,10 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
       onClick={onClick}
       aria-pressed={active}
       className={cn(
-        "rounded-full border px-3.5 py-1.5 text-sm transition-colors",
+        "rounded-full border px-3.5 py-1.5 text-sm transition-colors duration-200",
         active
-          ? "border-race-500 bg-race-500 text-primary-foreground"
-          : "border-carbon-700 bg-carbon-850 text-carbon-200 hover:border-carbon-600 hover:text-carbon-50",
+          ? "border-gold-500 bg-gold-500 text-primary-foreground hover:border-gold-400 hover:bg-gold-400"
+          : "border-carbon-700 bg-carbon-850 text-carbon-200 hover:border-carbon-500 hover:bg-carbon-800 hover:text-carbon-50",
       )}
     >
       {children}
@@ -35,7 +35,7 @@ function Chip({ active, onClick, children }: { active: boolean; onClick: () => v
   );
 }
 
-export function ShopFilters() {
+export function ShopFilters({ sizes }: { sizes: SizeFacets }) {
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
@@ -71,12 +71,24 @@ export function ShopFilters() {
 
       <FilterGroup label="Size">
         <div className="flex flex-wrap gap-2">
-          {sizes.map((s) => (
+          {sizes.rect.map((s) => (
             <Chip key={s} active={size === s} onClick={() => setParam("size", s)}>
               {s}
             </Chip>
           ))}
         </div>
+        {sizes.round.length > 0 && (
+          <>
+            <p className="mt-4 mb-2 text-xs text-carbon-400">Clocks (diameter)</p>
+            <div className="flex flex-wrap gap-2">
+              {sizes.round.map((s) => (
+                <Chip key={s} active={size === s} onClick={() => setParam("size", s)}>
+                  {s}
+                </Chip>
+              ))}
+            </div>
+          </>
+        )}
       </FilterGroup>
 
       <FilterGroup label="Style">
@@ -89,25 +101,31 @@ export function ShopFilters() {
         </div>
       </FilterGroup>
 
-      <FilterGroup label="Sort">
-        <select
-          value={sort}
-          onChange={(e) => setParam("sort", e.target.value === "featured" ? null : e.target.value)}
-          className="w-full rounded-[10px] border border-carbon-700 bg-carbon-850 px-3.5 py-2.5 text-sm text-carbon-50 focus:border-race-500 focus:ring-2 focus:ring-ring/30 focus:outline-none"
-        >
-          {sorts.map((s) => (
-            <option key={s.value} value={s.value}>
-              {s.label}
-            </option>
-          ))}
-        </select>
+      <FilterGroup label="Sort" htmlFor="shop-sort">
+        <div className="relative">
+          <select
+            id="shop-sort"
+            value={sort}
+            onChange={(e) => setParam("sort", e.target.value === "featured" ? null : e.target.value)}
+            className="w-full appearance-none rounded-full border border-carbon-700 bg-carbon-850 py-1.5 pr-9 pl-3.5 text-sm text-carbon-200 transition-colors duration-200 hover:border-carbon-500 hover:bg-carbon-800 hover:text-carbon-50"
+          >
+            {sorts.map((s) => (
+              // Colours the OS-drawn popup, which otherwise renders as a light
+              // system menu on a near-black page.
+              <option key={s.value} value={s.value} className="bg-carbon-850 text-carbon-50">
+                {s.label}
+              </option>
+            ))}
+          </select>
+          <ChevronDown aria-hidden className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2 text-carbon-400" />
+        </div>
       </FilterGroup>
 
       {hasFilters && (
         <button
           type="button"
           onClick={() => router.replace(pathname, { scroll: false })}
-          className="inline-flex items-center gap-1.5 text-sm text-carbon-300 underline underline-offset-4 transition-colors hover:text-race-500"
+          className="inline-flex items-center gap-1.5 text-sm text-carbon-300 underline underline-offset-4 transition-colors duration-200 hover:text-gold-500"
         >
           <X className="size-3.5" />
           Clear filters
@@ -117,10 +135,17 @@ export function ShopFilters() {
   );
 }
 
-function FilterGroup({ label, children }: { label: string; children: React.ReactNode }) {
+function FilterGroup({ label, htmlFor, children }: { label: string; htmlFor?: string; children: React.ReactNode }) {
+  // h2, not h3: the page heading is an h1 and there is nothing in between.
   return (
     <div>
-      <h3 className="mb-3 text-xs font-semibold tracking-[0.12em] text-carbon-400 uppercase">{label}</h3>
+      {htmlFor ? (
+        <label htmlFor={htmlFor} className="mb-3 block text-xs font-semibold tracking-[0.12em] text-carbon-400 uppercase">
+          {label}
+        </label>
+      ) : (
+        <h2 className="mb-3 text-xs font-semibold tracking-[0.12em] text-carbon-400 uppercase">{label}</h2>
+      )}
       {children}
     </div>
   );

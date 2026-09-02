@@ -1,20 +1,22 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-/** Decor.HBX brand mark - the circular logo badge. `mark` kept for API compatibility. */
-export function Logo({ className, mark = true }: { className?: string; mark?: boolean }) {
-  void mark;
+/**
+ * Decor.HBX brand mark - the circular logo badge.
+ * Decorative: every caller wraps it in a link that carries the accessible name,
+ * so an alt and an sr-only span here would announce the brand three times.
+ */
+export function Logo({ className }: { className?: string }) {
   return (
     <span className={cn("inline-flex items-center", className)}>
       <Image
         src="/images/logo.jpeg"
-        alt="Decor.HBX"
+        alt=""
         width={48}
         height={48}
         priority
-        className="h-10 w-10 rounded-full object-cover ring-1 ring-race-500/30"
+        className="h-10 w-10 rounded-full object-cover ring-1 ring-gold-500/30"
       />
-      <span className="sr-only">Decor.HBX</span>
     </span>
   );
 }

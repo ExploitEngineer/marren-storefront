@@ -21,7 +21,7 @@ export function AddSetButton({
     <Button
       type="button"
       className={className}
-      onClick={() => add({ id, name, size: `Set of ${frameCount}`, price })}
+      onClick={() => add({ kind: "set", id, name, size: `Set of ${frameCount}`, price })}
     >
       Add the set
     </Button>

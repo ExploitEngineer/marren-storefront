@@ -24,19 +24,16 @@
   --color-carbon-950: #0a0a0b;
   --color-ink: #0a0a0b;
 
-  /* Primary accent - Gold (Decor.HBX brand mark). Kept under the "race-*"
-     utility names so every accent class re-skins in one place. */
-  --color-race-50: #fbf3dd;
-  --color-race-100: #f6e4b3;
-  --color-race-300: #f0cd76;
-  --color-race-400: #e8b74f;
-  --color-race-500: #d9a441;
-  --color-race-600: #b8862a;
-  --color-race-700: #8f6820;
-
-  /* Secondary accent - Brand red (used sparingly: promo bar, small marks) */
-  --color-steel-400: #e0454b;
-  --color-steel-500: #c0181f;
+  /* Primary accent - Gold (Decor.HBX brand mark). Named for the colour it is:
+     the ramp used to sit under "race-*" from the Framies fork, which hid four
+     raw racing-red literals from every search for red. */
+  --color-gold-50: #fbf3dd;
+  --color-gold-100: #f6e4b3;
+  --color-gold-300: #f0cd76;
+  --color-gold-400: #e8b74f;
+  --color-gold-500: #d9a441;
+  --color-gold-600: #b8862a;
+  --color-gold-700: #8f6820;
 
   /* Typography */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -48,7 +45,7 @@
   --shadow-md: 0 12px 32px -12px rgba(0, 0, 0, 0.55);
   --shadow-lg: 0 26px 64px -24px rgba(0, 0, 0, 0.65);
   --shadow-xl: 0 34px 84px -28px rgba(0, 0, 0, 0.72);
-  --glow-race: 0 0 40px -8px rgba(217, 164, 65, 0.5);
+  --glow-gold: 0 0 40px -8px rgba(217, 164, 65, 0.5);
 
   /* Easing */
   --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
@@ -142,9 +139,10 @@
     border-radius: 3px;
   }
 
+  /* Near-black on gold, 9.4:1. White on gold was 2.25:1 and barely legible. */
   ::selection {
-    background: var(--color-race-500);
-    color: #fff;
+    background: var(--color-gold-500);
+    color: var(--color-carbon-950);
   }
 
   /* Fluid, rhythmic section spacing */
@@ -236,7 +234,8 @@
   .marquee-track {
     animation: aurora-marquee 38s linear infinite;
   }
-  .marquee-track:hover {
+  .marquee-track:hover,
+  .marquee-track:focus-within {
     animation-play-state: paused;
   }
   @media (prefers-reduced-motion: reduce) {

@@ -10,11 +10,11 @@ export function Footer() {
           {/* Brand + newsletter */}
           <div className="max-w-sm">
             <span className="inline-flex items-center gap-2.5 font-heading text-2xl font-semibold tracking-[-0.02em] text-carbon-50">
-              <span aria-hidden className="size-3 rounded-[3px] bg-race-400" />
+              <span aria-hidden className="size-3 rounded-[3px] bg-gold-400" />
               Decor.HBX
             </span>
             <p className="mt-4 text-sm leading-relaxed text-carbon-100/70">
-              Hand-built die-cast car frames, shipped ready to hang. Get 10% off your first build.
+              Hand-finished metal and LED wall art, shipped ready to hang. Get 10% off your first piece.
             </p>
             <NewsletterForm />
           </div>
@@ -22,7 +22,7 @@ export function Footer() {
           {/* Link columns */}
           {footerNav.map((col) => (
             <nav key={col.title} aria-label={col.title}>
-              <h2 className="font-sans text-xs font-semibold tracking-[0.14em] text-carbon-100/50 uppercase">{col.title}</h2>
+              <h2 className="font-sans text-xs font-semibold tracking-[0.14em] text-carbon-100/70 uppercase">{col.title}</h2>
               <ul className="mt-4 space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
@@ -46,11 +46,11 @@ export function Footer() {
           </div>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             {legalNav.map((l) => (
-              <Link key={l.label} href={l.href} className="text-xs text-carbon-100/55 transition-colors hover:text-carbon-100">
+              <Link key={l.label} href={l.href} className="text-xs text-carbon-100/75 transition-colors hover:text-carbon-100">
                 {l.label}
               </Link>
             ))}
-            <p className="text-xs text-carbon-100/45">© {new Date().getFullYear()} Decor.HBX</p>
+            <p className="text-xs text-carbon-100/70">© {new Date().getFullYear()} Decor.HBX</p>
           </div>
         </div>
       </div>

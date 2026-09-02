@@ -5,6 +5,8 @@ import { Frame } from "@/components/brand/frame";
 import { Magnetic } from "@/components/motion/magnetic";
 import { Parallax } from "@/components/motion/parallax";
 import { DrawUnderline } from "@/components/motion/draw";
+import { formatPrice } from "@/lib/format";
+import { site } from "@/content/site";
 
 export function Hero() {
   return (
@@ -15,14 +17,14 @@ export function Hero() {
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "radial-gradient(120% 80% at 88% -8%, rgba(217,164,65,0.14), transparent 55%), radial-gradient(90% 70% at -5% 0%, rgba(192,24,31,0.08), transparent 52%)",
+            "radial-gradient(120% 80% at 88% -8%, rgba(217,164,65,0.14), transparent 55%), radial-gradient(90% 70% at -5% 0%, rgba(184,134,42,0.10), transparent 52%)",
         }}
       />
       <Container className="relative grid items-center gap-12 py-16 sm:py-20 lg:grid-cols-[1.05fr_1fr] lg:gap-16 lg:py-28">
         {/* Copy */}
         <div className="max-w-xl">
-          <p className="rise flex items-center gap-3 text-eyebrow text-race-500" style={{ ["--rise-delay" as string]: "0ms" }}>
-            <span aria-hidden className="h-px w-8 bg-race-300" />
+          <p className="rise flex items-center gap-3 text-eyebrow text-gold-500" style={{ ["--rise-delay" as string]: "0ms" }}>
+            <span aria-hidden className="h-px w-8 bg-gold-300" />
             Hand-finished, ready to hang
           </p>
           <h1
@@ -52,7 +54,7 @@ export function Hero() {
             </Button>
           </div>
           <p className="rise mt-6 text-sm text-carbon-400" style={{ ["--rise-delay" as string]: "300ms" }}>
-            Free shipping over $75 · Lifetime guarantee
+            Free shipping over {formatPrice(site.freeShippingThreshold)} · Lifetime guarantee
           </p>
         </div>
 
@@ -66,18 +68,18 @@ export function Hero() {
           <div className="mx-auto grid max-w-lg grid-cols-2 gap-5 sm:gap-6 lg:max-w-none">
             <Parallax offset={26} className="flex flex-col gap-5 pt-12 sm:gap-6">
               <div style={{ rotate: "-1.6deg" }}>
-                <Frame material="clocks" src="/images/products/decor-01.jpeg" alt="Aurelia gold wall clock" ratio="3/4" weight="lg" interactive priority sizes="(max-width:1024px) 46vw, 26vw" />
+                <Frame material="clocks" src="/images/products/decor-01.jpeg" alt="Aurelia gold wall clock" ratio="3/4" weight="lg" priority sizes="(max-width:1024px) 46vw, 26vw" />
               </div>
               <div style={{ rotate: "2deg" }}>
-                <Frame material="sports" src="/images/products/decor-13.jpeg" alt="Mbappe LED ring wall art" ratio="1/1" weight="sm" interactive sizes="(max-width:1024px) 42vw, 22vw" />
+                <Frame material="sports" src="/images/products/decor-13.jpeg" alt="Mbappe LED ring wall art" ratio="1/1" weight="sm" sizes="(max-width:1024px) 42vw, 22vw" />
               </div>
             </Parallax>
             <Parallax offset={-16} className="flex flex-col gap-5 sm:gap-6">
               <div style={{ rotate: "1.4deg" }}>
-                <Frame material="cars" src="/images/product.jpeg" alt="BMW M4 LED wall art" ratio="4/5" interactive priority sizes="(max-width:1024px) 42vw, 24vw" />
+                <Frame material="cars" src="/images/product.jpeg" alt="BMW M4 LED wall art" ratio="4/5" priority sizes="(max-width:1024px) 42vw, 24vw" />
               </div>
               <div style={{ rotate: "-1.2deg" }}>
-                <Frame material="led" src="/images/products/decor-16.jpeg" alt="Galloping horse LED wall art" ratio="4/5" interactive sizes="(max-width:1024px) 42vw, 24vw" />
+                <Frame material="led" src="/images/products/decor-16.jpeg" alt="Galloping horse LED wall art" ratio="4/5" sizes="(max-width:1024px) 42vw, 24vw" />
               </div>
             </Parallax>
           </div>

@@ -10,13 +10,13 @@ export function CustomerGallery() {
       <Container>
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div className="max-w-xl">
-            <span className="text-eyebrow text-race-500">Customer gallery</span>
+            <span className="text-eyebrow text-gold-500">Customer gallery</span>
             <h2 className="mt-3 font-heading text-[clamp(1.75rem,1.4rem+1.6vw,2.5rem)] leading-tight font-medium tracking-[-0.01em] text-carbon-50">
               On walls everywhere.
             </h2>
           </div>
           <p className="text-sm text-carbon-300">
-            Tag <span className="font-medium text-race-400">@aurora</span> to be featured.
+            Tag <span className="font-medium text-gold-400">@decore.hbx</span> to be featured.
           </p>
         </div>
 

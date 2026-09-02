@@ -17,7 +17,7 @@ function Header() {
     <Container>
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="max-w-xl">
-          <span className="text-eyebrow text-race-500">The collection</span>
+          <span className="text-eyebrow text-gold-500">The collection</span>
           <h2 className="mt-3 font-heading text-[clamp(1.75rem,1.4rem+1.6vw,2.5rem)] leading-tight font-medium tracking-[-0.01em] text-carbon-50">
             Featured pieces.
           </h2>
@@ -27,7 +27,7 @@ function Header() {
         </div>
         <Link
           href="/shop"
-          className="group inline-flex items-center gap-2 font-medium text-race-400 transition-colors hover:text-race-300"
+          className="group inline-flex items-center gap-2 font-medium text-gold-400 transition-colors hover:text-gold-300"
         >
           View all pieces
           <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />

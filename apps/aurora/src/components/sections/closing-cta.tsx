@@ -14,9 +14,9 @@ interface ClosingCtaProps {
 }
 
 export function ClosingCta({
-  heading = "Your garage wall is waiting.",
+  heading = "Your wall is waiting.",
   sub,
-  ctaLabel = "Shop builds",
+  ctaLabel = "Shop the range",
   ctaHref = "/shop",
 }: ClosingCtaProps) {
   return (
@@ -24,11 +24,11 @@ export function ClosingCta({
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
-        style={{ background: "radial-gradient(80% 120% at 50% 0%, rgba(225,6,0,0.20), transparent 60%)" }}
+        style={{ background: "radial-gradient(80% 120% at 50% 0%, rgba(217,164,65,0.16), transparent 60%)" }}
       />
       <Container className="relative text-center">
         <Reveal y={20}>
-          <DrawSVG viewBox="0 0 40 40" delay={120} className="mx-auto mb-6 h-9 w-9 text-race-400">
+          <DrawSVG viewBox="0 0 40 40" delay={120} className="mx-auto mb-6 h-9 w-9 text-gold-400">
             <path className="draw" pathLength={1} d="M4 4 H36 V36 H4 Z" stroke="currentColor" strokeWidth={2} strokeLinejoin="round" />
             <path className="draw" pathLength={1} d="M12 12 H28 V28 H12 Z" stroke="currentColor" strokeWidth={1} strokeLinejoin="round" style={{ ["--draw-delay" as string]: "360ms" }} />
           </DrawSVG>

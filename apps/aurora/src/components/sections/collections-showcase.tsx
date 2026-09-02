@@ -7,6 +7,7 @@ import { Reveal } from "@/components/motion/reveal";
 import { DrawUnderline } from "@/components/motion/draw";
 import { collections } from "@/content/collections";
 import { formatPriceFrom } from "@/lib/format";
+import { collectionPriceFrom } from "@/lib/shop";
 
 const tileArt: Record<string, string> = {
   clocks: "/images/products/decor-01.jpeg",
@@ -35,7 +36,7 @@ export function CollectionsShowcase() {
           </div>
           <Link
             href="/shop"
-            className="group inline-flex items-center gap-2 text-sm font-medium text-race-500 transition-colors hover:text-race-500"
+            className="group inline-flex items-center gap-2 text-sm font-medium text-gold-500 transition-colors duration-200 hover:text-gold-400"
           >
             See everything
             <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" />
@@ -54,11 +55,13 @@ export function CollectionsShowcase() {
                   interactive
                   sizes="(max-width: 640px) 45vw, (max-width: 1024px) 45vw, 22vw"
                 />
-                <div className="mt-4 flex items-baseline justify-between gap-2">
-                  <h3 className="font-heading text-xl font-medium text-carbon-50 transition-colors group-hover:text-race-500">
+                <div className="mt-4 flex items-start justify-between gap-2">
+                  <h3 className="font-heading text-xl font-medium text-carbon-50 transition-colors duration-200 group-hover:text-gold-500">
                     {collection.name}
                   </h3>
-                  <span className="shrink-0 text-sm tabular-nums text-carbon-300">{formatPriceFrom(collection.priceFrom)}</span>
+                  <span className="shrink-0 pt-1 text-sm tabular-nums text-carbon-300">
+                    {formatPriceFrom(collectionPriceFrom(collection.material))}
+                  </span>
                 </div>
                 <p className="mt-1 text-sm text-carbon-300">{collection.tagline}</p>
               </Link>
