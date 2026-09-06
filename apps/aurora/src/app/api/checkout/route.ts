@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type Stripe from "stripe";
 import { checkoutRequestSchema } from "@/lib/checkout-schema";
 import { getStripe } from "@/lib/stripe";
-import { siteOrigin } from "@/lib/env";
+import { ConfigError, siteOrigin } from "@/lib/env";
 import { STRIPE_CURRENCY } from "@/lib/money";
 import { getProductById } from "@/content/products";
 import { getGallerySetById } from "@/content/gallery-sets";
@@ -147,6 +147,27 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, url: session.url });
   } catch (error) {
     console.error("[checkout] session create failed", error);
-    return NextResponse.json({ ok: false, error: "Could not start checkout. Please try again." }, { status: 502 });
+
+    // Server misconfiguration, not a buyer problem. The reason names the
+    // variable but never its value, so it is safe to return.
+    if (error instanceof ConfigError) {
+      return NextResponse.json(
+        { ok: false, code: "config", error: "Payments are not configured yet.", reason: error.message },
+        { status: 503 },
+      );
+    }
+
+    const type = (error as { type?: string })?.type;
+    if (type === "StripeAuthenticationError") {
+      return NextResponse.json(
+        { ok: false, code: "stripe_auth", error: "Payments are not configured yet.", reason: "Stripe rejected the API key." },
+        { status: 503 },
+      );
+    }
+
+    return NextResponse.json(
+      { ok: false, code: "stripe", error: "Could not start checkout. Please try again.", reason: type ?? "unknown" },
+      { status: 502 },
+    );
   }
 }
