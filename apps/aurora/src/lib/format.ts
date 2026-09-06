@@ -1,13 +1,17 @@
-/** Money is stored as integer cents throughout; format at the edge. */
+/** Money is stored as integer paisa throughout; format at the edge. */
 
-export function formatPrice(cents: number, currency = "USD"): string {
-  return new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency,
-    minimumFractionDigits: cents % 100 === 0 ? 0 : 2,
-  }).format(cents / 100);
+/**
+ * Deliberately not `style: "currency"`. The PKR symbol ICU emits differs
+ * between the Node build on Vercel and the browser's own ICU, which shows up
+ * as a hydration mismatch on a price. Format the number only and prefix a
+ * literal "Rs".
+ */
+const nf = new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 });
+
+export function formatPrice(paisa: number): string {
+  return `Rs ${nf.format(Math.round(paisa / 100))}`;
 }
 
-export function formatPriceFrom(cents: number, currency = "USD"): string {
-  return `from ${formatPrice(cents, currency)}`;
+export function formatPriceFrom(paisa: number): string {
+  return `from ${formatPrice(paisa)}`;
 }

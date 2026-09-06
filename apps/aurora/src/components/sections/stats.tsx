@@ -16,12 +16,8 @@ function Counter({ stat }: { stat: Stat }) {
 
   useEffect(() => {
     if (!shown) return;
-    if (reduce) {
-      setDisplay(stat.value);
-      return;
-    }
-    const controls = animate(0, stat.value, {
-      duration: 1.6,
+    const controls = animate(reduce ? stat.value : 0, stat.value, {
+      duration: reduce ? 0 : 1.6,
       ease: easeOutExpo,
       onUpdate: (v) => setDisplay(v),
     });
@@ -55,7 +51,7 @@ export function Stats() {
                   <Counter stat={stat} />
                 </span>
                 <span className="mt-3 flex items-center justify-center gap-2 text-sm text-carbon-300 lg:justify-start">
-                  <span aria-hidden className="h-px w-5 bg-race-500" />
+                  <span aria-hidden className="h-px w-5 bg-gold-500" />
                   {stat.label}
                 </span>
               </dd>

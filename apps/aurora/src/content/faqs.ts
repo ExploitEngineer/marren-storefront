@@ -6,27 +6,27 @@ export interface Faq {
 export const shopFaqs: Faq[] = [
   {
     q: "What size should I order?",
-    a: "A5 sits well on a desk or shelf, A4 is our most popular wall size, and A3 is the statement piece. Every listing shows the exact frame each build ships in.",
+    a: "12x16 in suits a desk nook or a narrow stretch of wall, 12x24 in is our most popular, and 16x24 in is the statement piece. Clocks are listed by diameter instead. Every listing shows the exact sizes that piece ships in.",
   },
   {
-    q: "Are the builds ready to hang?",
-    a: "Yes. Every frame ships with hanging hardware fitted, and every Garage Wall Set includes a paper template so the layout goes up straight the first time.",
+    q: "Are the pieces ready to hang?",
+    a: "Yes. Every piece ships with its hanging hardware fitted, and every wall set includes a paper template so the layout goes up straight the first time.",
   },
   {
-    q: "Are the cars real die-cast models?",
-    a: "The 3D builds use genuine metal die-cast models, hand-mounted over a printed backdrop and spec plate. Poster builds are flat prints of the same cars, framed thin.",
+    q: "What are they actually made of?",
+    a: "Steel or laser-cut acrylic, deburred and hand-finished in our Sialkot workshop. Backlit pieces carry a warm-white or coloured LED halo on a standard plug.",
   },
   {
-    q: "Can I request a specific car?",
-    a: "Often, yes. If you want a marque or model you don't see listed, message us on WhatsApp or Instagram and we'll tell you what we can source and build.",
+    q: "Can I request a custom design?",
+    a: "Often, yes. Send us your car, a crest, a name or an idea on WhatsApp or Instagram and we will tell you what we can cut.",
   },
   {
     q: "What is your return policy?",
-    a: "Thirty days, no fuss. Every frame carries a lifetime guarantee against manufacturing defects, so a wall you love stays that way.",
+    a: "Thirty days, no fuss. Every piece carries a lifetime guarantee against manufacturing defects, so a wall you love stays that way.",
   },
   {
     q: "How fast is shipping?",
-    a: "Most builds leave the workshop within two business days, and shipping is free on orders over $75.",
+    a: "Most pieces leave the workshop within two business days, and shipping is free on orders over Rs 7,500.",
   },
 ];
 
@@ -36,12 +36,12 @@ export const landingFaqs: Faq[] = [
     a: "Each set lists its total dimensions and comes with a paper template you can tape up to test the layout before you commit to a single nail.",
   },
   {
-    q: "What if a build arrives damaged?",
-    a: "We replace it, no questions asked, and every frame carries a lifetime guarantee against defects.",
+    q: "What if a piece arrives damaged?",
+    a: "We replace it, no questions asked, and every piece carries a lifetime guarantee against defects.",
   },
   {
-    q: "Can I add cars later?",
-    a: "Yes. Buy single builds anytime to extend the wall. The whole range is built to sit together.",
+    q: "Can I add pieces later?",
+    a: "Yes. Buy single pieces anytime to extend the wall. The whole range is made to sit together.",
   },
   {
     q: "How hard is the hanging?",

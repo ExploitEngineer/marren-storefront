@@ -9,12 +9,12 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground shadow-sm hover:bg-race-600 hover:shadow-md",
-        secondary: "border-carbon-700 bg-transparent text-carbon-50 hover:bg-carbon-900",
-        outline: "border-carbon-700 bg-carbon-850 text-carbon-50 hover:bg-carbon-900",
-        ghost: "text-carbon-50 hover:bg-carbon-900",
-        link: "rounded-none px-0 text-race-500 underline-offset-4 hover:text-race-500 hover:underline",
-        inverse: "bg-carbon-950 text-carbon-50 shadow-sm hover:bg-white",
+        default: "bg-primary text-primary-foreground shadow-sm hover:bg-gold-600 hover:shadow-md",
+        secondary: "border-carbon-700 bg-transparent text-carbon-50 hover:border-carbon-500 hover:bg-carbon-800",
+        outline: "border-carbon-700 bg-carbon-850 text-carbon-50 hover:border-carbon-500 hover:bg-carbon-800",
+        ghost: "text-carbon-50 hover:bg-carbon-800",
+        link: "rounded-none px-0 text-gold-500 underline-offset-4 hover:text-gold-400 hover:underline",
+        inverse: "bg-carbon-950 text-carbon-50 shadow-sm hover:bg-white hover:text-carbon-950",
         destructive: "bg-destructive text-white shadow-sm hover:bg-destructive/90",
       },
       size: {

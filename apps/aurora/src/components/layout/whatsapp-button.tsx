@@ -14,11 +14,11 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noreferrer"
       aria-label="Chat with us on WhatsApp"
-      className="group fixed right-5 bottom-5 z-[90] block sm:right-6 sm:bottom-6"
+      className="group fixed right-5 bottom-5 z-40 block sm:right-6 sm:bottom-6"
     >
       <span
         aria-hidden
-        className="absolute inset-0 rounded-full bg-[#25D366] opacity-60 motion-safe:animate-ping"
+        className="absolute inset-0 rounded-full bg-[#25D366] opacity-60"
       />
       <span className="relative grid size-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_10px_28px_-6px_rgba(0,0,0,0.5)] ring-1 ring-black/10 transition-transform duration-200 group-hover:scale-105 group-active:scale-95">
         <svg viewBox="0 0 24 24" fill="currentColor" className="size-7" aria-hidden>

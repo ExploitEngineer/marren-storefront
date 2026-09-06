@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Logo } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/layout/mobile-nav";
-import { CartSheet } from "@/components/cart/cart-sheet";
+import { CartButton } from "@/components/cart/cart-button";
 import { primaryNav } from "@/content/site";
 import { cn } from "@/lib/utils";
 
@@ -35,7 +35,7 @@ export function Header() {
           "transition-[height] duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
         )}
       >
-        <Link href="/" aria-label="Decor.HBX home" className="rounded-md">
+        <Link href="/" aria-label="Decor.HBX home" className="rounded-md transition-opacity duration-200 hover:opacity-80">
           <Logo />
         </Link>
 
@@ -49,20 +49,20 @@ export function Header() {
                 aria-current={active ? "page" : undefined}
                 className={cn(
                   "relative rounded-md px-3.5 py-2 text-sm font-medium text-carbon-200 transition-colors hover:text-carbon-50",
-                  active && "text-race-500",
+                  active && "text-gold-500",
                 )}
               >
                 {link.label}
-                {active && <span aria-hidden className="absolute inset-x-3.5 -bottom-0.5 h-px bg-race-500" />}
+                {active && <span aria-hidden className="absolute inset-x-3.5 -bottom-0.5 h-px bg-gold-500" />}
               </Link>
             );
           })}
         </nav>
 
         <div className="flex items-center gap-1 sm:gap-2">
-          <CartSheet />
+          <CartButton />
           <Button asChild className="hidden sm:inline-flex">
-            <Link href="/shop">Shop builds</Link>
+            <Link href="/shop">Shop the range</Link>
           </Button>
           <MobileNav />
         </div>

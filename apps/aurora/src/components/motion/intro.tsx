@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { easeOutExpo } from "@/lib/motion";
 
 /**
- * First-visit intro: twin headlight beams switch on across the dark, a race-red
+ * First-visit intro: twin beams switch on across the dark, a gold
  * accent streaks beneath them, and the "Decor.HBX" wordmark settles in before the
  * whole thing scales up and fades to reveal the site rendered underneath.
  *
@@ -76,11 +76,11 @@ export function Intro() {
             animate={{ scaleX: 1, opacity: 1 }}
             transition={{ duration: 0.6, ease: easeOutExpo, delay: 0.1 }}
           />
-          {/* race-red accent: streaks in from the left */}
+          {/* gold accent: streaks in from the left */}
           <motion.span
             aria-hidden
-            className="absolute top-1/2 left-0 mt-2 h-[2px] w-full origin-left rounded-full bg-gradient-to-r from-race-500 via-race-400 to-transparent"
-            style={{ boxShadow: "var(--glow-race)" }}
+            className="absolute top-1/2 left-0 mt-2 h-[2px] w-full origin-left rounded-full bg-gradient-to-r from-gold-500 via-gold-400 to-transparent"
+            style={{ boxShadow: "var(--glow-gold)" }}
             initial={{ scaleX: 0, opacity: 0 }}
             animate={{ scaleX: 1, opacity: 1 }}
             transition={{ duration: 0.5, ease: easeOutExpo, delay: 0.5 }}
@@ -96,12 +96,12 @@ export function Intro() {
         >
           <Image
             src="/images/logo.jpeg"
-            alt="Decor.HBX"
+            alt=""
             width={200}
             height={200}
             priority
             className="h-24 w-24 rounded-full object-cover"
-            style={{ boxShadow: "var(--glow-race)" }}
+            style={{ boxShadow: "var(--glow-gold)" }}
           />
         </motion.div>
       </motion.div>

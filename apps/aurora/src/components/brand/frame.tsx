@@ -11,13 +11,13 @@ interface FrameProps {
   ratio?: string;
   /** relative keyline + card weight */
   weight?: "sm" | "md" | "lg";
-  /** kept for API compatibility; ignored (photos are pre-framed). */
-  mat?: boolean;
   priority?: boolean;
   sizes?: string;
   className?: string;
   /** enable hover lift + subtle zoom (when inside an interactive card) */
   interactive?: boolean;
+  /** Overlays (badges, hover pills) that must travel with the hover transform. */
+  children?: React.ReactNode;
 }
 
 const weights = {
@@ -27,10 +27,10 @@ const weights = {
 };
 
 /**
- * A finished build shown as a glass-fronted display card: a slim dark keyline
+ * A finished piece shown as a glass-fronted display card: a slim dark keyline
  * echoing the real moulding, a soft glazing reflection, and a layered warm
  * shadow that lifts on hover. Because every product photo already contains its
- * own physical frame, this presentation stays deliberately minimal - it reads
+ * own physical mount, this presentation stays deliberately minimal - it reads
  * as the piece behind glass, not a frame around a frame.
  */
 export function Frame({
@@ -43,6 +43,7 @@ export function Frame({
   sizes = "(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 30vw",
   className,
   interactive = false,
+  children,
 }: FrameProps) {
   const m = materialMeta[material];
   const w = weights[weight];
@@ -62,7 +63,7 @@ export function Frame({
       className={cn(
         "group/frame relative ring-1 ring-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.45),0_9px_22px_-8px_rgba(0,0,0,0.6),0_26px_50px_-22px_rgba(0,0,0,0.55)]",
         interactive &&
-          "transition-[transform,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/frame:-translate-y-1.5 group-hover/frame:shadow-[0_2px_4px_rgba(0,0,0,0.5),0_18px_34px_-10px_rgba(0,0,0,0.6),0_40px_80px_-24px_rgba(225,6,0,0.28)] group-hover:-translate-y-1.5",
+          "transition-[transform,box-shadow] duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/frame:-translate-y-1.5 group-hover/frame:shadow-[0_2px_4px_rgba(0,0,0,0.5),0_18px_34px_-10px_rgba(0,0,0,0.6),0_40px_80px_-24px_rgba(217,164,65,0.28)] group-hover:-translate-y-1.5",
         className,
       )}
       style={{ borderRadius: w.radius }}
@@ -84,7 +85,7 @@ export function Frame({
             className={cn(
               "object-cover",
               interactive &&
-                "transition-transform duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/frame:scale-[1.045] group-hover:scale-[1.045]",
+                "transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/frame:scale-[1.045] group-hover:scale-[1.045]",
             )}
           />
           {/* glazing: soft diagonal reflection + faint top highlight */}
@@ -98,6 +99,7 @@ export function Frame({
           />
         </div>
       </div>
+      {children}
     </div>
   );
 }

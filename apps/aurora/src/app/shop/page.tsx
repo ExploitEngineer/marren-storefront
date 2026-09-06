@@ -3,12 +3,12 @@ import { Suspense } from "react";
 import { SiteShell } from "@/components/layout/site-shell";
 import { Section } from "@/components/layout/section";
 import { Container } from "@/components/layout/container";
-import { ShopFilters } from "@/components/shop/shop-filters";
+import { ShopFiltersPanel } from "@/components/shop/shop-filters-panel";
 import { ProductGrid } from "@/components/shop/product-grid";
 import { GallerySets } from "@/components/sections/gallery-sets";
 import { FaqSection } from "@/components/sections/faq";
 import { ClosingCta } from "@/components/sections/closing-cta";
-import { filterAndSortProducts, type ShopQuery } from "@/lib/shop";
+import { filterAndSortProducts, sizeFacets, type ShopQuery } from "@/lib/shop";
 import { products } from "@/content/products";
 import { shopFaqs } from "@/content/faqs";
 import { pageMetadata, itemListJsonLd, jsonLdScript } from "@/lib/seo";
@@ -50,9 +50,9 @@ export default async function ShopPage({
 
       <Section tone="base" size="sm" className="pt-0">
         <Container className="grid gap-10 lg:grid-cols-[15rem_1fr] lg:gap-14">
-          <aside className="lg:sticky lg:top-24 lg:self-start">
-            <Suspense fallback={<div className="h-72 animate-pulse rounded-xl bg-carbon-900" />}>
-              <ShopFilters />
+          <aside aria-label="Product filters" className="lg:sticky lg:top-20 lg:self-start">
+            <Suspense fallback={<div className="h-9 w-28 animate-pulse rounded-[10px] bg-carbon-900 lg:h-[26rem] lg:w-full" />}>
+              <ShopFiltersPanel sizes={sizeFacets()} />
             </Suspense>
           </aside>
 

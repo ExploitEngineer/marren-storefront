@@ -4,3 +4,20 @@ packages:
 allowBuilds:
   sharp: true
   unrs-resolver: true
+
+# Widened so Vercel resolves native binaries for its own platform as well as
+# local dev. pnpm 11 reads this here; the old package.json "pnpm" block was
+# silently ignored, which quietly disabled the fix it was added for.
+supportedArchitectures:
+  os:
+    - linux
+    - darwin
+    - current
+  cpu:
+    - x64
+    - arm64
+    - current
+  libc:
+    - glibc
+    - musl
+    - current

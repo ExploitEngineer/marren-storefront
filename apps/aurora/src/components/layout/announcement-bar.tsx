@@ -3,6 +3,8 @@
 import { useSyncExternalStore } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { X } from "lucide-react";
+import { formatPrice } from "@/lib/format";
+import { site } from "@/content/site";
 
 const STORAGE_KEY = "aurora.announce.dismissed.v1";
 const listeners = new Set<() => void>();
@@ -46,17 +48,17 @@ export function AnnouncementBar() {
           initial={false}
           exit={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
           transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
-          className="overflow-hidden bg-steel-500 text-white"
+          className="overflow-hidden bg-gold-500 text-carbon-950"
         >
-          <div className="relative mx-auto flex max-w-7xl items-center justify-center px-10 py-2.5">
-            <p className="text-center text-[0.8rem] font-medium tracking-wide text-white/95">
-              Free shipping over $75, and a lifetime guarantee on every build.
+          <div className="relative mx-auto flex max-w-7xl items-center justify-center py-2.5 pr-12 pl-4 sm:px-12">
+            <p className="text-center text-[0.8rem] font-medium tracking-wide text-carbon-950/90">
+              Free shipping over {formatPrice(site.freeShippingThreshold)}, and a lifetime guarantee on every piece.
             </p>
             <button
               type="button"
               onClick={dismiss}
               aria-label="Dismiss announcement"
-              className="absolute right-3 grid size-7 place-items-center rounded-md text-white/75 transition-colors hover:bg-white/15 hover:text-white"
+              className="absolute top-1/2 right-2 grid size-8 -translate-y-1/2 place-items-center rounded-md text-carbon-950/70 transition-colors hover:bg-carbon-950/12 hover:text-carbon-950"
             >
               <X className="size-4" />
             </button>

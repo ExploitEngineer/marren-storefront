@@ -1,5 +1,5 @@
 import { Frame } from "@/components/brand/frame";
-import type { Material } from "@/content/collections";
+import { materialMeta, type Material } from "@/content/collections";
 import { cn } from "@/lib/utils";
 
 const ratios = ["3/4", "1/1", "4/5", "4/3", "1/1", "3/4"];
@@ -34,7 +34,7 @@ export function GalleryWallArrangement({
               key={src + pi}
               material={material}
               src={src}
-              alt="Framed die-cast car build in a garage-wall arrangement"
+              alt={ci === 0 && pi === 0 ? `${materialMeta[material].label} wall set, arranged on a wall` : ""}
               ratio={ratios[(ci + pi * cols) % ratios.length]}
               weight={weight}
               sizes="(max-width: 640px) 30vw, (max-width: 1024px) 22vw, 16vw"

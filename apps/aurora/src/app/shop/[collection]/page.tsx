@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ collectio
   const collection = getCollection(slug);
   if (!collection) return {};
   return pageMetadata({
-    title: `${collection.name} frames`,
+    title: collection.name,
     description: collection.intro,
     path: `/shop/${collection.slug}`,
   });
@@ -39,9 +39,9 @@ export default async function CollectionPage({ params }: { params: Promise<{ col
       <Section tone="base" size="sm">
         <Container>
           <nav aria-label="Breadcrumb" className="mb-6">
-            <Link href="/shop" className="inline-flex items-center gap-1.5 text-sm text-carbon-300 transition-colors hover:text-race-500">
+            <Link href="/shop" className="inline-flex items-center gap-1.5 text-sm text-carbon-300 transition-colors hover:text-gold-500">
               <ArrowLeft className="size-4" />
-              All frames
+              All pieces
             </Link>
           </nav>
           <h1 className="font-heading text-[clamp(2.25rem,1.7rem+2.4vw,3.25rem)] leading-[1.05] font-medium tracking-[-0.015em] text-carbon-50">
@@ -58,7 +58,7 @@ export default async function CollectionPage({ params }: { params: Promise<{ col
           <div className="mt-16 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-carbon-800 pt-8">
             <span className="text-sm text-carbon-400">Other collections:</span>
             {others.map((c) => (
-              <Link key={c.slug} href={`/shop/${c.slug}`} className="text-sm font-medium text-race-500 transition-colors hover:text-race-500">
+              <Link key={c.slug} href={`/shop/${c.slug}`} className="text-sm font-medium text-gold-500 transition-colors duration-200 hover:text-gold-400">
                 {c.name}
               </Link>
             ))}

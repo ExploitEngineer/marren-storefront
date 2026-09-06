@@ -13,7 +13,7 @@ export function NewsletterForm() {
       toast.error("Please enter a valid email.");
       return;
     }
-    toast.success("You're on the list.", { description: "Look out for 10% off your first build." });
+    toast.success("You're on the list.", { description: "Look out for 10% off your first piece." });
     setEmail("");
   }
 
@@ -30,11 +30,11 @@ export function NewsletterForm() {
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@email.com"
           autoComplete="email"
-          className="w-full bg-transparent px-3 py-2 text-sm text-carbon-50 placeholder:text-carbon-100/45 focus:outline-none"
+          className="w-full bg-transparent px-3 py-2 text-sm text-carbon-50 placeholder:text-carbon-100/70 focus:outline-none"
         />
         <button
           type="submit"
-          className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-[7px] bg-carbon-950 px-4 text-sm font-medium text-carbon-50 transition-colors hover:bg-white"
+          className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-[7px] bg-carbon-950 px-4 text-sm font-medium text-carbon-50 transition-colors hover:bg-white hover:text-carbon-950"
         >
           Join
           <ArrowRight className="size-4" />

@@ -13,11 +13,11 @@ const AUTOPLAY = 6000;
 
 function Stars({ count }: { count: number }) {
   return (
-    <div className="flex justify-center gap-1" aria-label={`${count} out of 5 stars`}>
+    <div className="flex justify-center gap-1" role="img" aria-label={`${count} out of 5 stars`}>
       {Array.from({ length: 5 }).map((_, i) => (
         <Star
           key={i}
-          className={i < count ? "size-4 fill-race-500 text-race-500" : "size-4 text-carbon-600"}
+          className={i < count ? "size-4 fill-gold-500 text-gold-500" : "size-4 text-carbon-600"}
           aria-hidden
         />
       ))}
@@ -55,7 +55,7 @@ export function Testimonials() {
               type="button"
               onClick={() => go(-1)}
               aria-label="Previous testimonial"
-              className="grid size-11 place-items-center rounded-full border border-carbon-700 text-carbon-200 transition-colors hover:border-race-500 hover:text-race-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="grid size-11 place-items-center rounded-full border border-carbon-700 text-carbon-200 transition-colors hover:border-gold-500 hover:text-gold-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <ArrowLeft className="size-[1.15rem]" />
             </button>
@@ -63,7 +63,7 @@ export function Testimonials() {
               type="button"
               onClick={() => go(1)}
               aria-label="Next testimonial"
-              className="grid size-11 place-items-center rounded-full border border-carbon-700 text-carbon-200 transition-colors hover:border-race-500 hover:text-race-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              className="grid size-11 place-items-center rounded-full border border-carbon-700 text-carbon-200 transition-colors hover:border-gold-500 hover:text-gold-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               <ArrowRight className="size-[1.15rem]" />
             </button>
@@ -89,20 +89,20 @@ export function Testimonials() {
             >
               <Stars count={active.rating} />
               <blockquote className="mt-6 font-heading text-[clamp(1.35rem,1.1rem+1.1vw,2rem)] leading-snug font-medium tracking-[-0.01em] text-balance text-carbon-50">
-                <span className="text-race-500">&ldquo;</span>
+                <span className="text-gold-500">&ldquo;</span>
                 {active.quote}
-                <span className="text-race-500">&rdquo;</span>
+                <span className="text-gold-500">&rdquo;</span>
               </blockquote>
               <figcaption className="mt-6 text-sm">
                 <span className="font-medium text-carbon-100">{active.name}</span>
-                <span className="text-carbon-400"> · {active.location}</span>
-                <span className="mt-0.5 block text-carbon-400">{active.context}</span>
+                <span className="text-carbon-300"> · {active.location}</span>
+                <span className="mt-0.5 block text-carbon-300">{active.context}</span>
               </figcaption>
             </motion.figure>
           </AnimatePresence>
         </div>
 
-        <div className="mt-8 flex justify-center gap-2.5">
+        <div className="mt-8 flex justify-center gap-1">
           {testimonials.map((t, i) => (
             <button
               key={t.id}
@@ -110,20 +110,25 @@ export function Testimonials() {
               onClick={() => jump(i)}
               aria-label={`Show testimonial ${i + 1}`}
               aria-current={i === index}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                i === index ? "w-7 bg-race-500" : "w-1.5 bg-carbon-600 hover:bg-carbon-400"
-              }`}
-            />
+              className="grid h-6 place-items-center px-1"
+            >
+              <span
+                aria-hidden
+                className={`block h-1.5 rounded-full transition-all duration-300 ${
+                  i === index ? "w-7 bg-gold-500" : "w-1.5 bg-carbon-600 group-hover:bg-carbon-400"
+                }`}
+              />
+            </button>
           ))}
         </div>
 
         {/* Press marquee */}
         <div className="mt-16 border-t border-carbon-800 pt-8">
-          <p className="text-center text-xs font-medium tracking-[0.14em] text-carbon-400 uppercase">As seen in</p>
+          <p className="text-center text-xs font-medium tracking-[0.14em] text-carbon-300 uppercase">As seen in</p>
           <div className="group relative mt-6 overflow-hidden [mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
             <div className="marquee-track flex w-max items-center gap-14">
               {[...press, ...press].map((name, i) => (
-                <span key={i} className="font-heading text-2xl text-carbon-500" aria-hidden={i >= press.length}>
+                <span key={i} className="font-heading text-2xl text-carbon-300" aria-hidden={i >= press.length}>
                   {name}
                 </span>
               ))}

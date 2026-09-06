@@ -4,6 +4,8 @@
  * Shaped as a single typed module so it can move to a CMS or env later.
  */
 
+import { pkr } from "@/lib/money";
+
 export interface NavLink {
   label: string;
   href: string;
@@ -20,9 +22,10 @@ export const site = {
   description:
     "Decor.HBX makes hand-finished metal and LED wall art, statement clocks, backlit sports and car pieces, and fully custom designs, ready to hang the day they land.",
   url: "https://decorhbx.com",
-  locale: "en_US",
-  currency: "USD",
-  freeShippingThreshold: 7500, // cents
+  locale: "en_PK",
+  currency: "PKR",
+  countryCode: "PK",
+  freeShippingThreshold: pkr(7500),
 
   contact: {
     // Placeholder - replace with real studio details.

@@ -20,7 +20,7 @@ export function FaqSection({ faqs, heading = "Good to know.", id, tone = "base" 
         <Accordion type="single" collapsible className="w-full">
           {faqs.map((faq, i) => (
             <AccordionItem key={i} value={`item-${i}`} className="border-carbon-800">
-              <AccordionTrigger className="py-5 text-left font-sans text-base font-medium text-carbon-50 hover:no-underline">
+              <AccordionTrigger className="py-5 text-left font-sans text-base font-medium text-carbon-50 hover:text-gold-500 hover:no-underline">
                 {faq.q}
               </AccordionTrigger>
               <AccordionContent className="pb-5 text-[0.95rem] leading-relaxed text-carbon-300">{faq.a}</AccordionContent>

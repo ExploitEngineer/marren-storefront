@@ -7,6 +7,8 @@ import { FeaturedFrames } from "@/components/sections/featured-frames";
 import { Testimonials } from "@/components/sections/testimonials";
 import { CustomerGallery } from "@/components/sections/customer-gallery";
 import { TrustStrip } from "@/components/sections/trust-strip";
+import { formatPrice } from "@/lib/format";
+import { site } from "@/content/site";
 import { ClosingCta } from "@/components/sections/closing-cta";
 import { pageMetadata } from "@/lib/seo";
 
@@ -22,7 +24,7 @@ export default function HomePage() {
       <CustomerGallery />
       <Testimonials />
       <TrustStrip />
-      <ClosingCta sub="Free shipping over $75, and a lifetime guarantee on every piece you hang." />
+      <ClosingCta sub={`Free shipping over ${formatPrice(site.freeShippingThreshold)}, and a lifetime guarantee on every piece you hang.`} />
     </SiteShell>
   );
 }

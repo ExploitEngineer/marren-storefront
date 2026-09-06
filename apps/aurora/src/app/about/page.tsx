@@ -9,22 +9,22 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "About",
-  description: "Decor.HBX is a small workshop with one belief: the car you love deserves to be on the wall, done properly.",
+  description: "Decor.HBX is a small Sialkot workshop with one belief: a blank wall is a wasted one.",
   path: "/about",
 });
 
 const pillars = [
   {
     title: "The beginning",
-    body: "It started with a die-cast Chiron and a spare frame on a workbench. We wanted the cars we obsess over on the wall, done properly - so we built the good version and never stopped.",
+    body: "It started with one steel offcut and a plasma cutter in Sialkot. We wanted the things we love - a badge, a player, a shape - on the wall, cut properly. So we made the good version and never stopped.",
   },
   {
-    title: "The build",
-    body: "Genuine metal die-cast models, hand-mounted mid-launch over a printed livery and a spec plate matched to the car, behind low-glare glass. No stickers, no shortcuts.",
+    title: "The making",
+    body: "Every piece is cut from real steel or acrylic, deburred and hand-finished, then wired for a warm LED halo where the design calls for one. No stickers, no shortcuts.",
   },
   {
     title: "The standard",
-    body: "Every build ships to the same spec and is covered for life against defects. A wall you love should stay that way for as long as you own it.",
+    body: "Every piece ships to the same spec, with its hardware fitted, and is covered for life against defects. A wall you love should stay that way for as long as you own it.",
   },
 ];
 
@@ -33,12 +33,12 @@ export default function AboutPage() {
     <SiteShell>
       <Section tone="base" size="sm">
         <Container className="max-w-3xl">
-          <p className="text-eyebrow text-race-500">Our story</p>
+          <p className="text-eyebrow text-gold-500">Our story</p>
           <h1 className="mt-4 font-heading text-[clamp(2.25rem,1.7rem+2.6vw,3.5rem)] leading-[1.04] font-medium tracking-[-0.02em] text-carbon-50">
-            We build the frame, so the car lands.
+            We cut it, light it, and hang it.
           </h1>
           <p className="mt-6 text-xl leading-relaxed text-carbon-200">
-            Decor.HBX is a small workshop with one belief: the car you love deserves to be on the wall, done properly.
+            Decor.HBX is a small Sialkot workshop with one belief: a blank wall is a wasted one.
           </p>
         </Container>
       </Section>
@@ -47,7 +47,7 @@ export default function AboutPage() {
         <Container>
           <Reveal y={24}>
             <div className="relative aspect-[16/9] overflow-hidden rounded-2xl shadow-lg ring-1 ring-white/10">
-              <Image src="/images/product.jpeg" alt="Three finished Decor.HBX builds - two Porsche 911s and a Nissan GT-R - laid out on a workbench" fill sizes="(max-width: 1280px) 92vw, 1120px" className="object-cover" priority />
+              <Image src="/images/product.jpeg" alt="A backlit steel BMW M4 wall piece, finished in the Decor.HBX workshop" fill sizes="(max-width: 1280px) 92vw, 1120px" className="object-cover" priority />
             </div>
           </Reveal>
         </Container>
@@ -68,7 +68,7 @@ export default function AboutPage() {
         </Container>
       </Section>
 
-      <ClosingCta heading="Come find your car." ctaLabel="Shop builds" ctaHref="/shop" />
+      <ClosingCta heading="Come find your wall." ctaLabel="Shop the range" ctaHref="/shop" />
     </SiteShell>
   );
 }

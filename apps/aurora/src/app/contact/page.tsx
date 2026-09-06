@@ -10,7 +10,7 @@ import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Contact",
-  description: "Questions about sizing, an order, or a custom car you want built? Talk to a real person at Decor.HBX.",
+  description: "Questions about sizing, an order, or a custom piece you want cut? Talk to a real person at Decor.HBX.",
   path: "/contact",
 });
 
@@ -30,7 +30,7 @@ export default function ContactPage() {
             Talk to a real person.
           </h1>
           <p className="measure-wide mt-4 text-lg text-carbon-200">
-            Questions about sizing, an order, or a custom car you want built? We answer fast.
+            Questions about sizing, an order, or a custom piece you want cut? We answer fast.
           </p>
         </Container>
       </Section>
@@ -42,14 +42,14 @@ export default function ContactPage() {
             <dl className="space-y-6">
               {infoRows.map((row) => (
                 <div key={row.label} className="flex gap-4">
-                  <span className="grid size-11 shrink-0 place-items-center rounded-full bg-race-500/10 text-race-500">
+                  <span className="grid size-11 shrink-0 place-items-center rounded-full bg-gold-500/10 text-gold-500">
                     <row.icon className="size-5" aria-hidden />
                   </span>
                   <div>
                     <dt className="text-sm text-carbon-400">{row.label}</dt>
                     <dd className="mt-0.5 text-carbon-50">
                       {row.href ? (
-                        <a href={row.href} className="transition-colors hover:text-race-500">
+                        <a href={row.href} className="transition-colors hover:text-gold-500">
                           {row.lines.join(", ")}
                         </a>
                       ) : (
@@ -65,7 +65,7 @@ export default function ContactPage() {
               <p className="text-sm text-carbon-400">Follow along</p>
               <div className="mt-2 flex flex-wrap gap-x-5 gap-y-2">
                 {site.socials.map((s) => (
-                  <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="font-medium text-race-500 transition-colors hover:text-race-500">
+                  <a key={s.label} href={s.href} target="_blank" rel="noreferrer" className="font-medium text-gold-500 transition-colors duration-200 hover:text-gold-400">
                     {s.label}
                   </a>
                 ))}
@@ -73,7 +73,7 @@ export default function ContactPage() {
             </div>
 
             <div className="relative mt-10 aspect-[16/10] overflow-hidden rounded-2xl ring-1 ring-white/10">
-              <Image src="/images/product.jpeg" alt="A finished Audi R8 build held up in the Decor.HBX workshop" fill sizes="(max-width: 1024px) 92vw, 46vw" className="object-cover" />
+              <Image src="/images/product.jpeg" alt="A backlit steel BMW M4 wall piece in the Decor.HBX workshop" fill sizes="(max-width: 1024px) 92vw, 46vw" className="object-cover" />
               <span className="absolute bottom-4 left-4 rounded-full bg-black/85 px-3 py-1 text-xs font-medium text-carbon-50 backdrop-blur">
                 {site.contact.city}
               </span>

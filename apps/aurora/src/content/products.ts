@@ -1,9 +1,34 @@
 import type { Material } from "./collections";
+import { mockPkr, pkr } from "@/lib/money";
 
-/** Physical sizes a piece ships in. */
-export type FrameSize = "40 cm" | "60 cm" | "80 cm";
+/**
+ * Physical size label. Rectangular pieces are width x height in inches;
+ * clocks are a diameter. The label is the key used by the cart, the shop
+ * filter and the Stripe line item, so renaming one means bumping the cart
+ * storage key in components/cart/cart-provider.tsx.
+ */
+export type FrameSize =
+  | "12x16 in"
+  | "12x24 in"
+  | "16x24 in"
+  | "12 in round"
+  | "16 in round"
+  | "24 in round"
+  | "32 in round";
+
 /** How the piece is made. */
 export type FrameStyle = "Backlit LED" | "Metal Cut" | "Vinyl Clock" | "Steel Clock" | "Custom";
+
+export interface ProductVariant {
+  size: FrameSize;
+  /** Selling price in paisa. */
+  price: number;
+  /** Original price in paisa, shown struck through. Omit when not discounted. */
+  compareAtPrice?: number;
+}
+
+/** Non-empty by construction, so `variants[0]` is always safe. */
+export type VariantLadder = readonly [ProductVariant, ...ProductVariant[]];
 
 export interface Product {
   id: string;
@@ -12,8 +37,7 @@ export interface Product {
   material: Material; // category
   collection: string; // collection slug (category)
   style: FrameStyle;
-  sizes: FrameSize[];
-  priceFrom: number; // cents
+  variants: VariantLadder;
   finish: string;
   description: string;
   /** Studio photograph of the finished piece. */
@@ -23,8 +47,27 @@ export interface Product {
   badges?: string[];
 }
 
-const ALL_SIZES: FrameSize[] = ["40 cm", "60 cm", "80 cm"];
-const SMALL_SIZES: FrameSize[] = ["40 cm", "60 cm"];
+/**
+ * The standard three tiers for rectangular pieces. The percentage off is
+ * derived from these two numbers by lib/pricing.ts (33% / 30% / 27%), never
+ * stored, so the badge can never disagree with the price beside it.
+ */
+const RECT_VARIANTS: VariantLadder = [
+  { size: "12x16 in", price: pkr(2999), compareAtPrice: pkr(4499) },
+  { size: "12x24 in", price: pkr(3499), compareAtPrice: pkr(4999) },
+  { size: "16x24 in", price: pkr(3999), compareAtPrice: pkr(5499) },
+];
+
+/**
+ * MOCK PRICES - placeholders for the owner to replace.
+ * No compareAtPrice: a strike-through on an invented number is a bad look
+ * and a consumer-law hazard.
+ */
+const CLOCK_VARIANTS: VariantLadder = [
+  { size: "16 in round", price: mockPkr(5999) },
+  { size: "24 in round", price: mockPkr(7999) },
+  { size: "32 in round", price: mockPkr(9999) },
+];
 
 const img = (name: string) => `/images/products/${name}.jpeg`;
 
@@ -37,8 +80,7 @@ export const products: Product[] = [
     material: "clocks",
     collection: "clocks",
     style: "Steel Clock",
-    sizes: ALL_SIZES,
-    priceFrom: 4500,
+    variants: CLOCK_VARIANTS,
     finish: "Matte-black steel with brushed-gold numerals",
     description:
       "A bold ringed clock cut from steel, warm gold numerals floating over matte black. Silent sweep movement, ready to hang out of the box.",
@@ -52,8 +94,8 @@ export const products: Product[] = [
     material: "clocks",
     collection: "clocks",
     style: "Vinyl Clock",
-    sizes: SMALL_SIZES,
-    priceFrom: 4200,
+    // A real vinyl record is 12 inches, so this piece ships in one size only.
+    variants: [{ size: "12 in round", price: mockPkr(3499) }],
     finish: "Real vinyl record on a steel movement",
     description:
       "A genuine vinyl record laser-cut into a BMW motif, spinning hands over the classic roundel. A conversation piece for the garage or study.",
@@ -67,8 +109,7 @@ export const products: Product[] = [
     material: "clocks",
     collection: "clocks",
     style: "Steel Clock",
-    sizes: ALL_SIZES,
-    priceFrom: 4800,
+    variants: CLOCK_VARIANTS,
     finish: "Black steel with gold hands",
     description:
       "A calm, botanical clock, hand-finished steel leaves around a slim gold movement. Soft, organic, and quietly premium.",
@@ -83,8 +124,7 @@ export const products: Product[] = [
     material: "led",
     collection: "led",
     style: "Backlit LED",
-    sizes: ALL_SIZES,
-    priceFrom: 7500,
+    variants: RECT_VARIANTS,
     finish: "Laser-cut acrylic + steel, warm-white LED halo",
     description:
       "The two greatest crests fused into one backlit emblem. A soft LED glow lifts it off the wall, brilliant by day, cinematic at night.",
@@ -98,8 +138,7 @@ export const products: Product[] = [
     material: "led",
     collection: "led",
     style: "Backlit LED",
-    sizes: ALL_SIZES,
-    priceFrom: 6900,
+    variants: RECT_VARIANTS,
     finish: "Black steel silhouette, warm LED backlight",
     description:
       "A horse mid-stride, cut from steel and floated over a warm glow. Movement and light in one striking wall piece.",
@@ -114,8 +153,7 @@ export const products: Product[] = [
     material: "sports",
     collection: "sports",
     style: "Backlit LED",
-    sizes: ALL_SIZES,
-    priceFrom: 5900,
+    variants: RECT_VARIANTS,
     finish: "Steel silhouette, warm-white LED halo",
     description:
       "The iconic celebration in backlit steel. A glowing tribute for the fan cave, the bedroom, or the five-a-side clubhouse.",
@@ -129,8 +167,7 @@ export const products: Product[] = [
     material: "sports",
     collection: "sports",
     style: "Backlit LED",
-    sizes: ALL_SIZES,
-    priceFrom: 5900,
+    variants: RECT_VARIANTS,
     finish: "Steel silhouette, red LED halo",
     description:
       "The signature stance, backlit in bold red. Cut from steel and wired to glow, ready to hang the day it lands.",
@@ -143,8 +180,7 @@ export const products: Product[] = [
     material: "sports",
     collection: "sports",
     style: "Backlit LED",
-    sizes: SMALL_SIZES,
-    priceFrom: 5500,
+    variants: RECT_VARIANTS,
     finish: "Ringed steel silhouette, cool-blue LED",
     description:
       "A circular tribute with a crisp cool-blue glow. Modern, clean, and impossible to walk past.",
@@ -160,8 +196,7 @@ export const products: Product[] = [
     material: "cars",
     collection: "cars",
     style: "Backlit LED",
-    sizes: ALL_SIZES,
-    priceFrom: 6900,
+    variants: RECT_VARIANTS,
     finish: "Steel front-face cut, warm-white LED backlight",
     description:
       "The unmistakable M4 face, kidney grilles and all, cut from steel and backlit to glow. The centrepiece of the car collection.",
@@ -175,8 +210,7 @@ export const products: Product[] = [
     material: "cars",
     collection: "cars",
     style: "Backlit LED",
-    sizes: ALL_SIZES,
-    priceFrom: 6900,
+    variants: RECT_VARIANTS,
     finish: "Black steel silhouette, warm LED halo",
     description:
       "The long-nosed AMG GT in profile, cut clean and backlit against the wall. Menace and elegance in equal measure.",
@@ -189,8 +223,7 @@ export const products: Product[] = [
     material: "cars",
     collection: "cars",
     style: "Metal Cut",
-    sizes: ALL_SIZES,
-    priceFrom: 6200,
+    variants: RECT_VARIANTS,
     finish: "Single-line steel silhouette",
     description:
       "The Aventador reduced to one continuous, precise line of steel. Minimal, architectural, unmistakable.",
@@ -203,8 +236,7 @@ export const products: Product[] = [
     material: "cars",
     collection: "cars",
     style: "Backlit LED",
-    sizes: ALL_SIZES,
-    priceFrom: 6600,
+    variants: RECT_VARIANTS,
     finish: "Steel side-profile cut, warm LED backlight",
     description:
       "The M4 in full side profile, low and wide, floated over a warm glow. Built to own a wall.",
@@ -217,8 +249,7 @@ export const products: Product[] = [
     material: "cars",
     collection: "cars",
     style: "Backlit LED",
-    sizes: SMALL_SIZES,
-    priceFrom: 6400,
+    variants: RECT_VARIANTS,
     finish: "Framed steel cut, warm LED backlight",
     description:
       "A framed steel BMW, detailed and backlit. Clean lines, warm light, garage-ready.",
@@ -231,8 +262,7 @@ export const products: Product[] = [
     material: "cars",
     collection: "cars",
     style: "Custom",
-    sizes: ALL_SIZES,
-    priceFrom: 8500,
+    variants: RECT_VARIANTS,
     finish: "Made to order from your car",
     description:
       "Send us your car and we cut it in steel, backlit or clean. A one-off piece of the car you actually drive.",
@@ -243,6 +273,11 @@ export const products: Product[] = [
 
 export function getProduct(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);
+}
+
+/** Server-side lookup for checkout re-pricing, which carries ids rather than slugs. */
+export function getProductById(id: string): Product | undefined {
+  return products.find((p) => p.id === id);
 }
 
 export function productsByMaterial(material: Material): Product[] {
