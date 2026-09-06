@@ -86,7 +86,15 @@ export function PdpPurchase({ product }: { product: Product }) {
         size="lg"
         className="mt-7 w-full"
         onClick={() =>
-          add({ kind: "product", id: product.id, name: product.name, size: variant.size, price: variant.price })
+          add({
+            kind: "product",
+            id: product.id,
+            name: product.name,
+            size: variant.size,
+            price: variant.price,
+            compareAtPrice: variant.compareAtPrice,
+            image: product.art,
+          })
         }
       >
         Add to cart · {formatPrice(variant.price)}

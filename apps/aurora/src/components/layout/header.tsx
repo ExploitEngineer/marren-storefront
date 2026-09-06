@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { Logo } from "@/components/brand/logo";
 import { Button } from "@/components/ui/button";
 import { MobileNav } from "@/components/layout/mobile-nav";
-import { CartSheet } from "@/components/cart/cart-sheet";
+import { CartButton } from "@/components/cart/cart-button";
 import { primaryNav } from "@/content/site";
 import { cn } from "@/lib/utils";
 
@@ -60,7 +60,7 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-1 sm:gap-2">
-          <CartSheet />
+          <CartButton />
           <Button asChild className="hidden sm:inline-flex">
             <Link href="/shop">Shop the range</Link>
           </Button>

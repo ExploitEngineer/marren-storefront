@@ -8,12 +8,16 @@ export function AddSetButton({
   name,
   frameCount,
   price,
+  compareAtPrice,
+  image,
   className,
 }: {
   id: string;
   name: string;
   frameCount: number;
   price: number;
+  compareAtPrice?: number;
+  image?: string;
   className?: string;
 }) {
   const { add } = useCart();
@@ -21,7 +25,9 @@ export function AddSetButton({
     <Button
       type="button"
       className={className}
-      onClick={() => add({ kind: "set", id, name, size: `Set of ${frameCount}`, price })}
+      onClick={() =>
+        add({ kind: "set", id, name, size: `Set of ${frameCount}`, price, compareAtPrice, image })
+      }
     >
       Add the set
     </Button>

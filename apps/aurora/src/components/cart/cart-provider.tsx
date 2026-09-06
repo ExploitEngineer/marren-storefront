@@ -16,6 +16,10 @@ export interface CartItem {
   size: string;
   /** Paisa. Display only. The server re-derives the amount it charges. */
   price: number;
+  /** Paisa. Display only, for the struck-through original. */
+  compareAtPrice?: number;
+  /** Thumbnail path. Display only; optional so an older line still renders. */
+  image?: string;
   qty: number;
 }
 
@@ -82,7 +86,10 @@ export function useCart() {
         ? items.map((i) => (lineKey(i) === key ? { ...i, qty: Math.min(MAX_QTY, i.qty + 1) } : i))
         : [...items, { ...item, qty: 1 }],
     );
-    toast.success("Added to cart", { description: `${item.name} · ${item.size} · ${formatPrice(item.price)}` });
+    toast.success("Added to cart", {
+      description: `${item.name} · ${item.size} · ${formatPrice(item.price)}`,
+      action: { label: "View cart", onClick: () => window.location.assign("/cart") },
+    });
   }
 
   /** Clamped to 0-MAX_QTY; 0 removes the line. */

@@ -53,7 +53,14 @@ export function GallerySets({
                       <span className="text-lg font-semibold tabular-nums text-carbon-50">{formatPrice(set.price)}</span>
                       <s className="text-sm tabular-nums text-carbon-400">{formatPrice(set.compareAtPrice)}</s>
                     </span>
-                    <AddSetButton id={set.id} name={set.name} frameCount={set.frameCount} price={set.price} />
+                    <AddSetButton
+                      id={set.id}
+                      name={set.name}
+                      frameCount={set.frameCount}
+                      price={set.price}
+                      compareAtPrice={set.compareAtPrice}
+                      image={set.pieces[0]}
+                    />
                   </div>
                 </div>
               </article>
