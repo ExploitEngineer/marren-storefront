@@ -1,6 +1,6 @@
 import { site } from "@/content/site";
 
-const waBase = site.socials.find((s) => s.label === "WhatsApp")?.href ?? "https://wa.me/923005550142";
+const waBase = site.socials.find((s) => s.label === "WhatsApp")?.href ?? "https://wa.me/923126207656";
 
 /** Fixed floating WhatsApp chat button, bottom-right on every page. */
 export function WhatsAppButton() {
